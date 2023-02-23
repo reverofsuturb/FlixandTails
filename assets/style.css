@@ -1,0 +1,76 @@
+:root {
+  --dark: rgb(37, 37, 37);
+  --mid: rgb(83, 83, 83);
+  --light: rgb(119, 118, 118);
+  --lightlight: rgb(187, 187, 187);
+  --fadedBlue: rgba(48, 85, 128, 0.747);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: var(--dark);
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+.landingImg {
+  background-image: url("./Images/dinner\ and\ drinks.avif");
+  background-size: cover;
+}
+
+.greeting {
+  padding: 25px;
+  font-size: 32px;
+  border-radius: 10px;
+  background-color: rgba(214, 214, 214, 0.774);
+  color: var(--dark);
+  border: 2px solid var(--lightlight);
+  text-shadow: var(--dark) 1px 0 15px;
+}
+
+.greeting h1 {
+}
+
+.description {
+  font-size: 20px;
+}
+
+.makeBtn {
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
+.makeBtn:hover {
+  background-color: var(--fadedBlue);
+  color: var(--lightlight);
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  font-weight: bold;
+  background-color: var(--fadedBlue);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--fadedBlue);
+}
+
+.btn-outline-secondary {
+  background-color: rgba(212, 212, 212, 0.521);
+  color: var(--dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light);
+}
