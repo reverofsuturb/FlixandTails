@@ -4,6 +4,7 @@
   --light: rgb(119, 118, 118);
   --lightlight: rgb(187, 187, 187);
   --fadedBlue: rgba(48, 85, 128, 0.747);
+  --featheredgrey: rgba(138, 138, 138, 0.664);
 }
 
 body {
@@ -17,12 +18,13 @@ html {
 }
 
 .landingImg {
-  background-image: url("./Images/netflix\ and\ chill.avif");
+  background-image: url("./Images/drinks\ and\ dinner.jpeg");
   background-size: cover;
 }
 
-.greeting {
-  padding: 25px;
+.choices {
+  padding: 80px;
+  width: 55%;
   font-size: 32px;
   border-radius: 10px;
   background-color: rgba(214, 214, 214, 0.774);
@@ -73,4 +75,10 @@ html {
 
 .btn-secondary:hover {
   background-color: var(--light);
+}
+
+#categoryIcon {
+  background-color: var(--featheredgrey);
+  border-radius: 10px;
+  margin: 30px;
 }
