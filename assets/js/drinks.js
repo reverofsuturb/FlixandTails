@@ -199,12 +199,10 @@ function fetchData(url) {
       console.log(tableData);
       createTableRow.append(tableData);
       $("#drinkrecs").append(createTableRow);
-
-      $("#drinkrecs").on("click", function (event) {
-        console.log(event.target);
-      });
     });
 }
+
+// function
 
 //Listens for user selection on search type
 $("#drinkSearchType").on("click", function (event) {
@@ -218,7 +216,7 @@ $("#drinkSearchType").on("click", function (event) {
   } else if ((event.target.id = "searchIngredients")) {
     drinkIngForm();
   }
-  drinkSearchTypeEl.hide();
+  //   drinkSearchTypeEl.hide();
 });
 
 //Listens for add ingredient to list from user input field
@@ -279,16 +277,9 @@ drinkCatFormEl.on("submit", function (event) {
   }
 });
 
-// function getDrinks() {
-//   $("#foodrecs").empty();
-
-//   console.log(foodrequest);
-//   fetch(foodrequest)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(foodrequest.replace(/%20/g, ""));
-//       console.log(data);
-//     });
-// }
+//listens for selection on results table
+$("#drinkrecs").on("click", function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log(event.target);
+});
