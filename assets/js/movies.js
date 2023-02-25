@@ -163,16 +163,16 @@ makeMyNightBtn.on("click", function () {
   localStorage.setItem("moviesAPI", moviesAPIUrl);
   getMovies(moviesAPIUrl);
 });
-
+//displays the buttons wit all the generes from the array genres and gives them the value of the genre and its id
 function getGenres() {
   genres.forEach(function (genre) {
     tag = $("<button></button>");
-    tag.addClass("tag m-3 btn border border-dark");
+    tag.addClass("tag px-4 py-2 btn-bg-white");
     tag.id = genre.id;
     tag.text(genre.name);
     tag.on("click", function (event) {
       event.preventDefault();
-      $(this).toggleClass("btn-danger");
+      $(this).toggleClass("btn-main");
       console.log($(this));
       if (selectedGenres.length === 0) {
         selectedGenres.push(genre.id);
@@ -199,106 +199,4 @@ function getGenres() {
 
     tagsContainer.append(tag);
   });
-  //(selectedGenres);
-}
-
-// makeMyNight(selectedGenres) {}
-
-function getMovies(APIUrl) {
-  //console.log(APIUrl);
-  // fetch
-  fetch(APIUrl)
-    .then(function (response) {
-      // console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      // console.log(data);
-      // console.log(data.results);
-      showMovies(data.results);
-    });
-}
-
-function getMovieDetails(movie_ID) {
-  console.log("getMovieDetails");
-
-  var movieDetailsUrl =
-    "https://api.themoviedb.org/3/movie/" +
-    movie_ID +
-    "?" +
-    APIKey +
-    "&language=en-US";
-  //console.log(movieDetailsUrl);
-
-  // fetch
-  fetch(movieDetailsUrl)
-    .then(function (response) {
-      //.log(response);
-      return response.json();
-    })
-    .then(function (details) {
-      console.log(details);
-      //console.log(details.runtime);
-      runtimeStuff = details.runtime;
-      var movieId = details.id;
-      storeMovieIDs(movieId, runtimeStuff);
-      // return details;
-    });
-  //console.log(runtimeStuff);
-}
-
-function storeMovieIDs(movieId, runtimeStuff) {
-  console.log("storeMovieIds");
-
-  //movieIdsArr.push(movieId);
-  movieRunTimesArr.push(runtimeStuff);
-  //console.log(movieIdsArr);
-  console.log(movieRunTimesArr);
-  for (var i = 0; i < movieRunTimesArr.length; i++) {
-    var runtimeEl = $("#runtime-" + [i]);
-    //console.log(runtimeEl);
-    runtimeEl.text(movieRunTimesArr[i] + " min");
-  }
-}
-/////////////
-//title, date, subject, description
-//APIUrl = APIUrl + WITHGenre + "16";
-
-//https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-
-function showMovies(data) {
-  movieContainerEl.empty();
-
-  for (let i = 0; i < 5; i++) {
-    console.log("showMoviesFor");
-    // var movieTitleEl = $("<div></div");
-    var movieContentEl = document.createElement("div");
-    console.log(data[i].id);
-    var movie_ID = data[i].id;
-
-    getMovieDetails(movie_ID);
-
-    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-        <div id="poster" class="col-md-2">
-          <img
-            id="movie-poster"
-            src="${IMGUrl + data[i].poster_path}"
-            class="img-fluid"
-          />
-        </div>
-        <div id="movie-content" class="col-md-10 p-5">
-          <h2 id="movie-name" class="display-5 col-md-9">${data[i].title}</h2>
-          <p id="runtime-${i}" class="">${"runtime"}</p>
-          <p id="overview" class="">${data[i].overview}</p>
-          <h3 id="rating" class="mb-3">Rating<span class="rating">${
-            data[i].vote_average
-          }</span></h3>
-        </div>
-      </div>`;
-
-    // movieTitleEl.append(posterEl, titleEl);
-    // movieContentEl.append(overviewEl, ratingEl);
-    movieContainerEl.append(movieContentEl);
-  }
-  console.log("showMoviesForEnded");
 }

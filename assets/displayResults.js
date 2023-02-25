@@ -1,9 +1,7 @@
 var moviesAPIUrl = localStorage.getItem("moviesAPI");
 
-//calls the getMovies function
 getMovies(moviesAPIUrl);
 
-// function that uses the moviesAPI store in localStorage to fetch and get the movies data
 function getMovies(moviesAPIUrl) {
   console.log(moviesAPIUrl);
   // fetch
@@ -18,7 +16,7 @@ function getMovies(moviesAPIUrl) {
       showMovies(data.results);
     });
 }
-// gets more details info from movie API using movie_id as argument
+
 function getMovieDetails(movie_ID) {
   var movieDetailsUrl =
     "https://api.themoviedb.org/3/movie/" +
@@ -43,21 +41,22 @@ function getMovieDetails(movie_ID) {
       // return details;
     });
 }
-//stores runtimes in an array, then adds array values to each movie card
+
 function storeMovieIDs(movieId, runtime) {
   movieRunTimesArr.push(runtime);
-  //console.log(movieRunTimesArr);
+  console.log(movieRunTimesArr);
   for (var i = 0; i < movieRunTimesArr.length; i++) {
     var runtimeEl = $("#runtime-" + [i]);
     runtimeEl.text(movieRunTimesArr[i] + " min");
   }
 }
 
-//displays the top 5 movie results based on the fetched data
 function showMovies(data) {
   movieContainerEl.empty();
 
   for (let i = 0; i < 5; i++) {
+    console.log("showMoviesFor");
+    // var movieTitleEl = $("<div></div");
     var movieContentEl = document.createElement("div");
     console.log(data[i].id);
     var movie_ID = data[i].id;

@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/choices.css" />
+    <link rel="stylesheet" href="./assets/css/movies.css" />
     <title>'Flix and 'Tails'</title>
   </head>
   <body class="d-flex vh-100 bg-dark">
@@ -366,33 +367,36 @@
                 <h1>What do you want to watch?</h1>
                 <div class="row">
                   <div
-                    class="movie-form d-flex flex-column flex-wrap justify-content-center align-items-center col-md-12 my-5"
+                    class="movie-form d-flex flex-row justify-content-center align-items-center col-md-12 px-5 my-5"
                   >
                     <div
                       id="tags"
-                      class="d-flex justify-content-center flex-wrap"
+                      class="d-flex justify-content-start flex-wrap"
                     ></div>
-                    <label for="released-year">Choose a year:</label>
+                    <div class="d-flex flex-column justify-content-start">
+                      <label for="released-year" class="">Choose a year:</label>
 
-                    <select name="released-year" id="year-select">
-                      <option value="">--Released year--</option>
-                      <option value="2023">2023</option>
-                      <option value="2022">2022</option>
-                      <option value="2021">2021</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                    </select>
+                      <select name="released-year" id="year-select" class="mb-4">
+                        <option value="">--Released year--</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                      </select>
 
-                    <label for="runtime">How long you want to sit?:</label>
+                      <label for="runtime" class=""
+                        >How long you want to sit?:</label
+                      >
 
-                    <select name="released-year" id="runtime-select">
-                      <option value="">--Runtime--</option>
-                      <option value="short">Short</option>
-                      <option value="normal">Normal</option>
-                      <option value="long">Long</option>
-                    </select>
-
+                      <select name="released-year" id="runtime-select" class="">
+                        <option value="">--Runtime--</option>
+                        <option value="short">Short</option>
+                        <option value="normal">Normal</option>
+                        <option value="long">Long</option>
+                      </select>
+                    </div>
                     <!-- <button id="makeMyNight" class="text-center my-5">
                       Make my night
                     </button> -->
