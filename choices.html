@@ -361,10 +361,43 @@
                 />
               </fieldset>
 
+              <!-- Movies form -->
               <fieldset>
                 <h1>What do you want to watch?</h1>
                 <div class="row">
-                  <select
+                  <div
+                    class="movie-form d-flex flex-column flex-wrap justify-content-center align-items-center col-md-12 my-5"
+                  >
+                    <div
+                      id="tags"
+                      class="d-flex justify-content-center flex-wrap"
+                    ></div>
+                    <label for="released-year">Choose a year:</label>
+
+                    <select name="released-year" id="year-select">
+                      <option value="">--Released year--</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                    </select>
+
+                    <label for="runtime">How long you want to sit?:</label>
+
+                    <select name="released-year" id="runtime-select">
+                      <option value="">--Runtime--</option>
+                      <option value="short">Short</option>
+                      <option value="normal">Normal</option>
+                      <option value="long">Long</option>
+                    </select>
+
+                    <!-- <button id="makeMyNight" class="text-center my-5">
+                      Make my night
+                    </button> -->
+                  </div>
+                  <!-- <select
                     class="form-select genreType form-select-sm"
                     aria-label=".form-select-sm example"
                   >
@@ -412,7 +445,7 @@
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
-                  </select>
+                  </select> -->
                 </div>
                 <input
                   type="button"
@@ -420,12 +453,15 @@
                   class="previous-step"
                   value="Previous"
                 />
-                <input
-                  type="button"
-                  name="next-step"
-                  class="next-step makeNight"
-                  value="Make my night"
-                />
+                <a href="results.html">
+                  <input
+                    id="makeMyNight"
+                    type="button"
+                    name="next-step"
+                    class="next-step makeNight"
+                    value="Make my night"
+                  />
+                </a>
               </fieldset>
             </form>
           </main>
@@ -463,5 +499,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/choices.js"></script>
+    <script src="./assets/js/movies.js"></script>
   </body>
 </html>
