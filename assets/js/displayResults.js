@@ -86,7 +86,7 @@ function showMovies(data) {
   }
 }
 
-// food section
+// // food section
 getrecipe();
 
 function getrecipe() {
