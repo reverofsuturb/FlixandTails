@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/choices.css" />
+    <title>'Flix and 'Tails'</title>
+  </head>
+  <body class="d-flex vh-100 bg-dark">
+    <div class="landingImg vw-100 vh-100">
+      <div
+        class="choicesContainer container d-flex vw-100 vh-100 mx-auto flex-column"
+      >
+        <div class="row">
+          <main
+            class="choices px-3 text-center position-absolute row-cols-12 top-50 start-50 translate-middle"
+          >
+            <form id="form">
+              <div id="progressbar" class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <!-- <ul id="progressbar">
+                <li class="active" id="step1">
+                  <strong>Step 1</strong>
+                </li>
+                <li id="step2"><strong>Step 2</strong></li>
+                <li id="step3"><strong>Step 3</strong></li>
+                <li id="step4"><strong>Step 4</strong></li>
+              </ul> -->
+              <fieldset>
+                <h1>What do you want to do?</h1>
+                <p class="description">Select at least one</p>
+                <div class="column p-5 m-5">
+                  <img
+                    src="./assets/Images/icons/dinner  transparent.png"
+                    id="categoryIcon"
+                    alt="dinner icon"
+                    width="100"
+                    height="100"
+                  />
+                  <img
+                    src="./assets/Images/icons/cocktail.png"
+                    id="categoryIcon"
+                    alt="cocktails icon"
+                    width="100"
+                    height="100"
+                  />
+                  <img
+                    src="./assets/Images/icons/movie transparent.png"
+                    id="categoryIcon"
+                    alt="cocktails icon"
+                    width="100"
+                    height="100"
+                  />
+                </div>
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step"
+                  value="Next"
+                />
+              </fieldset>
+
+              <fieldset>
+                <div class="container gy-3">
+                  <h1>What do you want for dinner?</h1>
+                  <div class="row p-2 m-2">
+                    <div class="d-flex col-md-6">
+                      <select
+                        class="form-select foodType dinnerForm form-select mb-2"
+                        aria-label=".form-select-sm example"
+                      >
+                        <option selected>Type of Food</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="input-group col-md-6 dinnerForm mb-3">
+                      <input
+                        type="text"
+                        class="form-control dinnerForm"
+                        placeholder="Add Ingredient(s)"
+                        aria-label="Add Ingredient(s)"
+                        aria-describedby="button-addon2"
+                      />
+                      <button
+                        class="btn form-btn btn-outline-secondary"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        Button
+                      </button>
+                      <div class="row">
+                        <div class="col-md-6 float-end">
+                          <table class="scroll">
+                            <thead>
+                              <tr>
+                                <th>Ingredient</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Orange</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Chicken</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Milk</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Green peppers</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Cheese</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Rice</td>
+                                <td>X</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step me-5"
+                  value="Previous"
+                />
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step"
+                  value="Next"
+                />
+              </fieldset>
+              <!--//////////////////////////////-->
+              <!-- <fieldset>
+                <div class="container gy-3">
+                  <h1>What do you want for dinner?</h1>
+                  <div class="row p-2 m-2">
+                    <div class="input-group col-md-6 dinnerForm mb-3">
+                      <input
+                        type="text"
+                        class="form-control dinnerForm col-6"
+                        placeholder="Add Ingredient(s)"
+                        aria-label="Add Ingredient(s)"
+                        aria-describedby="button-addon2"
+                      />
+                      <button
+                        class="btn btn-outline-secondary"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        Button
+                      </button>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6 float-end">
+                      <table class="scroll">
+                        <thead>
+                          <tr>
+                            <th>Ingredient</th>
+                            <th>Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Orange</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Chicken</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    </div>
+                    <div class="d-flex col-md-6">
+                      <select
+                        class="form-select foodType dinnerForm form-select mb-2"
+                        aria-label=".form-select-sm example"
+                      >
+                        <option selected>Type of Food</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="buttonsRow">
+                      <input
+                        type="button"
+                        name="previous-step"
+                        class="previous-step"
+                        value="Previous"
+                      />
+                      <input
+                        type="button"
+                        name="next-step"
+                        class="next-step"
+                        value="Next"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </fieldset> -->
+              <!-- /////////////////////////// -->
+              <fieldset>
+                <h1>What do you want to drink?</h1>
+                <div class="column">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Alcoholic
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label
+                      class="form-check-label mb-5"
+                      for="flexRadioDefault2"
+                    >
+                      Non-Alcoholic
+                    </label>
+                  </div>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Add Spirit(s)"
+                      aria-label="Add Spirit(s)"
+                      aria-describedby="button-addon2"
+                    />
+                    <button
+                      class="btn form-btn btn-outline-secondary"
+                      type="button"
+                      id="button-addon2"
+                    >
+                      Button
+                    </button>
+                    <div class="row">
+                      <div class="col-md-6 float-end">
+                        <table class="scroll">
+                          <thead>
+                            <tr>
+                              <th>Ingredient</th>
+                              <th>Delete</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Vodka</td>
+                              <td>X</td>
+                            </tr>
+                            <tr>
+                              <td>Whiskey</td>
+                              <td>X</td>
+                            </tr>
+                            <tr>
+                              <td>Gin</td>
+                              <td>X</td>
+                            </tr>
+                            <tr>
+                              <td>Rum</td>
+                              <td>X</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step me-5"
+                  value="Previous"
+                />
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step"
+                  value="Next"
+                />
+              </fieldset>
+
+              <!-- Movies form -->
+              <fieldset>
+                <h1>What do you want to watch?</h1>
+                <div class="row">
+                  <div
+                    class="movie-form d-flex flex-column flex-wrap justify-content-center align-items-center col-md-12 my-5"
+                  >
+                    <div
+                      id="tags"
+                      class="d-flex justify-content-center flex-wrap"
+                    ></div>
+                    <label for="released-year">Choose a year:</label>
+
+                    <select name="released-year" id="year-select">
+                      <option value="">--Released year--</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                    </select>
+
+                    <label for="runtime">How long you want to sit?:</label>
+
+                    <select name="released-year" id="runtime-select">
+                      <option value="">--Runtime--</option>
+                      <option value="short">Short</option>
+                      <option value="normal">Normal</option>
+                      <option value="long">Long</option>
+                    </select>
+
+                    <!-- <button id="makeMyNight" class="text-center my-5">
+                      Make my night
+                    </button> -->
+                  </div>
+                  <!-- <select
+                    class="form-select genreType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Genre</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <select
+                    class="form-select yearType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Year</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input ms-1"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    /><label
+                      class="form-check-label float-start"
+                      for="flexCheckDefault"
+                    >
+                      Awarded
+                    </label>
+                  </div>
+                  <select
+                    class="form-select ratedType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Rated</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <select
+                    class="form-select runType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Runtime</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select> -->
+                </div>
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step"
+                  value="Previous"
+                />
+                <a href="results.html">
+                  <input
+                    id="makeMyNight"
+                    type="button"
+                    name="next-step"
+                    class="next-step makeNight"
+                    value="Make my night"
+                  />
+                </a>
+              </fieldset>
+            </form>
+          </main>
+        </div>
+      </div>
+      <div class="container footer-container">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-end py-3 my-4 border-top"
+        >
+          <div class="navbar-brand float-md-start">
+            <img
+              src="./assets/Images/flix and tails logo.png"
+              alt="Logo"
+              width="50"
+              height="50"
+              class="d-inline-block justify-content-start"
+            />'Flix and 'Tails
+          </div>
+
+          <div class="nav col-md-9 justify-content-end column-gap-3">
+            <button type="button" class="btn navBtn btn-secondary">
+              I'm Feelin' Lucky
+            </button>
+            <button type="button" class="btn navBtn btn-outline-secondary">
+              Saved Themes
+            </button>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/choices.js"></script>
+    <script src="./assets/js/movies.js"></script>
+  </body>
+</html>
