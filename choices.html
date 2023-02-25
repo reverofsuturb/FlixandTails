@@ -22,44 +22,227 @@
   <body class="d-flex h-100 bg-dark">
     <div class="landingImg w-100 h-100">
       <div class="choicesContainer d-flex w-100 h-100 mx-auto flex-column">
-        <main class="choices px-3 text-center position-absolute top-50 start-50 translate-middle">
-        <form>
-          <h1>What do you want to do?</h1>
-          <p class="description">Select at least one</p>
-          <p class="row">
-            <div class="column p-5 m-5">
-            <img
-              src="./assets/Images/icons/dinner  transparent.png"
-              id="categoryIcon"
-              alt="dinner icon"
-              width="100"
-              height="100"
-            />
-            <img
-              src="./assets/Images/icons/cocktails transparent.png"
-              id="categoryIcon"
-              alt="cocktails icon"
-              width="100"
-              height="100"
-            />
-            <img
-              src="./assets/Images/icons/movie transparent.png"
-              id="categoryIcon"
-              alt="cocktails icon"
-              width="100"
-              height="100"
-            />
-            </div>
-          </p>
-          <button
-              type="button"
-              class="btn navBtn btn-secondary col-3">
-              Next
-            </button>
-            </form>
-        </main>
-      </div>
+        <div class="row">
+          <main
+            class="choices px-3 text-center position-absolute top-50 start-50 translate-middle"
+          >
+            <form id="form">
+              <!-- <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div> -->
+              <ul id="progressbar">
+                <li class="active" id="step1">
+                  <strong>Step 1</strong>
+                </li>
+                <li id="step2"><strong>Step 2</strong></li>
+                <li id="step3"><strong>Step 3</strong></li>
+                <li id="step4"><strong>Step 4</strong></li>
+              </ul>
+              <!-- <fieldset>
+                <h1>What do you want to do?</h1>
+                <p class="description">Select at least one</p>
+                <div class="column p-5 m-5">
+                  <img
+                    src="./assets/Images/icons/dinner  transparent.png"
+                    id="categoryIcon"
+                    alt="dinner icon"
+                    width="100"
+                    height="100"
+                  />
+                  <img
+                    src="./assets/Images/icons/cocktails transparent.png"
+                    id="categoryIcon"
+                    alt="cocktails icon"
+                    width="100"
+                    height="100"
+                  />
+                  <img
+                    src="./assets/Images/icons/movie transparent.png"
+                    id="categoryIcon"
+                    alt="cocktails icon"
+                    width="100"
+                    height="100"
+                  />
+                </div>
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step"
+                  value="Next"
+                />
+              </fieldset> -->
 
+              <fieldset>
+                <h1>What do you want for dinner?</h1>
+                <div class="column p-5 m-5">
+                  <div class="input-group mb-2 dinnerForm">
+                    <input
+                      type="text"
+                      class="form-control dinnerForm"
+                      placeholder="Add Ingredient(s)"
+                      aria-label="Add Ingredient(s)"
+                      aria-describedby="button-addon2"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="button-addon2"
+                    >
+                      Button
+                    </button>
+                  </div>
+                  <select
+                    class="form-select foodType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Type of Food</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+
+                  
+                  <input
+                    type="button"
+                    name="next-step"
+                    class="next-step"
+                    value="Next"
+                  />
+                  <input
+                    type="button"
+                    name="previous-step"
+                    class="previous-step"
+                    value="Previous"
+                  />
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <h1>What do you want to drink?</h1>
+                <div class="column p-5 m-5">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Alcoholic
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Non-Alcoholic
+                    </label>
+                  </div>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Add Spirit(s)"
+                      aria-label="Add Spirit(s)"
+                      aria-describedby="button-addon2"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="button-addon2"
+                    >
+                      Button
+                    </button>
+                  </div>
+                  <input
+                    type="button"
+                    name="next-step"
+                    class="next-step"
+                    value="Next"
+                  />
+                  <input
+                    type="button"
+                    name="previous-step"
+                    class="previous-step"
+                    value="Previous"
+                  />
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <h1>What do you want to watch?</h1>
+                <div class="column p-5 m-5">
+                  <select
+                    class="form-select foodType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Type of Food</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <select
+                    class="form-select foodType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Type of Food</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Default checkbox
+                    </label>
+                  </div>
+                  <select
+                    class="form-select foodType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Type of Food</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <select
+                    class="form-select foodType form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option selected>Type of Food</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <input
+                    type="button"
+                    name="next-step"
+                    class="next-step"
+                    value="Make my night"
+                  />
+                  <input
+                    type="button"
+                    name="previous-step"
+                    class="previous-step"
+                    value="Previous"
+                  />
+                </div>
+              </fieldset>
+            </form>
+          </main>
+        </div>
+      </div>
       <div class="container footer-container">
         <footer
           class="d-flex flex-wrap justify-content-between align-items-end py-3 my-4 border-top"
@@ -91,5 +274,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/choices.js"></script>
   </body>
 </html>
