@@ -90,12 +90,15 @@ html {
 #form .previous-step,
 .next-step {
   width: 100px;
-  font-weight: bold;
+  font-size: 20px;
   color: white;
-  border: 0 none;
+  border: 1px solid var(--dark);
   border-radius: 0px;
   cursor: pointer;
-  float: right;
+}
+
+.makeNight {
+  width: 200px;
 }
 
 .form,
@@ -195,6 +198,79 @@ html {
   background-color: #2f8d46;
 }
 
-.dinnerForm {
-  width: 70%;
+/* .dinnerForm {
+  width: 60%;
+} */
+
+.table {
+  font-size: 20px;
+  width: 200px;
+}
+
+/* th {
+  ;
+} */
+
+.form-control,
+.form-btn {
+  height: 35px;
+}
+
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #c6c7cc;
+}
+th {
+  font-weight: bold;
+}
+table.scroll {
+  width: 200px; /* 140px * 5 column + 16px scrollbar width */
+  border: 1px solid black;
+  line-height: 24px;
+  font-size: 20px;
+}
+table.scroll tbody,
+table.scroll thead tr {
+  display: block;
+}
+table.scroll tbody {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+table.scroll tbody td,
+table.scroll thead th {
+  width: 140px;
+  border-right: 1px solid black;
+}
+table.scroll thead th:last-child {
+  width: 156px; /* 140px + 16px scrollbar width */
+}
+thead tr th {
+  height: 24px;
+  line-height: 24px;
+  font-size: 20px;
+  /*text-align: left;*/
+}
+tbody {
+  border-top: 1px solid black;
+}
+tbody td:last-child,
+thead th:last-child {
+  border-right: none !important;
+}
+
+tbody tr td {
+  width: 200px;
+}
+
+.genreType,
+.yearType,
+.ratedType,
+.runType {
+  width: 400px;
+  margin-left: 20px;
 }

@@ -19,12 +19,14 @@
     <link rel="stylesheet" href="./assets/choices.css" />
     <title>'Flix and 'Tails'</title>
   </head>
-  <body class="d-flex h-100 bg-dark">
-    <div class="landingImg w-100 h-100">
-      <div class="choicesContainer d-flex w-100 h-100 mx-auto flex-column">
+  <body class="d-flex vh-100 bg-dark">
+    <div class="landingImg vw-100 vh-100">
+      <div
+        class="choicesContainer container d-flex vw-100 vh-100 mx-auto flex-column"
+      >
         <div class="row">
           <main
-            class="choices px-3 text-center position-absolute top-50 start-50 translate-middle"
+            class="choices px-3 text-center position-absolute row-cols-12 top-50 start-50 translate-middle"
           >
             <form id="form">
               <!-- <div class="carousel-indicators">
@@ -40,7 +42,7 @@
                 <li id="step3"><strong>Step 3</strong></li>
                 <li id="step4"><strong>Step 4</strong></li>
               </ul>
-              <!-- <fieldset>
+              <fieldset>
                 <h1>What do you want to do?</h1>
                 <p class="description">Select at least one</p>
                 <div class="column p-5 m-5">
@@ -72,56 +74,184 @@
                   class="next-step"
                   value="Next"
                 />
-              </fieldset> -->
-
-              <fieldset>
-                <h1>What do you want for dinner?</h1>
-                <div class="column p-5 m-5">
-                  <div class="input-group mb-2 dinnerForm">
-                    <input
-                      type="text"
-                      class="form-control dinnerForm"
-                      placeholder="Add Ingredient(s)"
-                      aria-label="Add Ingredient(s)"
-                      aria-describedby="button-addon2"
-                    />
-                    <button
-                      class="btn btn-outline-secondary"
-                      type="button"
-                      id="button-addon2"
-                    >
-                      Button
-                    </button>
-                  </div>
-                  <select
-                    class="form-select foodType form-select-sm"
-                    aria-label=".form-select-sm example"
-                  >
-                    <option selected>Type of Food</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-
-                  
-                  <input
-                    type="button"
-                    name="next-step"
-                    class="next-step"
-                    value="Next"
-                  />
-                  <input
-                    type="button"
-                    name="previous-step"
-                    class="previous-step"
-                    value="Previous"
-                  />
-                </div>
               </fieldset>
 
               <fieldset>
+                <div class="container gy-3">
+                  <h1>What do you want for dinner?</h1>
+                  <div class="row p-2 m-2">
+                    <div class="d-flex col-md-6">
+                      <select
+                        class="form-select foodType dinnerForm form-select mb-2"
+                        aria-label=".form-select-sm example"
+                      >
+                        <option selected>Type of Food</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="input-group col-md-6 dinnerForm mb-3">
+                      <input
+                        type="text"
+                        class="form-control dinnerForm"
+                        placeholder="Add Ingredient(s)"
+                        aria-label="Add Ingredient(s)"
+                        aria-describedby="button-addon2"
+                      />
+                      <button
+                        class="btn form-btn btn-outline-secondary"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        Button
+                      </button>
+                      <div class="row">
+                        <div class="col-md-6 float-end">
+                          <table class="scroll">
+                            <thead>
+                              <tr>
+                                <th>Ingredient</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Orange</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Chicken</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Milk</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Green peppers</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Cheese</td>
+                                <td>X</td>
+                              </tr>
+                              <tr>
+                                <td>Rice</td>
+                                <td>X</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step me-5"
+                  value="Previous"
+                />
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step"
+                  value="Next"
+                />
+              </fieldset>
+              <!--//////////////////////////////-->
+              <!-- <fieldset>
+                <div class="container gy-3">
+                  <h1>What do you want for dinner?</h1>
+                  <div class="row p-2 m-2">
+                    <div class="input-group col-md-6 dinnerForm mb-3">
+                      <input
+                        type="text"
+                        class="form-control dinnerForm col-6"
+                        placeholder="Add Ingredient(s)"
+                        aria-label="Add Ingredient(s)"
+                        aria-describedby="button-addon2"
+                      />
+                      <button
+                        class="btn btn-outline-secondary"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        Button
+                      </button>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6 float-end">
+                      <table class="scroll">
+                        <thead>
+                          <tr>
+                            <th>Ingredient</th>
+                            <th>Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Orange</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Chicken</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                          <tr>
+                            <td>Milk</td>
+                            <td>X</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    </div>
+                    <div class="d-flex col-md-6">
+                      <select
+                        class="form-select foodType dinnerForm form-select mb-2"
+                        aria-label=".form-select-sm example"
+                      >
+                        <option selected>Type of Food</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="buttonsRow">
+                      <input
+                        type="button"
+                        name="previous-step"
+                        class="previous-step"
+                        value="Previous"
+                      />
+                      <input
+                        type="button"
+                        name="next-step"
+                        class="next-step"
+                        value="Next"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </fieldset> -->
+              <!-- /////////////////////////// -->
+              <fieldset>
                 <h1>What do you want to drink?</h1>
-                <div class="column p-5 m-5">
+                <div class="column">
                   <div class="form-check">
                     <input
                       class="form-check-input"
@@ -140,11 +270,14 @@
                       name="flexRadioDefault"
                       id="flexRadioDefault1"
                     />
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <label
+                      class="form-check-label mb-5"
+                      for="flexRadioDefault2"
+                    >
                       Non-Alcoholic
                     </label>
                   </div>
-                  <div class="input-group mb-3">
+                  <div class="input-group mb-2">
                     <input
                       type="text"
                       class="form-control"
@@ -153,91 +286,123 @@
                       aria-describedby="button-addon2"
                     />
                     <button
-                      class="btn btn-outline-secondary"
+                      class="btn form-btn btn-outline-secondary"
                       type="button"
                       id="button-addon2"
                     >
                       Button
                     </button>
+                    <div class="row">
+                      <div class="col-md-6 float-end">
+                        <table class="scroll">
+                          <thead>
+                            <tr>
+                              <th>Ingredient</th>
+                              <th>Delete</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Vodka</td>
+                              <td>X</td>
+                            </tr>
+                            <tr>
+                              <td>Whiskey</td>
+                              <td>X</td>
+                            </tr>
+                            <tr>
+                              <td>Gin</td>
+                              <td>X</td>
+                            </tr>
+                            <tr>
+                              <td>Rum</td>
+                              <td>X</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
-                  <input
-                    type="button"
-                    name="next-step"
-                    class="next-step"
-                    value="Next"
-                  />
-                  <input
-                    type="button"
-                    name="previous-step"
-                    class="previous-step"
-                    value="Previous"
-                  />
                 </div>
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step me-5"
+                  value="Previous"
+                />
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step"
+                  value="Next"
+                />
               </fieldset>
 
               <fieldset>
                 <h1>What do you want to watch?</h1>
-                <div class="column p-5 m-5">
+                <div class="row">
                   <select
-                    class="form-select foodType form-select-sm"
+                    class="form-select genreType form-select-sm"
                     aria-label=".form-select-sm example"
                   >
-                    <option selected>Type of Food</option>
+                    <option selected>Genre</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
                   <select
-                    class="form-select foodType form-select-sm"
+                    class="form-select yearType form-select-sm"
                     aria-label=".form-select-sm example"
                   >
-                    <option selected>Type of Food</option>
+                    <option selected>Year</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
                   <div class="form-check">
                     <input
-                      class="form-check-input"
+                      class="form-check-input ms-1"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Default checkbox
+                    /><label
+                      class="form-check-label float-start"
+                      for="flexCheckDefault"
+                    >
+                      Awarded
                     </label>
                   </div>
                   <select
-                    class="form-select foodType form-select-sm"
+                    class="form-select ratedType form-select-sm"
                     aria-label=".form-select-sm example"
                   >
-                    <option selected>Type of Food</option>
+                    <option selected>Rated</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
                   <select
-                    class="form-select foodType form-select-sm"
+                    class="form-select runType form-select-sm"
                     aria-label=".form-select-sm example"
                   >
-                    <option selected>Type of Food</option>
+                    <option selected>Runtime</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
-                  <input
-                    type="button"
-                    name="next-step"
-                    class="next-step"
-                    value="Make my night"
-                  />
-                  <input
-                    type="button"
-                    name="previous-step"
-                    class="previous-step"
-                    value="Previous"
-                  />
                 </div>
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step"
+                  value="Previous"
+                />
+                <input
+                  type="button"
+                  name="next-step"
+                  class="next-step makeNight"
+                  value="Make my night"
+                />
               </fieldset>
             </form>
           </main>

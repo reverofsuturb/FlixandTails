@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var currentGfgStep, nextGfgStep, previousGfgStep;
+  var currentStep, nextStep, previousStep;
   var opacity;
   var current = 1;
   var steps = $("fieldset").length;
@@ -7,25 +7,23 @@ $(document).ready(function () {
   setProgressBar(current);
 
   $(".next-step").click(function () {
-    currentGfgStep = $(this).parent();
-    nextGfgStep = $(this).parent().next();
+    currentStep = $(this).parent();
+    nextStep = $(this).parent().next();
 
-    $("#progressbar li")
-      .eq($("fieldset").index(nextGfgStep))
-      .addClass("active");
+    $("#progressbar li").eq($("fieldset").index(nextStep)).addClass("active");
 
-    nextGfgStep.show();
-    currentGfgStep.animate(
+    nextStep.show();
+    currentStep.animate(
       { opacity: 0 },
       {
         step: function (now) {
           opacity = 1 - now;
 
-          currentGfgStep.css({
+          currentStep.css({
             display: "none",
             position: "relative",
           });
-          nextGfgStep.css({ opacity: opacity });
+          nextStep.css({ opacity: opacity });
         },
         duration: 500,
       }
@@ -34,26 +32,26 @@ $(document).ready(function () {
   });
 
   $(".previous-step").click(function () {
-    currentGfgStep = $(this).parent();
-    previousGfgStep = $(this).parent().prev();
+    currentStep = $(this).parent();
+    previousStep = $(this).parent().prev();
 
     $("#progressbar li")
-      .eq($("fieldset").index(currentGfgStep))
+      .eq($("fieldset").index(currentStep))
       .removeClass("active");
 
-    previousGfgStep.show();
+    previousStep.show();
 
-    currentGfgStep.animate(
+    currentStep.animate(
       { opacity: 0 },
       {
         step: function (now) {
           opacity = 1 - now;
 
-          currentGfgStep.css({
+          currentStep.css({
             display: "none",
             position: "relative",
           });
-          previousGfgStep.css({ opacity: opacity });
+          previousStep.css({ opacity: opacity });
         },
         duration: 500,
       }
@@ -66,8 +64,4 @@ $(document).ready(function () {
     percent = percent.toFixed();
     $(".progress-bar").css("width", percent + "%");
   }
-
-  $(".submit").click(function () {
-    return false;
-  });
 });
