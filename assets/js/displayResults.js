@@ -85,3 +85,46 @@ function showMovies(data) {
     movieContainerEl.append(movieContentEl);
   }
 }
+
+// food section
+getrecipe();
+
+function getrecipe() {
+  var foodshow = localStorage.getItem("foodresult")
+    fetch(foodshow)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        showDinner(data); 
+      });
+    }
+
+
+var dinnerContainerEl = $("#dinner-container");
+
+
+function showDinner(data) {
+  dinnerContainerEl.empty();
+
+  for (let i = 0; i < 5; i++) {
+    var dinnerContentEl = document.createElement("div");
+
+    dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+          <div id="poster" class="col-md-2">
+            <img
+              id="food-img"
+              src="${data.hits[i].recipe.image}"
+              class="img-fluid"
+            />
+          </div>
+          <div id="food-content" class="col-md-10 p-5">
+            <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
+            <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+          </div>
+        </div>`;
+
+    dinnerContainerEl.append(dinnerContentEl);
+          }
+        }
