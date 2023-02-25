@@ -18,7 +18,7 @@ html {
 }
 
 .landingImg {
-  background-image: url("./Images/drinks\ and\ dinner.jpeg");
+  background-image: url("./Images/dinner\ and\ drinks.avif");
   background-size: cover;
 }
 
@@ -108,7 +108,7 @@ html {
 
 .form,
 .next-step {
-  background: #00b82e;
+  background: #ff725e;
 }
 
 #form .previous-step:hover,
@@ -118,22 +118,21 @@ html {
 
 #form .next-step:hover,
 #form .next-step:focus {
-  background-color: #2f8d46;
+  background-color: #ff725e;
 }
 
 .text {
-  color: #2f8d46;
+  color: #ff725e;
   font-weight: normal;
 }
 
 #progressbar {
   margin-bottom: 30px;
   overflow: hidden;
-  color: lightgrey;
 }
 
 #progressbar .active {
-  color: #2f8d46;
+  color: #ff725e;
 }
 
 #progressbar li {
@@ -187,7 +186,7 @@ html {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-  background: #2f8d46;
+  background: #ff725e;
 }
 
 .progress {
@@ -195,7 +194,7 @@ html {
 }
 
 .progress-bar {
-  background-color: #2f8d46;
+  background-color: #ff725e;
 }
 
 /* .dinnerForm {

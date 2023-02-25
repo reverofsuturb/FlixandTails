@@ -10,7 +10,9 @@ $(document).ready(function () {
     currentStep = $(this).parent();
     nextStep = $(this).parent().next();
 
-    $("#progressbar li").eq($("fieldset").index(nextStep)).addClass("active");
+    $("#progressbar button")
+      .eq($("fieldset").index(nextStep))
+      .addClass("active");
 
     nextStep.show();
     currentStep.animate(
@@ -35,7 +37,7 @@ $(document).ready(function () {
     currentStep = $(this).parent();
     previousStep = $(this).parent().prev();
 
-    $("#progressbar li")
+    $("#progressbar button")
       .eq($("fieldset").index(currentStep))
       .removeClass("active");
 
