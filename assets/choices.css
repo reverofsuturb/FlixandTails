@@ -289,6 +289,10 @@ tbody tr td {
   background-color: var(--coral);
 }
 
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
 #drinkIngForm {
   height: 500px;
 }
