@@ -161,12 +161,12 @@ function showDrinks(arr) {
     </div>
     <div id="drink-content" class="col-md-10 p-5">
     <h2 id="drink-name" class="display-5 col-md-9">${arr[i].strDrink}</h2>
+    <p id="drinkID" style="display:none;">${arr[i].idDrink}</p>
     </div>
     </div>`;
 
     drinkContainerEl.append(drinkContentEl);
   }
-  // <p id="drink-ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
 }
 
 getDrinks(drinksUrl1);
