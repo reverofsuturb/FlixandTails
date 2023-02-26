@@ -61,7 +61,7 @@ $(document).ready(function () {
     setProgressBar(--current);
   });
 
-  function setProgressBar(currentStep) {
+  function setProgressBar(current) {
     var percent = parseFloat(100 / steps) * current;
     percent = percent.toFixed();
     $(".progress-bar").css("width", percent + "%");
