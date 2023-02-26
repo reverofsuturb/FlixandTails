@@ -174,6 +174,14 @@ html {
   width: 200px;
 }
 
+.rowIngred {
+  float: right;
+}
+
+.formIngred {
+  max-width: 600px;
+}
+
 .form-control,
 .form-btn {
   height: 35px;

@@ -22,7 +22,7 @@ var dishType = [
   "sandwiches",
   "soup",
   "starter",
-  ];
+];
 
 var cuisineType = [
   "Cuisine",
@@ -67,19 +67,24 @@ function saverecipe() {
   $("#foodrecs").empty();
   var foodrequest =
     "https://api.edamam.com/api/recipes/v2?type=public&q=" +
-    ($("#ingredientbox").children().text()).replace(/Remove/g, "%20") +
+    $("#ingredientbox")
+      .children()
+      .text()
+      .replace(/Remove/g, "%20") +
     "&app_id=8422820f&app_key=a68b28f687a6fab289f2323167117c84";
-  if ($("#cuisine :selected")[0].value !=0) {
+  if ($("#cuisine :selected")[0].value != 0) {
     foodrequest +=
       "&cuisineType=" + $("#cuisine :selected").text().replace(/ /g, "%20");
-  } if ($("#meal :selected")[0].value !=0) {
+  }
+  if ($("#meal :selected")[0].value != 0) {
     foodrequest +=
       "&mealType=" + $("#meal :selected").text().replace(/ /g, "%20");
-  } if ($("#dish :selected")[0].value !=0) {
+  }
+  if ($("#dish :selected")[0].value != 0) {
     foodrequest +=
       "&dishType=" + $("#dish :selected").text().replace(/ /g, "%20");
   }
-  console.log(foodrequest)
+  console.log(foodrequest);
   localStorage.setItem("foodresult", foodrequest);
 }
 
@@ -87,36 +92,34 @@ $("#dinner-next").on("click", function () {
   saverecipe();
 });
 
-
 var inginp = $("#ingredientinp");
-var ingadd = $("#ingredientadd")
+var ingadd = $("#ingredientadd");
 var ingbox = $("#ingredientbox");
 
-ingadd.on("click", function() {
-  var finput = inginp.val();
-var tableData = document.createElement("td");
 var removebtn = document.createElement("button");
-var createTableRow = document.createElement("tr");
+removebtn.setAttribute("id", "removeitem");
+
+ingadd.on("click", function () {
+  var finput = inginp.val();
+  var tableData = document.createElement("td");
+  var createTableRow = document.createElement("tr");
 
   tableData.textContent = finput;
   tableData.setAttribute("class", "fquery");
-  removebtn.textContent = "Remove";
-  removebtn.setAttribute("id", "removeitem");
+  removebtn.setAttribute("value", "Remove");
+  removebtn.setAttribute("type", "button");
   removebtn.setAttribute("class", "btn form-btn btn-outline-secondary");
 
   createTableRow.append(tableData);
   createTableRow.append(removebtn);
   $("#ingredientbox").append(createTableRow);
-  console.log($("#ingredientbox").children().text())
-})
+  console.log($("#ingredientbox").children().text());
+});
 
-$("#removeitem").on("click", function(event) {
-  event.preventDefault();
-  event.stopImmediatePropagation();
+$("#removeitem").on("click", function (event) {
+  event.stopPropagation
   $(this).parent().remove();
-})
-
-
+});
 // displayResults.js functions below****
 
 // get recipe do not include****
@@ -130,18 +133,13 @@ $("#removeitem").on("click", function(event) {
 //       .then(function (data) {
 //         console.log(foodrequest.replace(/%20/g, ""));
 //         console.log(data);
-//         showDinner(data); 
+//         showDinner(data);
 //       }
 //   )}
-
-
-
-
 
 // display results function do not include****
 
 // var dinnerContainerEl = $("#dinner-container");
-
 
 // function showDinner(data) {
 //   dinnerContainerEl.empty();
@@ -149,8 +147,6 @@ $("#removeitem").on("click", function(event) {
 //   for (let i = 0; i < 5; i++) {
 //     var dinnerContentEl = document.createElement("div");
 //     console.log(data[i].id);
-
-
 
 //     dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
 //           <div id="poster" class="col-md-2">
