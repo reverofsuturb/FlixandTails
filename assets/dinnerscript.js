@@ -1,5 +1,5 @@
-var APIKey = "a68b28f687a6fab289f2323167117c84";
-var APPID = "8422820f";
+var dinnerAPIKey = "a68b28f687a6fab289f2323167117c84";
+var dinnerAPPID = "8422820f";
 
 //api keys https://developer.edamam.com/edamam-docs-recipe-api
 
