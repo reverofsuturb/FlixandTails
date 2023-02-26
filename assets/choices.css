@@ -169,17 +169,24 @@ html {
   z-index: -1;
 }
 
+.foodType {
+  height: 50px;
+  width: 300px;
+}
+
 .table {
   font-size: 20px;
   width: 200px;
 }
 
-.rowIngred {
-  float: right;
+.tableBox {
+  display: grid;
+  max-height: 100px;
+  justify-content: center;
 }
 
 .formIngred {
-  max-width: 600px;
+  max-width: 660px;
 }
 
 .form-control,
@@ -189,6 +196,7 @@ html {
 
 table {
   border-collapse: collapse;
+  height: 250px;
 }
 th,
 td {
@@ -208,7 +216,7 @@ table.scroll thead tr {
   display: block;
 }
 table.scroll tbody {
-  height: 100px;
+  height: 200px;
   overflow-y: auto;
   overflow-x: hidden;
 }

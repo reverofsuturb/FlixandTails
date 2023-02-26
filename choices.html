@@ -58,7 +58,7 @@
                   aria-label="Slide 3"
                 ></button>
               </div>
-              <fieldset>
+              <!-- <fieldset>
                 <h1>What do you want to do?</h1>
                 <p class="description">Select at least one</p>
                 <div class="column p-5 m-5">
@@ -90,11 +90,11 @@
                   class="next-step"
                   value="Next"
                 />
-              </fieldset>
+              </fieldset> -->
 
               <fieldset>
-                <div class="container gy-3">
-                  <h1 class="mb-5">What do you want for dinner?</h1>
+                <h1 class="mb-5">What do you want for dinner?</h1>
+                <div class="gy-3">
                   <div class="row p-2 m-2">
                     <div class="d-flex col-md-6 mb-5 mt-3">
                       <select
@@ -113,7 +113,19 @@
                         aria-label=".form-select-sm example"
                       ></select>
                     </div>
-                    <div class="input-group col-md-6 dinnerType mb-3">
+                    <div class="row rowIngred col-md-6">
+                      <div class="tableBox ms-5 ps-5 mb-5">
+                        <table class="scroll">
+                          <thead>
+                            <tr>
+                              <th>Ingredient(s)</th>
+                            </tr>
+                          </thead>
+                          <tbody id="ingredientbox"></tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="input-group col-6 dinnerType mb-3">
                       <input
                         id="ingredientinp"
                         type="text"
@@ -129,20 +141,6 @@
                       >
                         Submit
                       </button>
-                      <div class="row rowIngred col-md-6">
-                        <div class="align-items-center">
-                          <table class="scroll">
-                            <thead>
-                              <tr>
-                                <th>Ingredient(s)</th>
-                              </tr>
-                            </thead>
-                            <tbody id="ingredientbox">
-                            
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
