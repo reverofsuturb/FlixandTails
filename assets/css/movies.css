@@ -1,7 +1,56 @@
 :root {
   --color-main: #ff725e;
+  --color-white: #fff;
 }
 
 .bg-main {
   background-color: var(--color-main);
+}
+
+.btn-bg-white {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  font-size: 55%;
+  padding: 0.4rem;
+  border: 0;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.btn-main {
+  background-color: var(--color-main);
+  color: #fff;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #ff725e;
+  --bs-btn-border-color: #ff725e;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #eb604d;
+  --bs-btn-hover-border-color: #eb604d;
+  --bs-btn-focus-shadow-rgb: 225, 83, 97;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #eb604d;
+  --bs-btn-active-border-color: #eb604d;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #ff725e;
+  --bs-btn-disabled-border-color: #ff725e;
+}
+
+#tags {
+  width: 60%;
+}
+
+select {
+  word-wrap: normal;
+  font-size: 65%;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+option:hover {
+  background-color: var(--color-main);
+}
+
+label {
+  font-size: 60%;
+  text-align: left;
 }
