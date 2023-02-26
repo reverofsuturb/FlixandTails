@@ -19,7 +19,7 @@ html {
 }
 
 .landingImg {
-  background-color: var(--lightlight);
+  background-image: linear-gradient(var(--lightlight), var(--fadedcoral));
 }
 
 .greeting {
@@ -87,6 +87,16 @@ navbar {
   .graphics img {
     height: 450px;
     width: 450px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .graphics img {
+    height: 350px;
+    width: 350px;
+  }
+  .navBtn {
+    width: 200px;
   }
 }
 
