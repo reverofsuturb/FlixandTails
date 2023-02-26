@@ -58,7 +58,7 @@
                   aria-label="Slide 3"
                 ></button>
               </div>
-              <!-- <fieldset>
+              <fieldset>
                 <h1>What do you want to do?</h1>
                 <p class="description">Select at least one</p>
                 <div class="column p-5 m-5">
@@ -90,9 +90,9 @@
                   class="next-step"
                   value="Next"
                 />
-              </fieldset> -->
+              </fieldset>
 
-              <!-- <fieldset>
+              <fieldset>
                 <h1 class="mb-5">What do you want for dinner?</h1>
                 <div class="gy-3">
                   <div class="row p-2 m-2">
@@ -158,9 +158,7 @@
                   class="next-step"
                   value="Next"
                 />
-              </fieldset> -->
-
-
+              </fieldset>
 
               <!--//////////////////////////////-->
               <!-- <fieldset>
@@ -264,8 +262,10 @@
                       Category
                     </button>
                   </div>
-                 
-                  <div class="col-md-12 input-group mb-2">
+
+                  <div
+                    class="col-md-12 input-group mb-2 justify-content-center"
+                  >
                     <div id="drinkCatForm" style="display: none">
                       <h4>Please select a drink category:</h4>
                       <select id="category"></select>
@@ -274,28 +274,34 @@
                       </button> -->
                     </div>
 
-                    <div id="drinkIngForm" class="col-md-12 justify-content-center" style="display: none">
-                      <h4>Please enter ingredient and select from provided
-                        options:</h4>
+                    <div
+                      id="drinkIngForm"
+                      class="col-md-12 justify-content-center"
+                      style="display: none"
+                    >
+                      <h4>
+                        Please enter ingredient and select from provided
+                        options:
+                      </h4>
                       <div class="input-group searchDrinkIng">
-                      <input
-                        id="drinkIngredientSearch"
-                        type="text"
-                        class="form-control IngDrinkInp col-6"
-                        placeholder="Enter ingredients to search"
-                        aria-label="search ingredients"
-                      />
+                        <input
+                          id="drinkIngredientSearch"
+                          type="text"
+                          class="form-control IngDrinkInp col-6"
+                          placeholder="Enter ingredients to search"
+                          aria-label="search ingredients"
+                        />
 
-                      <button
-                        id="addDrinkIngredient"
-                        class="btn form-btn btn-outline-secondary-coral"
-                        type="button"
-                      >
-                        Add Ingredient
-                      </button>
-                    </div>
+                        <button
+                          id="addDrinkIngredient"
+                          class="btn form-btn btn-outline-secondary-coral"
+                          type="button"
+                        >
+                          Add Ingredient
+                        </button>
+                      </div>
                       <p>Added Ingredients:</p>
-                        <!--table starts-->
+                      <!--table starts-->
                       <div class="row rowDrinkIng col-md-12">
                         <div class="tableBoxD mb-5">
                           <table class="scroll">
@@ -367,8 +373,6 @@
                       </select>
                     </div>
 
-
-                    
                     <!-- <button id="makeMyNight" class="text-center my-5">
                       Make my night
                     </button> -->
