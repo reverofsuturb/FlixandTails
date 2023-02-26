@@ -125,6 +125,8 @@ $("#ingredientbox").on("click", function (event) {
   $(event.target).parent().remove();
 });
 
+//event delegation -- you can't bind an event listener to an element that doesn't exist on page load
+// solution: bind to parent element that exists and traverse down the DOM (event.target.matches) works best in this case
 
 // displayResults.js functions below****
 

@@ -1,7 +1,7 @@
 :root {
   --dark: #263238;
   --mid: rgb(83, 83, 83);
-  --light: rgb(119, 118, 118);
+  --lightL: rgb(243, 243, 243);
   --lightlight: rgb(228, 228, 228);
   --fadedcoral: #ff715eb9;
   --coral: #ff725e;
@@ -59,6 +59,12 @@ html {
 .btn-outline-secondary {
   background-color: var(--coral);
   color: var(--dark);
+}
+
+.btn-outline-secondary-coral {
+  background-color: var(--coral);
+  color: var(--lightlight);
+  border: 1px solid var(--dark);
 }
 
 .btn-secondary:hover {
@@ -185,6 +191,12 @@ html {
   justify-content: center;
 }
 
+.tableBoxD {
+  display: grid;
+  max-height: 100px;
+  justify-content: center;
+}
+
 .formIngred {
   max-width: 660px;
 }
@@ -206,7 +218,7 @@ th {
   font-weight: bold;
 }
 table.scroll {
-  width: 200px; /* 140px * 5 column + 16px scrollbar width */
+  width: 240px; /* 140px * 5 column + 16px scrollbar width */
   border: 1px solid black;
   line-height: 24px;
   font-size: 20px;
@@ -246,7 +258,30 @@ tbody tr td {
   width: 200px;
 }
 
-.genreType,
+.btn-success {
+  border: 1px solid var(--dark);
+  background-color: var(--coral);
+}
+
+#ui-id-1 {
+  text-align: left;
+  list-style: none;
+  background-color: var(--lightL);
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute !important;
+}
+
+#ui-id-1 li:hover {
+  background-color: var(--coral);
+}
+
+#drinkIngForm {
+  height: 500px;
+}
+
+footer .genreType,
 .yearType,
 .ratedType,
 .runType {

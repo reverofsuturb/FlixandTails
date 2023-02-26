@@ -140,8 +140,9 @@ function drinkCatForm() {
 function drinkIngForm() {
   drinkIngFormEl.show();
   drinkIngInput.autocomplete({
-    source: ingredientSearchList,
+   source: ingredientSearchList,
   });
+  
   drinkCatFormEl.hide();
 }
 
@@ -216,7 +217,7 @@ $("#drinkSearchType").on("click", function (event) {
   } else if ((event.target.id = "searchIngredients")) {
     drinkIngForm();
   }
-  //   drinkSearchTypeEl.hide();  hides search type options
+    // drinkSearchTypeEl.hide(); hides search type options
 });
 
 //Listens for add ingredient to list from user input field
@@ -230,7 +231,7 @@ $("#addDrinkIngredient").on("click", function (event) {
     var drinkIngItem = document.createElement("td");
     var drinkIngXBtn = document.createElement("td");
     drinkIngItem.textContent = drinkIngInput.val();
-    drinkIngXBtn.textContent = "X";
+    drinkIngXBtn.textContent = "Remove";
     drinkIngTableRow.append(drinkIngItem, drinkIngXBtn);
     $("#userDrinkIngList").append(drinkIngTableRow);
     drinkIngInput.val("");
@@ -242,7 +243,7 @@ $("#drinks-next").on("click", function (event) {
   event.preventDefault(); //prevent refresh
 
   //Hide input form
-  drinkCatFormEl.hide();
+ 
   drinkIngFormEl.hide();
 
   //  For ingredient search
@@ -285,4 +286,38 @@ $("#drinkrecs").on("click", function (event) {
   event.preventDefault();
   event.stopPropagation();
   console.log(event.target);
+});
+
+
+var inginp = $("#ingredientinp");
+var ingadd = $("#ingredientadd");
+var ingDbox = $("#ingredientDbox");
+
+ingadd.on("click", function () {
+  var finput = inginp.val();
+  var tableData = document.createElement("td");
+  var removebtn = document.createElement("button");
+  var createTableRow = document.createElement("tr");
+
+  $('.dinnerType').children('input').val('')
+
+  tableData.textContent = finput;
+  tableData.setAttribute("class", "fquery");
+  createTableRow.setAttribute("id", "tr");
+  removebtn.textContent = "Remove";
+  removebtn.setAttribute("id", "removeitem");
+  removebtn.setAttribute("class", "btn form-btn btn-outline-secondary");
+
+  createTableRow.append(tableData);
+  createTableRow.append(removebtn);
+  $("#ingredientDbox").append(createTableRow);
+  console.log($("#ingredientDbox").children().text())
+});
+
+$("#ingredientDbox").on("click", function (event) {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  if (!event.target.matches("button")) return;
+  console.log(event.target);
+  $(event.target).parent().remove();
 });
