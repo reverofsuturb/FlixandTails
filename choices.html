@@ -275,7 +275,18 @@
               <fieldset>
                 <h1>What do you want to drink?</h1>
                 <div class="column">
-                  <div class="form-check">
+                  <div id="drinkSearchType">
+                    <h4 style="color: white">
+                      Would you like to search by ingredients or category?
+                    </h4>
+                    <button id="searchIngredients" class="btn btn-success">
+                      Ingredients
+                    </button>
+                    <button id="searchCategory" class="btn btn-success">
+                      Category
+                    </button>
+                  </div>
+                  <!-- <div class="form-check">
                     <input
                       class="form-check-input"
                       type="radio"
@@ -299,52 +310,69 @@
                     >
                       Non-Alcoholic
                     </label>
-                  </div>
+                  </div> -->
                   <div class="input-group mb-2">
-                    <input
+                    <div id="drinkCatForm" style="display: none">
+                      <h4>Please select a drink category:</h4>
+                      <select id="category"></select>
+                      <!-- <button id="search" type="submit" class="btn btn-success">
+                        Search
+                      </button> -->
+                    </div>
+                    <div id="drinkIngForm" style="display: none">
+                      <h4>
+                        Please enter ingredient and select from provided
+                        options:
+                      </h4>
+                      <input
+                        id="drinkIngredientSearch"
+                        type="text"
+                        class="form-control searchBox"
+                        placeholder="Enter ingredients to search"
+                        aria-label="search ingredients"
+                      />
+                      <button
+                        id="addDrinkIngredient"
+                        class="btn form-btn btn-outline-secondary"
+                        type="button"
+                      >
+                        Add Ingredient
+                      </button>
+                      <p style="color: white">Added Ingredients:</p>
+                      <div id="drinkIngTable" class="row">
+                        <div class="col-md-6 float-end">
+                          <table class="scroll">
+                            <thead>
+                              <tr>
+                                <th>Ingredient</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody id="userDrinkIngList">
+                              <tr>
+                                <td>Example: Vodka</td>
+                                <td>X</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <input
+                      id=""
                       type="text"
                       class="form-control"
-                      placeholder="Add Spirit(s)"
-                      aria-label="Add Spirit(s)"
+                      placeholder="Search Spirit(s) and Mixer(s)"
+                      aria-label="Search Spirit(s) and Mixer(s)"
                       aria-describedby="button-addon2"
-                    />
-                    <button
+                    /> -->
+                    <!-- <button
                       class="btn form-btn btn-outline-secondary"
                       type="button"
                       id="button-addon2"
-                    >
-                      Button
-                    </button>
-                    <div class="row">
-                      <div class="col-md-6 float-end">
-                        <table class="scroll">
-                          <thead>
-                            <tr>
-                              <th>Ingredient</th>
-                              <th>Delete</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Vodka</td>
-                              <td>X</td>
-                            </tr>
-                            <tr>
-                              <td>Whiskey</td>
-                              <td>X</td>
-                            </tr>
-                            <tr>
-                              <td>Gin</td>
-                              <td>X</td>
-                            </tr>
-                            <tr>
-                              <td>Rum</td>
-                              <td>X</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                    > -->
+                    <!-- Button
+                    </button> -->
                   </div>
                 </div>
                 <input
@@ -354,6 +382,7 @@
                   value="Previous"
                 />
                 <input
+                  id="drinks-next"
                   type="button"
                   name="next-step"
                   class="next-step"
@@ -498,7 +527,9 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./assets/choices.js"></script>
     <script src="./assets/js/movies.js"></script>
+    <script src="./assets/js/drinks.js"></script>
   </body>
 </html>

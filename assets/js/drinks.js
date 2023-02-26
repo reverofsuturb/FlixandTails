@@ -123,12 +123,16 @@ var userDrinkIngredients = [];
 var catDropdown = $("#category");
 var drinksUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?";
 var selectedDrinkID;
+var catFormClicked = false;
 
 function drinkCatForm() {
   var catDropdown = $("#category");
-  $.each(catSelect, function (val, text) {
-    catDropdown.append($("<option></option>").val(val).html(text));
-  });
+  if (!catFormClicked) {
+    $.each(catSelect, function (val, text) {
+      catDropdown.append($("<option></option>").val(val).html(text));
+    });
+  }
+  catFormClicked = true; //prevent options from creating if user toggles between cat and ingred forms
   drinkCatFormEl.show();
   drinkIngFormEl.hide();
 }
@@ -202,8 +206,6 @@ function fetchData(url) {
     });
 }
 
-// function
-
 //Listens for user selection on search type
 $("#drinkSearchType").on("click", function (event) {
   event.preventDefault();
@@ -222,25 +224,80 @@ $("#drinkSearchType").on("click", function (event) {
 //Listens for add ingredient to list from user input field
 $("#addDrinkIngredient").on("click", function (event) {
   event.preventDefault(); //prevent refresh
+  console.log(ingredientSearchList.includes(drinkIngInput.val()));
   if (ingredientSearchList.includes(drinkIngInput.val())) {
     // add user ingredient to array
     userDrinkIngredients.push(drinkIngInput.val());
     //create list item for ingredient to show user what ingredients they've added
-    var drinkIngItem = document.createElement("li");
+    var drinkIngTableRow = document.createElement("tr");
+    var drinkIngItem = document.createElement("td");
+    var drinkIngXBtn = document.createElement("td");
     drinkIngItem.textContent = drinkIngInput.val();
-    drinkIngItem.setAttribute("style", "color:white;");
-    $("#userDrinkIngList").append(drinkIngItem);
+    drinkIngXBtn.textContent = "X";
+    drinkIngTableRow.append(drinkIngItem, drinkIngXBtn);
+    $("#userDrinkIngList").append(drinkIngTableRow);
     drinkIngInput.val("");
   }
 });
 
-//listens for submit on drink search by ingredients form
-drinkIngFormEl.on("submit", function (event) {
-  event.preventDefault();
-  if (userDrinkIngredients.length > 0) {
-    //Hide input form
-    drinkIngFormEl.hide();
+// //listens for submit on drink search by ingredients form
+// drinkIngFormEl.on("submit", function (event) {
+//   event.preventDefault();
+//   event.stopPropagation();
+//   if (userDrinkIngredients.length > 0) {
+//     //Hide input form
+//     drinkIngFormEl.hide();
 
+//     //change request link accordingly if there is user ingredient input
+//     if (userDrinkIngredients.length > 0) {
+//       drinksUrl += "i=";
+//       //loop through user ingredients arraty
+//       for (var i = 0; i < userDrinkIngredients.length; i++) {
+//         userDrinkIngredients[i] = userDrinkIngredients[i].replace(/\s+/g, "_");
+//         drinksUrl += userDrinkIngredients[i];
+//         //add comma to url if not on last one
+//         if (i < userDrinkIngredients.length - 1) {
+//           drinksUrl += ",";
+//         }
+//       }
+//       //   console.log(userDrinkIngredients);
+//       console.log(drinksUrl);
+//       //save to local storage
+//       localStorage.setItem("drinksUrl1", drinksUrl);
+//       //fetch the data
+//       //   fetchData(drinksUrl);
+//     }
+//   }
+// });
+// //listens for submit on drink search by category form
+// drinkCatFormEl.on("submit", function (event) {
+//   event.preventDefault();
+//   //Hide input form
+//   drinkCatFormEl.hide();
+//   //  get user input for category
+//   catChoice = catSelect[catDropdown.val()];
+//   //change request link accordingly
+//   if (catChoice !== null) {
+//     catChoice = catChoice.replace(/\s+/g, "_");
+//     // console.log(catChoice);
+//     drinksUrl += "c=" + catChoice;
+//     // console.log(drinksUrl);
+//     fetchData(drinksUrl);
+//   }
+// });
+
+//listens for next on drink slide
+$("#drinks-next").on("click", function (event) {
+  console.log("asdfasdf");
+  event.preventDefault();
+  // event.stopPropagation();
+
+  //Hide input form
+  drinkCatFormEl.hide();
+  drinkIngFormEl.hide();
+
+  //  For ingredient search
+  if (userDrinkIngredients.length > 0) {
     //change request link accordingly if there is user ingredient input
     if (userDrinkIngredients.length > 0) {
       drinksUrl += "i=";
@@ -254,28 +311,42 @@ drinkIngFormEl.on("submit", function (event) {
         }
       }
       //   console.log(userDrinkIngredients);
-      //   console.log(drinksUrl);
+      console.log(drinksUrl);
+      //save to local storage
+      localStorage.setItem("drinksUrl1", drinksUrl);
       //fetch the data
-      fetchData(drinksUrl);
+      //   fetchData(drinksUrl);
     }
   }
-});
-//listens for submit on drink search by category form
-drinkCatFormEl.on("submit", function (event) {
-  event.preventDefault();
-  //Hide input form
-  drinkCatFormEl.hide();
-  //  get user input for category
-  catChoice = catSelect[catDropdown.val()];
-  //change request link accordingly
+
+  //  For category search
+  catChoice = catSelect[catDropdown.val()]; //  get user input for category
+  //change request link accordingly for category search
   if (catChoice !== null) {
     catChoice = catChoice.replace(/\s+/g, "_");
     // console.log(catChoice);
     drinksUrl += "c=" + catChoice;
-    // console.log(drinksUrl);
-    fetchData(drinksUrl);
+    localStorage.setItem("drinksUrl1", drinksUrl);
+    //   fetchData(drinksUrl);
   }
+  console.log(drinksUrl);
 });
+// //listens for submit on drink search by category form
+// drinkCatFormEl.on("submit", function (event) {
+//   event.preventDefault();
+//   //Hide input form
+//   drinkCatFormEl.hide();
+//   //  get user input for category
+//   catChoice = catSelect[catDropdown.val()];
+//   //change request link accordingly
+//   if (catChoice !== null) {
+//     catChoice = catChoice.replace(/\s+/g, "_");
+//     // console.log(catChoice);
+//     drinksUrl += "c=" + catChoice;
+//     // console.log(drinksUrl);
+//     fetchData(drinksUrl);
+//   }
+// });
 
 //listens for selection on results table
 $("#drinkrecs").on("click", function (event) {
