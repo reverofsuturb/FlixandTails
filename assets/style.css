@@ -19,7 +19,12 @@ html {
 }
 
 .landingImg {
-  background-image: linear-gradient(var(--lightlight), var(--fadedcoral));
+  background-image: linear-gradient(var(--fadedcoral), var(--lightlight));
+}
+
+.girlGraphic {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .greeting {

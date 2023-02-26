@@ -46,6 +46,18 @@ html {
   color: var(--lightlight);
 }
 
+.categoryIcon {
+  opacity: 1;
+}
+
+.categoryIcon:hover {
+  opacity: 0.5;
+}
+
+.categoryIcon:hover {
+  cursor: pointer;
+}
+
 .navBtn {
   font-weight: bold;
   width: 200px;
