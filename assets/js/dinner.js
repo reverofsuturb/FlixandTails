@@ -96,30 +96,36 @@ var inginp = $("#ingredientinp");
 var ingadd = $("#ingredientadd");
 var ingbox = $("#ingredientbox");
 
-var removebtn = document.createElement("button");
-removebtn.setAttribute("id", "removeitem");
-
 ingadd.on("click", function () {
   var finput = inginp.val();
   var tableData = document.createElement("td");
+  var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
+
+  $('.dinnerType').children('input').val('')
 
   tableData.textContent = finput;
   tableData.setAttribute("class", "fquery");
-  removebtn.setAttribute("value", "Remove");
-  removebtn.setAttribute("type", "button");
+  createTableRow.setAttribute("id", "tr");
+  removebtn.textContent = "Remove";
+  removebtn.setAttribute("id", "removeitem");
   removebtn.setAttribute("class", "btn form-btn btn-outline-secondary");
 
   createTableRow.append(tableData);
   createTableRow.append(removebtn);
   $("#ingredientbox").append(createTableRow);
-  console.log($("#ingredientbox").children().text());
+  console.log($("#ingredientbox").children().text())
 });
 
-$("#removeitem").on("click", function (event) {
-  event.stopPropagation
-  $(this).parent().remove();
+$("#ingredientbox").on("click", function (event) {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  if (!event.target.matches("button")) return;
+  console.log(event.target);
+  $(event.target).parent().remove();
 });
+
+
 // displayResults.js functions below****
 
 // get recipe do not include****
