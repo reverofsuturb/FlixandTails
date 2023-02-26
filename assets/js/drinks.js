@@ -140,9 +140,9 @@ function drinkCatForm() {
 function drinkIngForm() {
   drinkIngFormEl.show();
   drinkIngInput.autocomplete({
-   source: ingredientSearchList,
+    source: ingredientSearchList,
   });
-  
+
   drinkCatFormEl.hide();
 }
 
@@ -217,7 +217,7 @@ $("#drinkSearchType").on("click", function (event) {
   } else if ((event.target.id = "searchIngredients")) {
     drinkIngForm();
   }
-    // drinkSearchTypeEl.hide(); hides search type options
+  // drinkSearchTypeEl.hide(); hides search type options
 });
 
 //Listens for add ingredient to list from user input field
@@ -243,7 +243,7 @@ $("#drinks-next").on("click", function (event) {
   event.preventDefault(); //prevent refresh
 
   //Hide input form
- 
+
   drinkIngFormEl.hide();
 
   //  For ingredient search
@@ -288,18 +288,17 @@ $("#drinkrecs").on("click", function (event) {
   console.log(event.target);
 });
 
+var ingInpD = $("#drinkIngredientSearch");
+var ingAddD = $("#addDrinkIngredient");
+var ingBoxD = $("#ingredientDbox");
 
-var inginp = $("#ingredientinp");
-var ingadd = $("#ingredientadd");
-var ingDbox = $("#ingredientDbox");
-
-ingadd.on("click", function () {
-  var finput = inginp.val();
+ingAddD.on("click", function () {
+  var finput = ingInpD.val();
   var tableData = document.createElement("td");
   var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
 
-  $('.dinnerType').children('input').val('')
+  $(".ingDrinkInp").children("input").val("");
 
   tableData.textContent = finput;
   tableData.setAttribute("class", "fquery");
@@ -311,7 +310,7 @@ ingadd.on("click", function () {
   createTableRow.append(tableData);
   createTableRow.append(removebtn);
   $("#ingredientDbox").append(createTableRow);
-  console.log($("#ingredientDbox").children().text())
+  console.log($("#ingredientDbox").children().text());
 });
 
 $("#ingredientDbox").on("click", function (event) {

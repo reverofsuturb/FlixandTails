@@ -102,7 +102,7 @@ ingadd.on("click", function () {
   var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
 
-  $('.dinnerType').children('input').val('')
+  $(".dinnerType").children("input").val("");
 
   tableData.textContent = finput;
   tableData.setAttribute("class", "fquery");
@@ -114,7 +114,7 @@ ingadd.on("click", function () {
   createTableRow.append(tableData);
   createTableRow.append(removebtn);
   $("#ingredientbox").append(createTableRow);
-  console.log($("#ingredientbox").children().text())
+  console.log($("#ingredientbox").children().text());
 });
 
 $("#ingredientbox").on("click", function (event) {
@@ -124,10 +124,10 @@ $("#ingredientbox").on("click", function (event) {
   console.log(event.target);
   $(event.target).parent().remove();
 });
-
 //event delegation -- you can't bind an event listener to an element that doesn't exist on page load
 // solution: bind to parent element that exists and traverse down the DOM (event.target.matches) works best in this case
-
+//
+//
 // displayResults.js functions below****
 
 // get recipe do not include****
