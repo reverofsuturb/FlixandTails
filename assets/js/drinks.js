@@ -208,23 +208,20 @@ function fetchData(url) {
 
 //Listens for user selection on search type
 $("#drinkSearchType").on("click", function (event) {
-  event.preventDefault();
+  event.preventDefault(); //prevent refresh
   event.stopPropagation();
-  console.log(event.target.id);
-  console.log(event.target.id === "searchCategory");
   if (event.target.id === "searchCategory") {
     //create dropdown options for category select
     drinkCatForm();
   } else if ((event.target.id = "searchIngredients")) {
     drinkIngForm();
   }
-  //   drinkSearchTypeEl.hide();
+  //   drinkSearchTypeEl.hide();  hides search type options
 });
 
 //Listens for add ingredient to list from user input field
 $("#addDrinkIngredient").on("click", function (event) {
   event.preventDefault(); //prevent refresh
-  console.log(ingredientSearchList.includes(drinkIngInput.val()));
   if (ingredientSearchList.includes(drinkIngInput.val())) {
     // add user ingredient to array
     userDrinkIngredients.push(drinkIngInput.val());
@@ -240,57 +237,9 @@ $("#addDrinkIngredient").on("click", function (event) {
   }
 });
 
-// //listens for submit on drink search by ingredients form
-// drinkIngFormEl.on("submit", function (event) {
-//   event.preventDefault();
-//   event.stopPropagation();
-//   if (userDrinkIngredients.length > 0) {
-//     //Hide input form
-//     drinkIngFormEl.hide();
-
-//     //change request link accordingly if there is user ingredient input
-//     if (userDrinkIngredients.length > 0) {
-//       drinksUrl += "i=";
-//       //loop through user ingredients arraty
-//       for (var i = 0; i < userDrinkIngredients.length; i++) {
-//         userDrinkIngredients[i] = userDrinkIngredients[i].replace(/\s+/g, "_");
-//         drinksUrl += userDrinkIngredients[i];
-//         //add comma to url if not on last one
-//         if (i < userDrinkIngredients.length - 1) {
-//           drinksUrl += ",";
-//         }
-//       }
-//       //   console.log(userDrinkIngredients);
-//       console.log(drinksUrl);
-//       //save to local storage
-//       localStorage.setItem("drinksUrl1", drinksUrl);
-//       //fetch the data
-//       //   fetchData(drinksUrl);
-//     }
-//   }
-// });
-// //listens for submit on drink search by category form
-// drinkCatFormEl.on("submit", function (event) {
-//   event.preventDefault();
-//   //Hide input form
-//   drinkCatFormEl.hide();
-//   //  get user input for category
-//   catChoice = catSelect[catDropdown.val()];
-//   //change request link accordingly
-//   if (catChoice !== null) {
-//     catChoice = catChoice.replace(/\s+/g, "_");
-//     // console.log(catChoice);
-//     drinksUrl += "c=" + catChoice;
-//     // console.log(drinksUrl);
-//     fetchData(drinksUrl);
-//   }
-// });
-
-//listens for next on drink slide
+//listens for next on drink slide and saves proper URL to localStorage to pull from API
 $("#drinks-next").on("click", function (event) {
-  console.log("asdfasdf");
-  event.preventDefault();
-  // event.stopPropagation();
+  event.preventDefault(); //prevent refresh
 
   //Hide input form
   drinkCatFormEl.hide();
@@ -310,7 +259,6 @@ $("#drinks-next").on("click", function (event) {
           drinksUrl += ",";
         }
       }
-      //   console.log(userDrinkIngredients);
       console.log(drinksUrl);
       //save to local storage
       localStorage.setItem("drinksUrl1", drinksUrl);
@@ -320,7 +268,7 @@ $("#drinks-next").on("click", function (event) {
   }
 
   //  For category search
-  catChoice = catSelect[catDropdown.val()]; //  get user input for category
+  var catChoice = catSelect[catDropdown.val()]; //  get user input for category
   //change request link accordingly for category search
   if (catChoice !== null) {
     catChoice = catChoice.replace(/\s+/g, "_");
@@ -331,22 +279,6 @@ $("#drinks-next").on("click", function (event) {
   }
   console.log(drinksUrl);
 });
-// //listens for submit on drink search by category form
-// drinkCatFormEl.on("submit", function (event) {
-//   event.preventDefault();
-//   //Hide input form
-//   drinkCatFormEl.hide();
-//   //  get user input for category
-//   catChoice = catSelect[catDropdown.val()];
-//   //change request link accordingly
-//   if (catChoice !== null) {
-//     catChoice = catChoice.replace(/\s+/g, "_");
-//     // console.log(catChoice);
-//     drinksUrl += "c=" + catChoice;
-//     // console.log(drinksUrl);
-//     fetchData(drinksUrl);
-//   }
-// });
 
 //listens for selection on results table
 $("#drinkrecs").on("click", function (event) {
