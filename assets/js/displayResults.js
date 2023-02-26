@@ -65,22 +65,22 @@ function showMovies(data) {
     getMovieDetails(movie_ID);
 
     movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-          <div id="poster" class="col-md-2">
-            <img
-              id="movie-poster"
-              src="${IMGUrl + data[i].poster_path}"
-              class="img-fluid"
-            />
-          </div>
-          <div id="movie-content" class="col-md-10 p-5">
-            <h2 id="movie-name" class="display-5 col-md-9">${data[i].title}</h2>
-            <p id="runtime-${i}" class="">${"runtime"}</p>
-            <p id="overview" class="">${data[i].overview}</p>
-            <h3 id="rating" class="mb-3">Rating<span class="rating">${
-              data[i].vote_average
-            }</span></h3>
-          </div>
-        </div>`;
+    <div id="poster" class="col-md-2">
+    <img
+    id="movie-poster"
+    src="${IMGUrl + data[i].poster_path}"
+    class="img-fluid"
+    />
+    </div>
+    <div id="movie-content" class="col-md-10 p-5">
+    <h2 id="movie-name" class="display-5 col-md-9">${data[i].title}</h2>
+    <p id="runtime-${i}" class="">${"runtime"}</p>
+    <p id="overview" class="">${data[i].overview}</p>
+    <h3 id="rating" class="mb-3">Rating<span class="rating">${
+      data[i].vote_average
+    }</span></h3>
+    </div>
+    </div>`;
 
     movieContainerEl.append(movieContentEl);
   }
@@ -90,20 +90,18 @@ function showMovies(data) {
 getrecipe();
 
 function getrecipe() {
-  var foodshow = localStorage.getItem("foodresult")
-    fetch(foodshow)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        showDinner(data); 
-      });
-    }
-
+  var foodshow = localStorage.getItem("foodresult");
+  fetch(foodshow)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      showDinner(data);
+    });
+}
 
 var dinnerContainerEl = $("#dinner-container");
-
 
 function showDinner(data) {
   dinnerContainerEl.empty();
@@ -112,19 +110,63 @@ function showDinner(data) {
     var dinnerContentEl = document.createElement("div");
 
     dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-          <div id="poster" class="col-md-2">
-            <img
-              id="food-img"
-              src="${data.hits[i].recipe.image}"
-              class="img-fluid"
-            />
-          </div>
-          <div id="food-content" class="col-md-10 p-5">
-            <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
-            <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
-          </div>
-        </div>`;
+    <div id="poster" class="col-md-2">
+    <img
+    id="food-img"
+    src="${data.hits[i].recipe.image}"
+    class="img-fluid"
+    />
+    </div>
+    <div id="food-content" class="col-md-10 p-5">
+    <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
+    <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+    </div>
+    </div>`;
 
     dinnerContainerEl.append(dinnerContentEl);
-          }
-        }
+  }
+}
+
+// Drinks section
+var drinkContainerEl = $("#drink-container");
+var drinksUrl1 = localStorage.getItem("drinksUrl1");
+var drinksUrlID = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
+function getDrinks(drinksUrl1) {
+  console.log(drinksUrl1);
+  // fetch
+  fetch(drinksUrl1)
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data.drinks);
+      showDrinks(data.drinks);
+    });
+}
+function showDrinks(arr) {
+  drinkContainerEl.empty();
+
+  for (let i = 0; i < 5; i++) {
+    var drinkContentEl = document.createElement("div");
+
+    drinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+    <div id="poster" class="col-md-2">
+    <img
+    id="drink-img"
+    src="${arr[i].strDrinkThumb}"
+    class="img-fluid"
+    />
+    </div>
+    <div id="drink-content" class="col-md-10 p-5">
+    <h2 id="drink-name" class="display-5 col-md-9">${arr[i].strDrink}</h2>
+    </div>
+    </div>`;
+
+    drinkContainerEl.append(drinkContentEl);
+  }
+  // <p id="drink-ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+}
+
+getDrinks(drinksUrl1);

@@ -1,6 +1,7 @@
 var moviesAPIUrl = localStorage.getItem("moviesAPI");
-
-getMovies(moviesAPIUrl);
+var drinksUrl1 = localStorage.getItem("drinksUrl1");
+console.log(localStorage.getItem("drinksUrl1"));
+var drinksUrlID = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
 function getMovies(moviesAPIUrl) {
   console.log(moviesAPIUrl);
@@ -84,3 +85,20 @@ function showMovies(data) {
     movieContainerEl.append(movieContentEl);
   }
 }
+
+function getDrinks(drinksUrl1) {
+  console.log(drinksUrl1);
+  // fetch
+  fetch(drinksUrl1)
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      // console.log(data.drinks);
+      // showMovies(data.results);
+    });
+}
+getMovies(moviesAPIUrl);
+getDrinks(drinksUrl1);
