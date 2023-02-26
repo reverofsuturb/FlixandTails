@@ -133,35 +133,6 @@ console.log($("#cuisine :selected")[0].value != 0);
       });
     }
 
-    var dinnerContainerEl = $("#dinner-container");
-
-
-  function showDinner(data) {
-    dinnerContainerEl.empty();
-  
-    for (let i = 0; i < 5; i++) {
-      var dinnerContentEl = document.createElement("div");
-      console.log(data[i].id);
-
-  
-  
-      dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-            <div id="poster" class="col-md-2">
-              <img
-                id="food-img"
-                src="${IMGUrl + data.hits[i].recipe.image}"
-                class="img-fluid"
-              />
-            </div>
-            <div id="food-content" class="col-md-10 p-5">
-              <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
-              <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
-            </div>
-          </div>`;
-  
-      dinnerContainerEl.append(dinnerContentEl);
-            }
-          }
 
 
 // var inginp = $("#ingredientinp");
@@ -190,3 +161,37 @@ console.log($("#cuisine :selected")[0].value != 0);
 // //   event.stopImmediatePropagation();
 // //   $(this).parent().remove();
 // // })
+
+
+
+
+// display results function do not include
+// var dinnerContainerEl = $("#dinner-container");
+
+
+// function showDinner(data) {
+//   dinnerContainerEl.empty();
+
+//   for (let i = 0; i < 5; i++) {
+//     var dinnerContentEl = document.createElement("div");
+//     console.log(data[i].id);
+
+
+
+//     dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+//           <div id="poster" class="col-md-2">
+//             <img
+//               id="food-img"
+//               src="${IMGUrl + data.hits[i].recipe.image}"
+//               class="img-fluid"
+//             />
+//           </div>
+//           <div id="food-content" class="col-md-10 p-5">
+//             <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
+//             <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+//           </div>
+//         </div>`;
+
+//     dinnerContainerEl.append(dinnerContentEl);
+//           }
+//         }
