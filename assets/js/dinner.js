@@ -1,16 +1,8 @@
+//api keys https://developer.edamam.com/edamam-docs-recipe-api
 var dinnerAPIKey = "a68b28f687a6fab289f2323167117c84";
 var dinnerAPPID = "8422820f";
-
-//api keys https://developer.edamam.com/edamam-docs-recipe-api
-
 var foodsearch = $("#foodsearch");
-
-//selects food user input box
-
-
-
-// event listener for the search button
-
+// arrays for the dropdown menus
 var mealType = [
   "Meal Type",
   "breakfast",
@@ -31,6 +23,7 @@ var dishType = [
   "soup",
   "starter",
   ];
+
 var cuisineType = [
   "Cuisine",
   "american",
@@ -53,14 +46,7 @@ var cuisineType = [
   "south east asian",
 ];
 
-// arrays for the dropdown menus
-
-$("#ingredientadd").on("click", function () {
-  event.preventDefault();
-  saverecipe();
-});
-
-
+// populates the dropdown menus with the arrays
 var dishDropdown = $("#dish");
 $.each(dishType, function (val, text) {
   dishDropdown.append($("<option></option>").val(val).html(text));
@@ -76,17 +62,13 @@ $.each(cuisineType, function (val, text) {
   cuisineDropdown.append($("<option></option>").val(val).html(text));
 });
 
-// populates the dropdown menus with the arrays
-
-// event listener for the search button
-
+//  conditional to create the proper request url, uses if statements comparing the index value to see if more text needs to be added to the url, saved to local storage to be used by results page
 function saverecipe() {
   $("#foodrecs").empty();
   var foodrequest =
     "https://api.edamam.com/api/recipes/v2?type=public&q=" +
-    foodsearch.val() +
+    ($("#ingredientbox").children().text()).replace(/Remove/g, "%20") +
     "&app_id=8422820f&app_key=a68b28f687a6fab289f2323167117c84";
-console.log($("#cuisine :selected")[0].value != 0);
   if ($("#cuisine :selected")[0].value !=0) {
     foodrequest +=
       "&cuisineType=" + $("#cuisine :selected").text().replace(/ /g, "%20");
@@ -98,74 +80,66 @@ console.log($("#cuisine :selected")[0].value != 0);
       "&dishType=" + $("#dish :selected").text().replace(/ /g, "%20");
   }
   console.log(foodrequest)
-  localStorage.setItem("foodresult", foodrequest)
+  localStorage.setItem("foodresult", foodrequest);
 }
-  // conditional to create the proper request url, uses if statements comparing the index value to see if more text needs to be added to the url
-    function getrecipe() {
-  var foodshow = localStorage.getItem("foodresult")
-    fetch(foodshow)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(foodrequest.replace(/%20/g, ""));
-        console.log(data);
-        showDinner(data); 
-        
-        // for (var i = 0; i < 5; i++) {
-        //   var createTableRow = document.createElement("tr");
-        //   var tableData = document.createElement("td");
-        //   var link = document.createElement("a");
-        //   var ingredientlist = document.createElement("p");
-        //   var foodimage = document.createElement("img");
 
-        //   foodimage.src = data.hits[i].recipe.image;
-        //   link.textContent = data.hits[i].recipe.label;
-        //   link.href = data.hits[i].recipe.url;
-        //   ingredientlist.textContent = data.hits[i].recipe.ingredientLines;
-
-        //   tableData.append(link);
-        //   tableData.append(foodimage);
-        //   tableData.append(ingredientlist);
-        //   createTableRow.append(tableData);
-        //   $("#foodrecs").append(createTableRow);
-        
-      });
-    }
+$("#dinner-next").on("click", function () {
+  saverecipe();
+});
 
 
+var inginp = $("#ingredientinp");
+var ingadd = $("#ingredientadd")
+var ingbox = $("#ingredientbox");
 
-// var inginp = $("#ingredientinp");
-// var ingadd = $("#ingredientadd")
-// var ingbox = $("#ingredientbox");
+ingadd.on("click", function() {
+  var finput = inginp.val();
+var tableData = document.createElement("td");
+var removebtn = document.createElement("button");
+var createTableRow = document.createElement("tr");
 
-// ingadd.on("click", function() {
-//   var finput = inginp.val();
-//   var createTableRow = document.createElement("tr");
-//   var tableData = document.createElement("td");
-//   var ingremove = document.createElement("button")
-//   var removeitem = $("#ingremoveitem");
+  tableData.textContent = finput;
+  tableData.setAttribute("class", "fquery");
+  removebtn.textContent = "Remove";
+  removebtn.setAttribute("id", "removeitem");
+  removebtn.setAttribute("class", "btn form-btn btn-outline-secondary");
 
-//   tableData.textContent = finput;
-//   ingremove.textContent = "X"
-//   ingremove.setAttribute("id", "ingremoveitem")
+  createTableRow.append(tableData);
+  createTableRow.append(removebtn);
+  $("#ingredientbox").append(createTableRow);
+  console.log($("#ingredientbox").children().text())
+})
+
+$("#removeitem").on("click", function(event) {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  $(this).parent().remove();
+})
 
 
-//   createTableRow.append(tableData);
-//   createTableRow.append(ingremove);
-//   $("#ingredientbox").append(createTableRow);
+// displayResults.js functions below****
 
+// get recipe do not include****
 
-// // removeitem.on("click", function(event) {
-// //   event.preventDefault();
-// //   event.stopImmediatePropagation();
-// //   $(this).parent().remove();
-// // })
+// function getrecipe() {
+//   var foodshow = localStorage.getItem("foodresult")
+//     fetch(foodshow)
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         console.log(foodrequest.replace(/%20/g, ""));
+//         console.log(data);
+//         showDinner(data); 
+//       }
+//   )}
 
 
 
 
-// display results function do not include
+
+// display results function do not include****
+
 // var dinnerContainerEl = $("#dinner-container");
 
 
