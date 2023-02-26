@@ -227,14 +227,6 @@ $("#addDrinkIngredient").on("click", function (event) {
     // add user ingredient to array
     userDrinkIngredients.push(drinkIngInput.val());
     //create list item for ingredient to show user what ingredients they've added
-    var drinkIngTableRow = document.createElement("tr");
-    var drinkIngItem = document.createElement("td");
-    var drinkIngXBtn = document.createElement("td");
-    drinkIngItem.textContent = drinkIngInput.val();
-    drinkIngXBtn.textContent = "Remove";
-    drinkIngTableRow.append(drinkIngItem, drinkIngXBtn);
-    $("#userDrinkIngList").append(drinkIngTableRow);
-    drinkIngInput.val("");
   }
 });
 
@@ -298,7 +290,7 @@ ingAddD.on("click", function () {
   var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
 
-  $(".ingDrinkInp").children("input").val("");
+  $(".searchDrinkIng").children("input").val("");
 
   tableData.textContent = finput;
   tableData.setAttribute("class", "fquery");
@@ -320,3 +312,12 @@ $("#ingredientDbox").on("click", function (event) {
   console.log(event.target);
   $(event.target).parent().remove();
 });
+
+// var drinkIngTableRow = document.createElement("tr");
+// var drinkIngItem = document.createElement("td");
+// var drinkIngXBtn = document.createElement("td");
+// drinkIngItem.textContent = drinkIngInput.val();
+
+// drinkIngTableRow.append(drinkIngItem, drinkIngXBtn);
+// $("#ingredientDbox").append(drinkIngTableRow);
+// drinkIngInput.val("");
