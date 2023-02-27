@@ -69,6 +69,67 @@
             </div>
           </div>`; -->
         </div>
+        <!-- only will show below if query results are bad  -->
+        <div
+          id="showiferrordinner"
+          style="display: none"
+          class="flex-column flex-wrap justify-content-center px-1 px-sm-5 m-2"
+        >
+          <div class="d-flex flex-wrap">
+            <div class="col-md-8 d-flex align-items-center dinnerType mb-3">
+              <input
+                id="ingredientinp"
+                type="text"
+                class="formIngred dinnerForm"
+                placeholder="Add Ingredient(s)"
+                aria-label="Add Ingredient(s)"
+                aria-describedby="button-addon2"
+              />
+              <button
+                id="ingredientadd"
+                class="btn form-btn btn-outline-secondary"
+                type="button"
+              >
+                Add
+              </button>
+            </div>
+            <div class="col-md-4">
+              <div class="tableBox ms-sm-5 mb-5">
+                <table class="scroll">
+                  <thead>
+                    <tr>
+                      <th>Ingredient(s)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ingredientbox"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div
+            class="d-flex flex-wrap col-md-12 mb-2 mb-sm-5 mt-sm-3 foodType-container"
+          >
+            <select
+              id="dish"
+              class="foodType dinnerForm mb-2"
+              aria-label=".form-select-sm example"
+            ></select>
+            <select
+              id="meal"
+              class="foodType dinnerForm mb-2"
+              aria-label=".form-select-sm example"
+            ></select>
+            <select
+              id="cuisine"
+              class="foodType dinnerForm mb-2"
+              aria-label=".form-select-sm example"
+            ></select>
+            <button id="remakedinner" class="navBtn themeBtn px-3 py-2 mx-4">
+              Reload my Night
+            </button>
+          </div>
+        </div>
+        <!-- only will show above if query results are bad -->
       </div>
     </div>
     <header id="drinkHeader" class="p-5 mb-4 text-center">
@@ -79,13 +140,79 @@
     <div
       class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
     >
-
       <div class="col-12 col-md-12 p-1">
         <div
           id="drink-container"
           class="row row-cols-1 row-cols-sm-2 row-cols-md-3 b-4"
         ></div>
-      </div>
+        <!-- only will show below if query results are bad -->
+        <div
+          id="showiferrordrink"
+          style="display: none"
+          class="column mb-2 mb-sm-2"
+        >
+          <div id="drinkSearchType">
+            <h4>1. Would you like to search by ingredients or category?</h4>
+            <button id="searchIngredients" class="px-4 py-2 btn-bg-white">
+              Ingredients
+            </button>
+            <button id="searchCategory" class="px-4 py-2 btn-bg-white">
+              Category
+            </button>
+          </div>
+
+          <div class="col-md-12 input-group mb-2 justify-content-center">
+            <div id="drinkCatForm" style="display: none" class="m-2 m-sm-4">
+              <h4>2. Please select a drink category:</h4>
+              <select id="category"></select>
+              <!-- <button id="search" type="submit" class="btn btn-success">
+                Search
+              </button> -->
+            </div>
+
+            <div
+              id="drinkIngForm"
+              class="col-md-8 justify-content-center"
+              style="display: none"
+            >
+              <h4 class="mt-5">
+                2. Please enter ingredient and select from provided options:
+              </h4>
+              <div class="input-group searchDrinkIng">
+                <input
+                  id="drinkIngredientSearch"
+                  type="text"
+                  class="form-control IngDrinkInp col-6"
+                  placeholder="Enter ingredients to search"
+                  aria-label="search ingredients"
+                />
+
+                <button id="addDrinkIngredient" class="makeBtn" type="button">
+                  ADD
+                </button>
+              </div>
+
+              <!--table starts-->
+              <div class="row rowDrinkIng col-md-12">
+                <div class="tableBoxD mt-5 mb-5">
+                  <table class="scroll">
+                    <thead>
+                      <tr>
+                        <th><p>Added Ingredients:</p></th>
+                      </tr>
+                    </thead>
+                    <tbody id="ingredientDbox"></tbody>
+                  </table>
+                </div>
+              </div>
+              <!--table ends-->
+            </div>
+            <button id="remakedrink" class="navBtn themeBtn px-3 py-2 mx-4">
+              Reload my Night
+            </button>
+          </div>
+          <!-- only will show above if query results are bad -->
+        </div>
       </div>
       <header id="movieHeader" class="p-5 mb-4 text-center">
         <h1 class="display-3">Movies Results</h1>
@@ -97,6 +224,43 @@
       >
         <div class="col-12 col-md-12 p-5 text-light">
           <div id="movie-container" class="mb-4 p-3"></div>
+          <!-- only will show below if query results are bad -->
+          <div id="showiferrormovie" style="display: none" class="row">
+            <div
+              class="movie-form d-flex flex-sm-row flex-column justify-content-center align-items-center col-md-12 px-sm-5 my-5"
+            >
+              <div
+                id="tags"
+                class="d-flex justify-content-center justify-content-sm-start flex-wrap"
+              ></div>
+              <div class="d-flex flex-column justify-content-start">
+                <label for="released-year" class="">Choose a year:</label>
+
+                <select name="released-year" id="year-select" class="mb-4">
+                  <option value="">--Released year--</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                </select>
+
+                <label for="runtime" class="">How long you want to sit?:</label>
+
+                <select name="released-year" id="runtime-select" class="">
+                  <option value="">--Runtime--</option>
+                  <option value="short">Short</option>
+                  <option value="normal">Normal</option>
+                  <option value="long">Long</option>
+                </select>
+              </div>
+            </div>
+            <button id="remakemovie" class="navBtn themeBtn px-3 py-2 mx-4">
+              Reload my Night
+            </button>
+          </div>
+          <!-- only will show above if query results are bad -->
         </div>
       </div>
     </div>
@@ -106,7 +270,6 @@
           Show me details for tonight
         </button></a
       >
-
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script
