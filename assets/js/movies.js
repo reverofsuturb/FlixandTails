@@ -200,3 +200,14 @@ function getGenres() {
     tagsContainer.append(tag);
   });
 }
+
+$("#movie-container").on("click", function (event) {
+  event.stopPropagation();
+  var finalMovieID = event.target.previousSibling.previousSibling.textContent;
+  movieFinalUrl =
+    "https://api.themoviedb.org/3/movie/" +
+    finalMovieID +
+    "?api_key=b44845387b097f5b3e4234772c94b4c5&language=en-US";
+  localStorage.setItem("finalmovie", movieFinalUrl);
+  console.log(movieFinalUrl);
+});

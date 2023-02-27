@@ -79,6 +79,7 @@ function showMovies(data) {
     <h3 id="rating" class="mb-3">Rating<span class="rating">${
       data[i].vote_average
     }</span></h3>
+    <p style="display:none;">${movie_ID}</p>
     <button id="movieselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
