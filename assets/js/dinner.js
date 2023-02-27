@@ -193,6 +193,9 @@ localStorage.setItem("randomdinner", dinnerrandom);
 console.log(dinnerrandom)
 }
 
+
+// grabs the query for saved selection/final results
+
 $("#dinner-container").on("click", function(event) {
   event.stopPropagation();
 var foodID = ((event.target.previousSibling).previousSibling.innerHTML);
@@ -269,3 +272,47 @@ console.log(foodID);
 //           }
 //         }
 
+
+// function for final results page/saved page
+
+// var saveddinnerContainerEl = $("#saveddinner-container");
+
+// function getsavedDinner(data) {
+
+
+//   var saveddinnershow = localStorage.getItem("finaldinner")
+//     fetch(saveddinnershow)
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         console.log(foodrequest.replace(/%20/g, ""));
+//         console.log(data);
+//         showsavedDinner(data);
+//       }
+//   )}
+
+// function showsavedDinner() {
+
+//   saveddinnerContainerEl.empty();
+
+//     var saveddinnerContentEl = document.createElement("div");
+//     console.log(data[i].id);
+
+//     saveddinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+//           <div id="poster" class="col-md-2">
+//             <img
+//               id="food-img"
+//               src="${IMGUrl + data.hits[0].recipe.image}"
+//               class="img-fluid"
+//             />
+//           </div>
+//           <div id="food-content" class="col-md-10 p-5">
+//             <h2 id="food-name" class="display-5 col-md-9">${data.hits[0].recipe.label}</h2>
+//             <p id="ingredients" class="">${data.hits[0].recipe.ingredientLines}</p>
+//             <a id="link" href="${data.hits[0].recipe.url} class="display-5 col-md-9">View Full Recipe</a>
+//           </div>
+//         </div>`;
+
+//     saveddinnerContainerEl.append(saveddinnerContentEl);
+//           }
