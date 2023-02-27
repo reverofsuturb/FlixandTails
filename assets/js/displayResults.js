@@ -99,9 +99,13 @@ function getrecipe() {
     })
     .then(function (data) {
       console.log(data);
+      if (data.count === 0) {
+        showDinnerError()
+      } else {
       showDinner(data);
+      }
     });
-}
+  }
 
 var dinnerContainerEl = $("#dinner-container");
 
@@ -131,6 +135,28 @@ function showDinner(data) {
   }
 }
 
+function showDinnerError() {
+  dinnerContainerEl.empty();
+
+
+  var dinnerContentEl = document.createElement("div");
+
+    dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+    <div id="poster" class="col-md-2">
+    <img
+    id="food-img"
+    src="assets/Images/sarah-kilian-icecream-unsplash.jpg"
+    class="img-fluid"
+    />
+    </div>
+    <div id="food-content" class="col-md-10 p-5">
+    <h2 id="food-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please go back to search!</h2>
+    
+    </div>
+    </div>`;
+
+    dinnerContainerEl.append(dinnerContentEl);
+  }
 // Drinks section
 var drinkContainerEl = $("#drink-container");
 var drinksUrl1 = localStorage.getItem("drinksUrl1");

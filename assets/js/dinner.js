@@ -258,7 +258,7 @@ console.log(foodID);
 //           <div id="poster" class="col-md-2">
 //             <img
 //               id="food-img"
-//               src="${IMGUrl + data.hits[i].recipe.image}"
+//               src="${data.hits[i].recipe.image}"
 //               class="img-fluid"
 //             />
 //           </div>
@@ -303,16 +303,62 @@ console.log(foodID);
 //           <div id="poster" class="col-md-2">
 //             <img
 //               id="food-img"
-//               src="${IMGUrl + data.hits[0].recipe.image}"
+//               src="${data.recipe.image}"
 //               class="img-fluid"
 //             />
 //           </div>
 //           <div id="food-content" class="col-md-10 p-5">
-//             <h2 id="food-name" class="display-5 col-md-9">${data.hits[0].recipe.label}</h2>
-//             <p id="ingredients" class="">${data.hits[0].recipe.ingredientLines}</p>
-//             <a id="link" href="${data.hits[0].recipe.url} class="display-5 col-md-9">View Full Recipe</a>
+//             <h2 id="food-name" class="display-5 col-md-9">${data.recipe.label}</h2>
+//             <p id="ingredients" class="">${data.recipe.ingredientLines}</p>
+//             <a id="link" href="${data.recipe.url}" class="display-5 col-md-9">View Full Recipe</a>
 //           </div>
 //         </div>`;
 
 //     saveddinnerContainerEl.append(saveddinnerContentEl);
 //           }
+
+
+
+// dinner error function if array shows up with 0 results
+
+// getrecipe();
+
+// function getrecipe() {
+//   var foodshow = localStorage.getItem("foodresult");
+//   fetch(foodshow)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       if (data.length < 2) {
+
+//       } else {}
+//       showDinner(data);
+//     });
+// }
+
+// var dinnerContainerEl = $("#dinner-container");
+
+// function showDinnerError() {
+//   dinnerContainerEl.empty();
+
+
+//   var dinnerContentEl = document.createElement("div");
+
+//     dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+//     <div id="poster" class="col-md-2">
+//     <img
+//     id="food-img"
+//     src="assets/Images/sarah-kilian-icecream-unsplash.jpg"
+//     class="img-fluid"
+//     />
+//     </div>
+//     <div id="food-content" class="col-md-10 p-5">
+//     <h2 id="food-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please go back to search!</h2>
+    
+//     </div>
+//     </div>`;
+
+//     dinnerContainerEl.append(dinnerContentEl);
+//   }
