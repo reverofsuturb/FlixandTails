@@ -211,3 +211,16 @@ $("#movie-container").on("click", function (event) {
   localStorage.setItem("finalmovie", movieFinalUrl);
   console.log(movieFinalUrl);
 });
+
+$("#lucky").on("click", function () {
+  fetch(drinksUrl1)
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data);
+      // showDrinks(data);
+    });
+});

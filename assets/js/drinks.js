@@ -332,3 +332,10 @@ $("#drink-container").on("click", function (event) {
   localStorage.setItem("finaldrink", drinkUrl3);
   console.log(drinkUrl3);
 });
+
+$("#lucky").on("click", function () {
+  localStorage.setItem(
+    "finaldrink",
+    "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+  );
+});
