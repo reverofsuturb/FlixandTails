@@ -120,6 +120,8 @@ function showDinner(data) {
     <div id="food-content" class="col-md-10 p-5">
     <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
     <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+    <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
+    <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
 
