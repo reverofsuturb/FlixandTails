@@ -321,8 +321,8 @@ $("#drink-container").on("click", function (event) {
   event.stopPropagation();
   console.log(event.target.previousSibling.previousSibling);
   var drinkID = event.target.previousSibling.previousSibling.textContent;
-  drinkUrl2 =
+  var drinkUrl3 =
     "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
-  localStorage.setItem("finaldrink", drinkUrl2);
-  console.log(drinkUrl2);
+  localStorage.setItem("finaldrink", drinkUrl3);
+  console.log(drinkUrl3);
 });
