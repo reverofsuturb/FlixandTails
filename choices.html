@@ -16,12 +16,12 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/choices.css" />
-    <link rel="stylesheet" href="./assets/css/movies.css" />
+    <link rel="stylesheet" href="./assets/css/choices.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/movies.css" /> -->
     <title>'Flix and 'Tails'</title>
   </head>
   <body class="d-flex vh-100">
-    <div class="landingImg vw-100 vh-100">
+    <div class="bg-main vw-100 vh-100">
       <div
         class="choicesContainer container d-flex vw-100 vh-100 mx-auto flex-column"
       >
@@ -29,41 +29,47 @@
           <main
             class="choices px-3 text-center position-absolute row-cols-12 top-50 start-50 translate-middle"
           >
+            <div id="progressbar" class="d-flex justify-content-center"></div>
             <form id="form" class="divs">
               <fieldset>
                 <h1>What do you want to do?</h1>
                 <p class="description">Select at least one</p>
-                <div class="column p-5 m-5">
-                  <img
-                    src="./assets/Images/icons/dinner.png"
-                    id="dinner-choice"
-                    alt="dinner icon"
-                    class="categoryIcon"
-                    width="100"
-                    height="100"
-                  />
-                  <img
-                    src="./assets/Images/icons/cocktail.png"
-                    id="drink-choice"
-                    alt="cocktails categoryIcon"
-                    class="categoryIcon"
-                    width="100"
-                    height="100"
-                  />
-                  <img
-                    src="./assets/Images/icons/movies.png"
-                    id="movie-choice"
-                    alt="movies categoryIcon"
-                    class="categoryIcon"
-                    width="100"
-                    height="100"
-                  />
+                <div
+                  class="d-flex flex-wrap justify-content-left justify-content-sm-center align-items-center mb-3 mx-5 mx-sm-1"
+                >
+                  <div class="option-icon">
+                    <img
+                      src="./assets/Images/icons/dinner.png"
+                      id="dinner-choice"
+                      class="categoryIcon"
+                      alt="dinner icon"
+                    />
+                    <h2>Dinner</h2>
+                  </div>
+                  <div class="option-icon">
+                    <img
+                      src="./assets/Images/icons/cocktail.png"
+                      id="drink-choice"
+                      class="categoryIcon"
+                      alt="cocktails icon"
+                    />
+                    <h2>Cocktails</h2>
+                  </div>
+                  <div class="option-icon">
+                    <img
+                      src="./assets/Images/icons/movies.png"
+                      id="movie-choice"
+                      class="categoryIcon"
+                      alt="movies icon"
+                    />
+                    <h2>Movies</h2>
+                  </div>
                 </div>
                 <input
                   id="next"
                   type="button"
                   name="next-step"
-                  class="next-step"
+                  class="next-step makeBtn"
                   value="Next"
                 />
               </fieldset>
@@ -71,52 +77,60 @@
               <fieldset id="dinner-option">
                 <h1 class="mb-5">What do you want for dinner?</h1>
                 <div class="gy-3">
-                  <div class="row p-2 m-2">
-                    <div class="d-flex col-md-6 mb-5 mt-3">
+                  <div
+                    class="d-flex flex-column flex-wrap justify-content-center px-1 px-sm-5 m-2"
+                  >
+                    <div class="d-flex flex-wrap">
+                      <div
+                        class="col-md-8 d-flex align-items-center dinnerType mb-3"
+                      >
+                        <input
+                          id="ingredientinp"
+                          type="text"
+                          class="formIngred dinnerForm"
+                          placeholder="Add Ingredient(s)"
+                          aria-label="Add Ingredient(s)"
+                          aria-describedby="button-addon2"
+                        />
+                        <button
+                          id="ingredientadd"
+                          class="btn form-btn btn-outline-secondary"
+                          type="button"
+                        >
+                          Add
+                        </button>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="tableBox ms-sm-5 mb-5">
+                          <table class="scroll">
+                            <thead>
+                              <tr>
+                                <th>Ingredient(s)</th>
+                              </tr>
+                            </thead>
+                            <tbody id="ingredientbox"></tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex flex-wrap col-md-12 mb-2 mb-sm-5 mt-sm-3 foodType-container"
+                    >
                       <select
                         id="dish"
-                        class="form-select foodType dinnerForm form-select mb-2"
+                        class="foodType dinnerForm mb-2"
                         aria-label=".form-select-sm example"
                       ></select>
                       <select
                         id="meal"
-                        class="form-select foodType dinnerForm form-select mb-2"
+                        class="foodType dinnerForm mb-2"
                         aria-label=".form-select-sm example"
                       ></select>
                       <select
                         id="cuisine"
-                        class="form-select foodType dinnerForm form-select mb-2"
+                        class="foodType dinnerForm mb-2"
                         aria-label=".form-select-sm example"
                       ></select>
-                    </div>
-                    <div class="row rowIngred col-md-6">
-                      <div class="tableBox ms-5 ps-5 mb-5">
-                        <table class="scroll">
-                          <thead>
-                            <tr>
-                              <th>Ingredient(s)</th>
-                            </tr>
-                          </thead>
-                          <tbody id="ingredientbox"></tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="input-group col-6 dinnerType mb-3">
-                      <input
-                        id="ingredientinp"
-                        type="text"
-                        class="form-control formIngred dinnerForm"
-                        placeholder="Add Ingredient(s)"
-                        aria-label="Add Ingredient(s)"
-                        aria-describedby="button-addon2"
-                      />
-                      <button
-                        id="ingredientadd"
-                        class="btn form-btn btn-outline-secondary"
-                        type="button"
-                      >
-                        Add
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -124,29 +138,32 @@
                 <input
                   type="button"
                   name="previous-step"
-                  class="previous-step me-5"
+                  class="previous-step me-sm-5 makeBtn"
                   value="Previous"
                 />
                 <input
                   id="dinner-next"
                   type="button"
                   name="next-step"
-                  class="next-step"
+                  class="next-step makeBtn"
                   value="Next"
                 />
               </fieldset>
 
               <fieldset id="drink-option">
                 <h1>What do you want to drink?</h1>
-                <div class="column">
+                <div class="column mb-2 mb-sm-2">
                   <div id="drinkSearchType">
                     <h4>
-                      Would you like to search by ingredients or category?
+                      1. Would you like to search by ingredients or category?
                     </h4>
-                    <button id="searchIngredients" class="btn btn-success">
+                    <button
+                      id="searchIngredients"
+                      class="px-4 py-2 btn-bg-white"
+                    >
                       Ingredients
                     </button>
-                    <button id="searchCategory" class="btn btn-success">
+                    <button id="searchCategory" class="px-4 py-2 btn-bg-white">
                       Category
                     </button>
                   </div>
@@ -154,8 +171,12 @@
                   <div
                     class="col-md-12 input-group mb-2 justify-content-center"
                   >
-                    <div id="drinkCatForm" style="display: none">
-                      <h4>Please select a drink category:</h4>
+                    <div
+                      id="drinkCatForm"
+                      style="display: none"
+                      class="m-2 m-sm-4"
+                    >
+                      <h4>2. Please select a drink category:</h4>
                       <select id="category"></select>
                       <!-- <button id="search" type="submit" class="btn btn-success">
                         Search
@@ -164,11 +185,11 @@
 
                     <div
                       id="drinkIngForm"
-                      class="col-md-12 justify-content-center"
+                      class="col-md-8 justify-content-center"
                       style="display: none"
                     >
-                      <h4>
-                        Please enter ingredient and select from provided
+                      <h4 class="mt-5">
+                        2. Please enter ingredient and select from provided
                         options:
                       </h4>
                       <div class="input-group searchDrinkIng">
@@ -182,20 +203,20 @@
 
                         <button
                           id="addDrinkIngredient"
-                          class="btn form-btn btn-outline-secondary-coral"
+                          class="makeBtn"
                           type="button"
                         >
-                          Add Ingredient
+                          ADD
                         </button>
                       </div>
-                      <p>Added Ingredients:</p>
+
                       <!--table starts-->
                       <div class="row rowDrinkIng col-md-12">
-                        <div class="tableBoxD mb-5">
+                        <div class="tableBoxD mt-5 mb-5">
                           <table class="scroll">
                             <thead>
                               <tr>
-                                <th>Ingredient(s)</th>
+                                <th><p>Added Ingredients:</p></th>
                               </tr>
                             </thead>
                             <tbody id="ingredientDbox"></tbody>
@@ -209,14 +230,14 @@
                 <input
                   type="button"
                   name="previous-step"
-                  class="previous-step me-5"
+                  class="previous-step makeBtn me-sm-5"
                   value="Previous"
                 />
                 <input
                   id="drinks-next"
                   type="button"
                   name="next-step"
-                  class="next-step"
+                  class="next-step makeBtn"
                   value="Next"
                 />
               </fieldset>
@@ -226,11 +247,11 @@
                 <h1>What do you want to watch?</h1>
                 <div class="row">
                   <div
-                    class="movie-form d-flex flex-row justify-content-center align-items-center col-md-12 px-5 my-5"
+                    class="movie-form d-flex flex-sm-row flex-column justify-content-center align-items-center col-md-12 px-sm-5 my-5"
                   >
                     <div
                       id="tags"
-                      class="d-flex col-md-9 justify-content-start flex-wrap"
+                      class="d-flex justify-content-start flex-wrap"
                     ></div>
                     <div class="d-flex flex-column justify-content-start">
                       <label for="released-year" class="">Choose a year:</label>
@@ -265,7 +286,7 @@
                 <input
                   type="button"
                   name="previous-step"
-                  class="previous-step"
+                  class="previous-step makeBtn me-sm-5"
                   value="Previous"
                 />
 
@@ -273,34 +294,34 @@
                   id="moviesSave"
                   type="button"
                   name="next-step"
-                  class="next-step makeNight"
+                  class="next-step makeBtn makeNight"
                   value="Next"
                 />
               </fieldset>
               <fieldset>
-                <input
-                  type="button"
-                  name="previous-step"
-                  class="previous-step"
-                  value="Previous"
-                />
-                <a href="results.html">
+                <div
+                  class="d-flex flex-column flex-wrap justify-content-center align-items-center"
+                >
+                  <a href="results.html">
+                    <input
+                      id="makeMyNight"
+                      type="button"
+                      name="next-step"
+                      class="next-step makeNight makeNightBtn makeBtn mb-5"
+                      value="Make my night"
+                    />
+                  </a>
                   <input
-                    id="makeMyNight"
                     type="button"
-                    name="next-step"
-                    class="next-step makeNight"
-                    value="Make my night"
+                    name="previous-step"
+                    class="previous-step makeBtn"
+                    value="Previous"
                   />
-                </a>
+                </div>
               </fieldset>
             </form>
-
-            <div
-              id="progressbar carouselExampleIndicators"
-              class="carousel-indicators"
-              data-bs-target="#carouselExampleIndicators"
-            >
+             
+            <div id="progressbar" class="carousel-indicators">
               <!-- <button
                 type="button"
                 data-bs-target="#carouselExampleIndicators"
@@ -331,7 +352,7 @@
           </main>
         </div>
       </div>
-      <div class="container footer-container">
+      <!-- <div class="container footer-container">  
         <footer
           class="d-flex flex-wrap justify-content-between align-items-end py-3 my-4 border-top"
         >
@@ -354,7 +375,18 @@
             </button>
           </div>
         </footer>
-      </div>
+      </div> -->
+      <!-- <footer>
+        <div class="d-flex flex-row align-items-center">
+          <img
+            src="./assets/Images/flix and tails logo.png"
+            alt="Logo"
+            width="50"
+            height="50"
+            class=" "
+          /><span class="logo-text">'Flix and 'Tails'</span>
+        </div>
+      </footer> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script
