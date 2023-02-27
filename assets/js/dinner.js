@@ -138,14 +138,9 @@ function dinnerlucky(){
     "breakfast",
     "lunch",
     "dinner",
-    "snack",
-    "teatime",
   ];
   
   var dishType2 = [
-    "bread",
-    "condiments and sauces",
-    "desserts",
     "main course",
     "salad",
     "sandwiches",
@@ -157,21 +152,14 @@ function dinnerlucky(){
     "american",
     "asian",
     "british",
-    "caribbean",
-    "central europe",
     "chinese",
-    "eastern europe",
     "french",
     "greek",
     "indian",
     "italian",
     "japanese",
-    "kosher",
     "mediterranean",
     "mexican",
-    "nordic",
-    "south american",
-    "south east asian",
   ];
   var mealrandom = mealType2[((Math.floor(Math.random() * mealType2.length)))];
   var dishrandom = dishType2[((Math.floor(Math.random() * dishType2.length)))];
