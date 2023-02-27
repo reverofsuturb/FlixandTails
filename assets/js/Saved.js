@@ -32,7 +32,13 @@ function showsavedDinner(data) {
         </div>`);
 
   savedContainerEl.append(saveddinnerContentEl);
-  getSavedDrink();
+  if (opSelected2 == 1) {
+    getSavedDrink();
+  } else {
+    if (opSelected3 == 1) {
+      getSavedMovie();
+    }
+  }
 }
 function getSavedDrink() {
   var savedDrinkShow = localStorage.getItem("finaldrink");
@@ -47,9 +53,36 @@ function getSavedDrink() {
     });
 }
 function showSavedDrink(arr) {
-  //   savedContainerEl.empty();
-
   var savedDrinkContentEl = document.createElement("div");
+
+  //pull ingredients and measurements from api object
+
+  var drinkIngMeas = [];
+  for (i = 1; i < 15; i++) {
+    var ingredienti = "arr[0].strIngredient" + i;
+    var ingMeasurei = "arr[0].strMeasure" + i;
+    // console.log(eval(ingredienti));
+    //if there is data in that property, save it to array
+    if (eval(ingredienti) != null) {
+      //if there is no measurement data leave it out
+      if (eval(ingMeasurei) != null) {
+        drinkIngMeas[i - 1] =
+          " " + eval(ingMeasurei) + " of " + eval(ingredienti);
+      } else {
+        drinkIngMeas[i - 1] = " " + eval(ingredienti);
+      }
+    }
+  }
+  //   console.log(drinkIngMeas);
+  //get alcohol info
+  var alcYN;
+  if (arr[0].strAlcoholic == "Alcoholic") {
+    alcYN = "Yes";
+  } else if (arr[0].strAlcoholic == "Non alcoholic") {
+    alcYN = "No";
+  } else if (arr[0].strAlcoholic == "Optional alcohol") {
+    alcYN = "Optional";
+  }
 
   savedDrinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
           <div id="poster" class="col-md-2">
@@ -61,15 +94,17 @@ function showSavedDrink(arr) {
           </div>
           <div id="food-content" class="col-md-10 p-5">
             <h2 id="food-name" class="display-5 col-md-9">${arr[0].strDrink}</h2>
+            <p id="alc-type" class="">Contains alcohol?  ${alcYN}</p>
             <p id="glass-type" class="">Best served in a ${arr[0].strGlass}</p>
+            <p id="ingredients" class="">Ingredients required:  ${drinkIngMeas}</p>
             <p id="Dinstructions" class = "">Instructions:  ${arr[0].strInstructions}</p>
-            <p id="ingredients" class="">${arr[0].strDrink}</p>
-            <a id="link" href="${arr[0].strDrink} class="display-5 col-md-9">View Full Recipe</a>
           </div>
         </div>`;
 
   savedContainerEl.append(savedDrinkContentEl);
-  getSavedMovie();
+  if (opSelected3 == 1) {
+    getSavedMovie();
+  }
 }
 function getSavedMovie() {
   var savedMovieShow = localStorage.getItem("finalmovie");
@@ -107,7 +142,24 @@ function showSavedMovie(data) {
   savedContainerEl.append(savedMovieContentEl);
 }
 
+//make sure container is empty before adding new info
 savedContainerEl.empty();
-getsavedDinner();
+
+//get user picks from localStorage for beginning choices
+opSelected1 = localStorage.getItem("dinnerYN");
+opSelected2 = localStorage.getItem("drinkYN");
+opSelected3 = localStorage.getItem("movieYN");
+
+//condition decides which function to start with
+if (opSelected1 == 1) {
+  getsavedDinner();
+} else if (opSelected1 == 0) {
+  if (opSelected2 == 1) {
+    getSavedDrink();
+  } else if (opSelected2 == 0) {
+    getSavedMovie();
+  }
+}
+
 // getSavedDrink();
 // getSavedMovie();

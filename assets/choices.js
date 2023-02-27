@@ -54,6 +54,11 @@ $(document).ready(function () {
       }
     );
     setProgressBar(++current);
+
+    //save to local storage
+    localStorage.setItem("dinnerYN", opSelected1);
+    localStorage.setItem("drinkYN", opSelected2);
+    localStorage.setItem("movieYN", opSelected3);
   });
 
   $(".previous-step").click(function () {
@@ -111,7 +116,7 @@ $(document).ready(function () {
   function setProgressBar(current) {
     var percent = parseFloat(100 / steps) * current;
     percent = percent.toFixed();
-    $(".progress-bar").css("width", percent + "%");
+    $("#progressbar").css("width", percent + "%");
   }
 
   $("#dinner-choice").on("click", function () {
