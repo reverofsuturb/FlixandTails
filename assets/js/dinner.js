@@ -153,6 +153,10 @@ function dinnerlucky() {
   var dishrandom = dishType2[Math.floor(Math.random() * dishType2.length)];
   var cuisinerandom =
     cuisineType2[Math.floor(Math.random() * cuisineType2.length)];
+  var mealrandom = mealType2[Math.floor(Math.random() * mealType2.length)];
+  var dishrandom = dishType2[Math.floor(Math.random() * dishType2.length)];
+  var cuisinerandom =
+    cuisineType2[Math.floor(Math.random() * cuisineType2.length)];
   console.log(mealrandom);
   console.log(dishrandom);
   console.log(cuisinerandom);
@@ -184,14 +188,20 @@ function dinnerlucky() {
   // console.log(dinnerrandom);
   // console.log(localStorage.getItem("finaldinner"));
 
-  //data.hits[i]._links.self.href
+  localStorage.setItem("randomdinner", dinnerrandom);
+  console.log(dinnerrandom);
 }
 $("#lucky").on("click", dinnerlucky);
 
 // grabs the query for saved selection/final results
 
 $("#dinner-container").on("click", function (event) {
-  event.stopPropagation();
+  $("#dinner-container").on("click", function (event) {
+    event.stopPropagation();
+    var foodID = event.target.previousSibling.previousSibling.innerHTML;
+    localStorage.setItem("finaldinner", foodID);
+    console.log(foodID);
+  });
   var foodID = event.target.previousSibling.previousSibling.innerHTML;
   localStorage.setItem("finaldinner", foodID);
   console.log(foodID);

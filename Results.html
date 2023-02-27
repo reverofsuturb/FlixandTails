@@ -21,17 +21,27 @@
     <link rel="stylesheet" href="./assets/results.css" />
     <title>Movies API</title>
   </head>
-  
+
   <body>
-    <nav class="nav justify-content-end">
-      <button
-        type="button"
-        class="btn navBtn btn-outline-secondary float-md-end col-md-4"
-      >
-        Saved Themes
-      </button>
-    </nav>
-  </navbar>
+    <navbar class="d-flex mb-auto p-3">
+      <div class="navbar-brand float-md-start">
+        <img
+          src="./assets/Images/flix and tails logo.png"
+          alt="Logo"
+          width="50"
+          height="50"
+          class="d-inline-block justify-content-start"
+        />'Flix and 'Tails
+      </div>
+      <nav class="nav justify-content-end">
+        <button
+          type="button"
+          class="btn navBtn btn-outline-secondary float-md-end col-md-4"
+        >
+          Saved Themes
+        </button>
+      </nav>
+    </navbar>
     <header id="foodHeader" class="p-5 mb-4 text-center">
       <h1 class="display-3">Food Results</h1>
       <p class="lead">Choose whichever entices you!</p>
@@ -40,8 +50,11 @@
     <div
       class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
     >
-      <div class="col-12 col-md-12 p-5 text-light">
-        <div id="dinner-container" class="mb-4 p-3">
+      <div class="col-12 col-md-12 p-5">
+        <div
+          id="dinner-container"
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 b-4 p-2"
+        >
           <!-- `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
             <div id="poster" class="col-md-2">
               <img
@@ -66,50 +79,34 @@
     <div
       class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
     >
-      <div class="col-12 col-md-12 p-5 text-light">
-        <div id="drink-container" class="mb-4 p-3"></div>
-      </div>
-    </div>
-    <header id="movieHeader" class="p-5 mb-4 text-center">
-      <h1 class="display-3">Movies Results</h1>
-      <p class="lead">Choose your favorite one! Entertainment guaranteed.</p>
-      <p id=" " class="lead"></p>
-    </header>
-    <div
-      class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
-    >
-      <div class="col-12 col-md-12 p-5 text-light">
-        <div id="movie-container" class="mb-4 p-3">
-          <!-- <div
-            class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2"
-          >
-            <div id="poster" class="col-md-2">
-              <img
-                id="movie-poster"
-                src="https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg"
-                class="img-fluid"
-              />
-            </div>
 
-            <div id="movie-content" class="col-md-10 p-5">
-              <h2 id="movie-name" class="display-5 col-md-9">Black Panther</h2>
-              <p id="overview" class="">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
-                id odit assumenda quis facere fuga inventore quae voluptatum,
-                excepturi veniam? Pariatur eum voluptatibus est nisi consectetur
-                nesciunt? Quibusdam, laudantium eius.
-              </p>
-              <p class="">Cast: <span class="cast"></span></p>
-              <p class="">Director: <span class="director"></span></p>
-              <h3 id="rating" class="mb-3">Rating</h3>
-            </div>
-          </div> -->
+      <div class="col-12 col-md-12 p-1">
+        <div
+          id="drink-container"
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 b-4"
+        ></div>
+      </div>
+      </div>
+      <header id="movieHeader" class="p-5 mb-4 text-center">
+        <h1 class="display-3">Movies Results</h1>
+        <p class="lead">Choose your favorite one! Entertainment guaranteed.</p>
+        <p id=" " class="lead"></p>
+      </header>
+      <div
+        class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
+      >
+        <div class="col-12 col-md-12 p-5 text-light">
+          <div id="movie-container" class="mb-4 p-3"></div>
         </div>
       </div>
-    <footer id=resultsFooter class="width: 100%">
-    <a href="./Saved.html">
-      <button id="showFinal" class="justify-content-center">Show me details for tonight</button></a
-    >
+    </div>
+    <footer id="resultsFooter" class="width: 100%">
+      <a href="./Saved.html">
+        <button id="showFinal" class="justify-content-center">
+          Show me details for tonight
+        </button></a
+      >
+
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script

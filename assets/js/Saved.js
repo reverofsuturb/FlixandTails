@@ -107,9 +107,10 @@ function showSavedDrink(arr) {
     getSavedMovie();
   }
 }
+//get the movie info and id from the local sotrage API
 function getSavedMovie() {
   var savedMovieShow = localStorage.getItem("finalmovie");
-  console.log(savedMovieShow);
+  //console.log(savedMovieShow);
   fetch(savedMovieShow)
     .then(function (response) {
       return response.json();
@@ -119,9 +120,78 @@ function getSavedMovie() {
       showSavedMovie(data);
     });
 }
+//gets the runtime and provider info from different API urls sotred in LocalStorage based on the movie id saved
+function getMovieExtras() {
+  var savedMovieDetails = localStorage.getItem("finalmovie-details");
+  //console.log(savedMovieDetails);
+  fetch(savedMovieDetails)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (details) {
+      var runtimeM = details.runtime;
+      console.log("runtime: " + runtimeM);
+      var runTimeEl = $("#runtimeM");
+      runTimeEl.text(runtimeM + "min");
+    });
+
+  var savedMovieProvider = localStorage.getItem("finalmovie-Provider");
+  //console.log(savedMovieProvider);
+  fetch(savedMovieProvider)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (providers) {
+      //console.log(providers);
+      if (providers.results !== undefined) {
+        if (providers.results.US !== undefined) {
+          //console.log("paso por aqui US");
+          if (providers.results.US.link !== undefined) {
+            //console.log("paso por aqui link");
+            var movieProviderLink = providers.results.US.link || "No provider";
+            providerNameEl.attr("href", movieProviderLink);
+          } else {
+            var movieProviderLink = "#";
+          }
+        } else {
+          var movieProviderLink = "#";
+        }
+      } else {
+        var movieProviderLink = "#";
+      }
+
+      if (providers.results !== undefined) {
+        if (providers.results.US !== undefined) {
+          if (providers.results.US.flatrate !== undefined) {
+            if (providers.results.US.flatrate[0].provider_name !== undefined) {
+              var movieProvider =
+                providers.results.US.flatrate[0].provider_name || "No name";
+              var providerNameEl = $("#providerM");
+              providerNameEl.text(movieProvider);
+            } else {
+              var movieProvider = "No provider name";
+            }
+          } else {
+            var movieProvider = "No provider name";
+          }
+        } else {
+          var movieProvider = "No provider name";
+        }
+      } else {
+        var movieProvider = "No provider name";
+      }
+
+      // console.log("name: " + movieProvider);
+      // console.log("link: " + movieProviderLink);
+
+      // console.log(providerNameEl);
+    });
+}
+
 function showSavedMovie(data) {
   var savedMovieContentEl = document.createElement("div");
   var IMGUrl = "https://image.tmdb.org/t/p/w500";
+
   savedMovieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
   <div id="poster" class="col-md-2">
   <img
@@ -132,8 +202,11 @@ function showSavedMovie(data) {
   </div>
   <div id="movie-content" class="col-md-10 p-5">
   <h2 id="movie-name" class="display-5 col-md-9">${data.title}</h2>
-  <p id="runtime-${data.runtime}" class="">${"runtime"}</p>
+  <p id="runtimeM" class="">${"runtime"}</p>
+  
+
   <p id="overview" class="">${data.overview}</p>
+  <a id="providerM" class="">${" "}</a>
   <h3 id="rating" class="mb-3">Rating<span class="rating">${
     data.vote_average
   }</span></h3>
@@ -141,6 +214,7 @@ function showSavedMovie(data) {
   </div>`;
 
   savedContainerEl.append(savedMovieContentEl);
+  getMovieExtras();
 }
 
 //make sure container is empty before adding new info

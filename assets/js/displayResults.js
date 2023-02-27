@@ -1,8 +1,8 @@
-//get user picks from localStorage
 var moviesAPIUrl = localStorage.getItem("moviesAPI");
 var opSelected1 = localStorage.getItem("dinnerYN");
 var opSelected2 = localStorage.getItem("drinkYN");
 var opSelected3 = localStorage.getItem("movieYN");
+
 var movieContainerEl = $("#movie-container");
 // function that uses the moviesAPI store in localStorage to fetch and get the movies data
 function getMovies(moviesAPIUrl) {
@@ -18,8 +18,6 @@ function getMovies(moviesAPIUrl) {
         showMoviesError();
         getGenres();
       } else {
-        // console.log(data);
-        // console.log(data.results);
         showMovies(data.results);
       }
     });
@@ -33,29 +31,92 @@ function getMovieDetails(movie_ID) {
     APIKey +
     "&language=en-US";
   //console.log(movieDetailsUrl);
-
   // fetch
   fetch(movieDetailsUrl)
     .then(function (response) {
-      //.log(response);
       return response.json();
     })
     .then(function (details) {
-      //console.log(details);
-      //console.log(details.runtime);
       runtimeStuff = details.runtime;
       var movieId = details.id;
-      storeMovieIDs(movieId, runtimeStuff);
-      // return details;
+      var watchNow = details.homepage; //link for watch now
+      storeMovieIDs(movieId, runtimeStuff, watchNow);
+    });
+}
+// gets providers info from movie API using movie_id as argument
+function getMovieProviders(movie_ID) {
+  var movieProvidersUrl =
+    "https://api.themoviedb.org/3/movie/" +
+    movie_ID +
+    "/watch/providers?" +
+    APIKey +
+    "&language=en-US&watch_region=US";
+
+  // fetch
+  fetch(movieProvidersUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (providers) {
+      if (providers.results !== undefined) {
+        if (providers.results.US !== undefined) {
+          if (providers.results.US.link !== undefined) {
+            var movieProviderLink = providers.results.US.link || "No provider";
+          } else {
+            var movieProviderLink = " ";
+          }
+        } else {
+          var movieProviderLink = " ";
+        }
+      } else {
+        var movieProviderLink = " ";
+      }
+
+      if (providers.results !== undefined) {
+        if (providers.results.US !== undefined) {
+          if (providers.results.US.flatrate !== undefined) {
+            if (providers.results.US.flatrate[0].provider_name !== undefined) {
+              var movieProvider =
+                providers.results.US.flatrate[0].provider_name || "No name";
+            } else {
+              var movieProvider = " ";
+            }
+          } else {
+            var movieProvider = " ";
+          }
+        } else {
+          var movieProvider = " ";
+        }
+      } else {
+        var movieProvider = " ";
+      }
+
+      console.log("name: " + movieProvider);
+      console.log("link: " + movieProviderLink);
+
+      storeMovieProviders(movieProvider, movieProviderLink);
     });
 }
 //stores runtimes in an array, then adds array values to each movie card
-function storeMovieIDs(movieId, runtime) {
+function storeMovieIDs(movieId, runtime, watchNow) {
   movieRunTimesArr.push(runtime);
   //console.log(movieRunTimesArr);
   for (var i = 0; i < movieRunTimesArr.length; i++) {
-    var runtimeEl = $("#runtime-" + [i]);
-    runtimeEl.text(movieRunTimesArr[i] + " min");
+    if (movieRunTimesArr[i].value != 0) {
+      var runtimeEl = $("#runtime-" + [i]);
+      runtimeEl.text(movieRunTimesArr[i] + " min");
+    }
+  }
+}
+//stores movieProviders in an array, then adds array values to each movie card
+function storeMovieProviders(movieProvider, movieProviderLink) {
+  movieProvidersArr.push(movieProvider);
+  movieProvidersLinkArr.push(movieProviderLink);
+  //console.log(movieProvidersArr);
+  for (var i = 0; i < movieRunTimesArr.length; i++) {
+    var providerNameEl = $("#provider-" + [i]);
+    providerNameEl.text(movieProvidersArr[i]);
+    providerNameEl.attr("href", movieProvidersLinkArr[i]);
   }
 }
 
@@ -72,6 +133,8 @@ function showMovies(data) {
 
     getMovieDetails(movie_ID);
 
+    getMovieProviders(movie_ID);
+
     movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 rounded-2" max-height="300px">
     <div id="poster" class="col-md-2">
     <img
@@ -82,9 +145,10 @@ function showMovies(data) {
     </div>
     <div id="movie-content" class="col-md-8 p-1 ps-3">
     <h3 id="movie-name" class="display-6 col-md-9">${data[i].title}</h3>
-    <p id="runtime-${i}" class="">${"runtime"}</p>
-    <p id="overview" class="lead">${data[i].overview}</p>
-    <h3 id="rating" class="mb-3 display-8">Rating: <span class="rating">${
+    <p id="runtime-${i}" class="">${" "}</p>
+    <p id="overview" class="">${data[i].overview}</p>
+    <a id="provider-${i}" class="">${" "}</a>
+    <h3 id="rating" class="mb-3">Rating<span class="rating">${
       data[i].vote_average
     }</span></h3> 
     <p style="display:none;">${movie_ID}</p>
@@ -150,12 +214,12 @@ function showDinner(data) {
     dinnerContentEl.setAttribute("id", "foodCards");
     dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 475px;">
+    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 500px;">
     <div id="foodPoster" style="width:100%;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
-    class="img" style="width: 100%; height:300px;"
+    class="img row row-cols-1" style="width: 100%; height:300px;"
     />
     </div>
     <div id="food-content" style="width: 400px; height: 200px;" class="card-body text-dark">
@@ -233,12 +297,12 @@ function showDrinks(arr) {
     drinkContentEl.setAttribute("id", "foodCards");
     drinkContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 300px;">
+    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 500px;">
     <div id="drinkPoster" style="width:100%;">
     <img
     id="drink-img"
     src="${arr[i].strDrinkThumb}"
-    class="img" style="width: 475px; height:400px;"
+    class="img row row-cols-1" style="width: 100%; height:350px;" 
     /> <br>
     </div>
     <div id="drink-content" style="height: 200px;" class="card-body text-dark align-text-bottom">
