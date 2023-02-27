@@ -1,4 +1,3 @@
-//get user picks from localStorage
 var moviesAPIUrl = localStorage.getItem("moviesAPI");
 var opSelected1 = localStorage.getItem("dinnerYN");
 var opSelected2 = localStorage.getItem("drinkYN");
@@ -150,12 +149,12 @@ function showDinner(data) {
     dinnerContentEl.setAttribute("id", "foodCards");
     dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 475px;">
+    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 500px;">
     <div id="foodPoster" style="width:100%;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
-    class="img" style="width: 100%; height:300px;"
+    class="img row row-cols-1" style="width: 100%; height:300px;"
     />
     </div>
     <div id="food-content" style="width: 400px; height: 200px;" class="card-body text-dark">
@@ -233,12 +232,12 @@ function showDrinks(arr) {
     drinkContentEl.setAttribute("id", "foodCards");
     drinkContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 300px;">
+    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 500px;">
     <div id="drinkPoster" style="width:100%;">
     <img
     id="drink-img"
     src="${arr[i].strDrinkThumb}"
-    class="img" style="width: 475px; height:400px;"
+    class="img row row-cols-1" style="width: 100%; height:350px;" 
     /> <br>
     </div>
     <div id="drink-content" style="height: 200px;" class="card-body text-dark align-text-bottom">
