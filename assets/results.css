@@ -87,3 +87,21 @@ navbar {
   max-height: 200px;
   overflow-y: auto;
 }
+
+#showFinal {
+  border-radius: 10px;
+  background-color: var(--coral);
+  color: var(--lightlight);
+  height: 100px;
+  width: 400px;
+  border: 1px solid var(--light);
+  font-size: 24px;
+}
+
+#resultsFooter {
+  height: 200px;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

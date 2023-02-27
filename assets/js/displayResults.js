@@ -116,17 +116,17 @@ function showDinner(data) {
     dinnerContentEl.setAttribute("id", "foodCards");
     dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="food-card m-3 g-3 border border-1 border-light rounded-2" height="450" width="300">
-    <div id="foodPoster" class="" style="width:100%;">
+    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 475px;">
+    <div id="foodPoster" style="width:100%;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
-    class="img" style="width: 100%; height:200px;"
-    /><br>
+    class="img" style="width: 100%; height:300px;"
+    />
     </div>
-    <div id="food-content" style="height: 200px;" class="card-body p-5 text-dark">
+    <div id="food-content" style="width: 400px; height: 200px;" class="card-body text-dark">
     <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2>
-    <p id="ingredients" class="card-text scroll" style="height: 150px;">${data.hits[i].recipe.ingredientLines}</p>
+    <p id="ingredients" class="card-text scroll" style="width: 450px; height: 100px;">${data.hits[i].recipe.ingredientLines}</p>
     <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
     <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
@@ -163,15 +163,15 @@ function showDrinks(arr) {
     drinkContentEl.setAttribute("id", "foodCards");
     drinkContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" height="450" width="300">
-    <div id="drinkPoster" class=""  style="width:100%;">
+    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 300px;">
+    <div id="drinkPoster" style="width:100%;">
     <img
     id="drink-img"
     src="${arr[i].strDrinkThumb}"
-    class="img" style="width: 100%; height:200px;"
+    class="img" style="width: 475px; height:400px;"
     /> <br>
     </div>
-    <div id="drink-content" style="height: 200px;" class="card-body p-5 text-dark align-text-bottom">
+    <div id="drink-content" style="height: 200px;" class="card-body text-dark align-text-bottom">
     <h2 id="drink-name" class="card-text display-8">${arr[i].strDrink}</h2>
     <p id="drinkID" style="display:none;">${arr[i].idDrink}</p><br>
     <button id="drinkselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
