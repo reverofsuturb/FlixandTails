@@ -116,15 +116,15 @@ function showDinner(data) {
     dinnerContentEl.setAttribute("id", "foodCards");
     dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" height="500" width="300">
-    <div id="foodPoster" class=""  style="width:100%;">
+    dinnerContentEl.innerHTML = `<div class="food-card m-3 g-3 border border-1 border-light rounded-2" height="450" width="300">
+    <div id="foodPoster" class="" style="width:100%;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
     class="img" style="width: 100%; height:200px;"
     /><br>
     </div>
-    <div id="food-content"  style="height: 200px; width: 400px;" class="card-body p-5 text-dark">
+    <div id="food-content" style="height: 200px;" class="card-body p-5 text-dark">
     <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2>
     <p id="ingredients" class="card-text scroll" style="height: 150px;">${data.hits[i].recipe.ingredientLines}</p>
     <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>

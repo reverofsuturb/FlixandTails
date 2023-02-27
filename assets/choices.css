@@ -51,7 +51,7 @@ html {
 }
 
 .categoryIcon:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .categoryIcon:hover {
@@ -277,6 +277,10 @@ tbody tr td {
 .btn-success {
   border: 1px solid var(--dark);
   background-color: var(--coral);
+}
+
+.btn-success:hover {
+  background-color: var(--dark);
 }
 
 #ui-id-1 {
