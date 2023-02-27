@@ -18,10 +18,72 @@ html {
   width: 100vw;
 }
 
+navbar {
+  background-color: var(--dark);
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  font-weight: bold;
+  width: 400px;
+  background-color: var(--coral);
+  color: var(--lightlight);
+  justify-content: right;
+}
+
 #food-img {
   object-fit: cover;
 }
 
 #foodCards {
   box-shadow: 10px 5px 5px rgba(var(--dark)) !important;
+}
+
+#food-name {
+  text-align: start;
+  width: 450px;
+}
+
+.food-card {
+  display: grid;
+  align-items: center;
+}
+
+#food-content {
+  float: left;
+}
+
+#drink-img {
+  object-fit: cover;
+}
+
+#drinkCards {
+  box-shadow: 10px 5px 5px rgba(var(--dark)) !important;
+}
+
+#movieCards {
+  max-height: 450px;
+}
+
+#movie-poster {
+  object-fit: scale-down;
+}
+
+.form-btn {
+  background-color: var(--coral);
+  color: var(--lightlight);
+}
+
+.scroll {
+  max-height: 200px;
+  overflow-y: auto;
 }
