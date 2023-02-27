@@ -201,6 +201,8 @@ function getGenres() {
   });
 }
 
+
+
 $("#movie-container").on("click", function (event) {
   event.stopPropagation();
   var finalMovieID = event.target.previousSibling.previousSibling.textContent;
@@ -211,3 +213,55 @@ $("#movie-container").on("click", function (event) {
   localStorage.setItem("finalmovie", movieFinalUrl);
   console.log(movieFinalUrl);
 });
+
+
+// remake button for display results page if query is bad
+
+$("#remakemovie").on("click", function () {
+  console.log(releasedYear.value);
+  var released_Year = releasedYear.value;
+
+  console.log("Runtime: " + runtime.value);
+  var runtime_movie = runtime.value;
+
+  movieRunTimesArr = [];
+  //if is short  - show movies below 100min
+  //if is long - show movies above 120min
+  // if is normal - no more than 120min
+
+  //     //with_runtime.gte
+  // Filter and only include movies that have a runtime that is greater or equal to a value.
+
+  // with_runtime.lte
+  // Filter and only include movies that have a runtime that is less than or equal to a value.
+
+  if (runtime_movie === "short") {
+    var runtime_lte = 100; //runtime that is less than or equal to a value
+    //console.log(runtime_lte);
+    var runtimeUrl = "&with_runtime.lte=" + runtime_lte;
+  }
+  if (runtime_movie === "normal") {
+    var runtime_gte = 100; //runtime that is greater or equal to a value
+    var runtime_lte = 120; //runtime that is less than or equal to a value
+    //.log(runtime_gte + " and " + runtime_lte);
+    var runtimeUrl =
+      "&with_runtime.gte=" + runtime_gte + "&with_runtime.lte=" + runtime_lte;
+  }
+  if (runtime_movie === "long") {
+    var runtime_gte = 120; //runtime that is greater or equal to a value
+    //console.log(runtime_gte);
+    var runtimeUrl = "&with_runtime.gte=" + runtime_gte;
+  }
+
+  var moviesAPIUrl =
+    APIUrl +
+    "&with_genres=" +
+    encodeURI(selectedGenres.join(",")) +
+    "&primary_release_year=" +
+    released_Year +
+    runtimeUrl +
+    APIKey;
+  console.log(moviesAPIUrl);
+  localStorage.setItem("moviesAPI", moviesAPIUrl);
+  location.reload();
+})
