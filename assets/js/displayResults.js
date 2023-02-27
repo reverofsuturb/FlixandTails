@@ -123,6 +123,8 @@ function showDinner(data) {
     <div id="food-content"  style="height: 200px;" class="card-body p-5 text-dark align-text-bottom">
     <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2><br>
     <p id="ingredients" class="card-text">${data.hits[i].recipe.ingredientLines}</p>
+    <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
+    <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
 
@@ -164,12 +166,12 @@ function showDrinks(arr) {
     </div>
     <div id="drink-content" class="col-md-10 p-5">
     <h2 id="drink-name" class="display-5 col-md-9">${arr[i].strDrink}</h2>
+    <p id="drinkID" style="display:none;">${arr[i].idDrink}</p>
     </div>
     </div>`;
 
     drinkContainerEl.append(drinkContentEl);
   }
-  // <p id="drink-ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
 }
 
 getDrinks(drinksUrl1);

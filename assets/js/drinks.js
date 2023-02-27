@@ -138,6 +138,7 @@ function drinkCatForm() {
 }
 
 function drinkIngForm() {
+  drinksUrl = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?";
   drinkIngFormEl.show();
   drinkIngInput.autocomplete({
     source: ingredientSearchList,
@@ -220,16 +221,6 @@ $("#drinkSearchType").on("click", function (event) {
   // drinkSearchTypeEl.hide(); hides search type options
 });
 
-//Listens for add ingredient to list from user input field
-$("#addDrinkIngredient").on("click", function (event) {
-  event.preventDefault(); //prevent refresh
-  if (ingredientSearchList.includes(drinkIngInput.val())) {
-    // add user ingredient to array
-    userDrinkIngredients.push(drinkIngInput.val());
-    //create list item for ingredient to show user what ingredients they've added
-  }
-});
-
 //listens for next on drink slide and saves proper URL to localStorage to pull from API
 $("#drinks-next").on("click", function (event) {
   event.preventDefault(); //prevent refresh
@@ -263,7 +254,8 @@ $("#drinks-next").on("click", function (event) {
   //  For category search
   var catChoice = catSelect[catDropdown.val()]; //  get user input for category
   //change request link accordingly for category search
-  if (catChoice !== null) {
+  console.log(catChoice);
+  if (catChoice != undefined) {
     catChoice = catChoice.replace(/\s+/g, "_");
     // console.log(catChoice);
     drinksUrl += "c=" + catChoice;
@@ -286,22 +278,27 @@ var ingBoxD = $("#ingredientDbox");
 
 ingAddD.on("click", function () {
   var finput = ingInpD.val();
+  console.log(ingInpD.val());
   var tableData = document.createElement("td");
   var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
 
   $(".searchDrinkIng").children("input").val("");
+  if (ingredientSearchList.includes(ingInpD.val())) {
+    // add user ingredient to array
+    userDrinkIngredients.push(ingInpD.val());
 
-  tableData.textContent = finput;
-  tableData.setAttribute("class", "fquery");
-  createTableRow.setAttribute("id", "tr");
-  removebtn.textContent = "Remove";
-  removebtn.setAttribute("id", "removeitem");
-  removebtn.setAttribute("class", "btn form-btn btn-outline-secondary");
+    tableData.textContent = finput;
+    tableData.setAttribute("class", "fquery");
+    createTableRow.setAttribute("id", "tr");
+    removebtn.textContent = "Remove";
+    removebtn.setAttribute("id", "removeitem");
+    removebtn.setAttribute("class", "btn form-btn btn-outline-secondary");
 
-  createTableRow.append(tableData);
-  createTableRow.append(removebtn);
-  $("#ingredientDbox").append(createTableRow);
+    createTableRow.append(tableData);
+    createTableRow.append(removebtn);
+    $("#ingredientDbox").append(createTableRow);
+  }
   console.log($("#ingredientDbox").children().text());
 });
 
@@ -309,7 +306,12 @@ $("#ingredientDbox").on("click", function (event) {
   event.preventDefault();
   event.stopImmediatePropagation();
   if (!event.target.matches("button")) return;
-  console.log(event.target);
+  console.log(userDrinkIngredients);
+  console.log(event.target.previousSibling.textContent);
+  ingRemD = event.target.previousSibling.textContent;
+  ingRemDindex = userDrinkIngredients.indexOf(ingRemD);
+  userDrinkIngredients.splice(ingRemDindex, 1);
+  console.log(userDrinkIngredients);
   $(event.target).parent().remove();
 });
 

@@ -1,7 +1,12 @@
 //api keys https://developer.edamam.com/edamam-docs-recipe-api
 var dinnerAPIKey = "a68b28f687a6fab289f2323167117c84";
 var dinnerAPPID = "8422820f";
+// variable declarations
 var foodsearch = $("#foodsearch");
+var inginp = $("#ingredientinp");
+var ingadd = $("#ingredientadd");
+var ingbox = $("#ingredientbox");
+
 // arrays for the dropdown menus
 var mealType = [
   "Meal Type",
@@ -87,14 +92,12 @@ function saverecipe() {
   console.log(foodrequest);
   localStorage.setItem("foodresult", foodrequest);
 }
-
+// event listener for save recipe
 $("#dinner-next").on("click", function () {
   saverecipe();
 });
 
-var inginp = $("#ingredientinp");
-var ingadd = $("#ingredientadd");
-var ingbox = $("#ingredientbox");
+//adds ingredients when clicking button next to search bar
 
 ingadd.on("click", function () {
   var finput = inginp.val();
@@ -117,6 +120,8 @@ ingadd.on("click", function () {
   console.log($("#ingredientbox").children().text());
 });
 
+
+//remove button for the ingredient box
 $("#ingredientbox").on("click", function (event) {
   event.preventDefault();
   event.stopImmediatePropagation();
@@ -125,6 +130,79 @@ $("#ingredientbox").on("click", function (event) {
   $(event.target).parent().remove();
 });
 //event delegation -- you can't bind an event listener to an element that doesn't exist on page load
+
+
+// random dinner query for im feeling lucky button
+function dinnerlucky(){
+  var mealType2 = [
+    "breakfast",
+    "lunch",
+    "dinner",
+    "snack",
+    "teatime",
+  ];
+  
+  var dishType2 = [
+    "bread",
+    "condiments and sauces",
+    "desserts",
+    "main course",
+    "salad",
+    "sandwiches",
+    "soup",
+    "starter",
+  ];
+  
+  var cuisineType2 = [
+    "american",
+    "asian",
+    "british",
+    "caribbean",
+    "central europe",
+    "chinese",
+    "eastern europe",
+    "french",
+    "greek",
+    "indian",
+    "italian",
+    "japanese",
+    "kosher",
+    "mediterranean",
+    "mexican",
+    "nordic",
+    "south american",
+    "south east asian",
+  ];
+  var mealrandom = mealType2[((Math.floor(Math.random() * mealType2.length)))];
+  var dishrandom = dishType2[((Math.floor(Math.random() * dishType2.length)))];
+  var cuisinerandom = cuisineType2[((Math.floor(Math.random() * cuisineType2.length)))];
+  console.log(mealrandom);
+  console.log(dishrandom);
+  console.log(cuisinerandom);
+
+var dinnerrandom =
+("https://api.edamam.com/api/recipes/v2?type=public&app_id=8422820f&app_key=a68b28f687a6fab289f2323167117c84"    
++ "&cuisineType=" 
++ cuisinerandom.replace(/ /g, "%20")
++ "&mealType=" 
++ mealrandom.replace(/ /g, "%20") 
++ "&dishType=" 
++ dishrandom.replace(/ /g, "%20"))
+
+localStorage.setItem("randomdinner", dinnerrandom);
+console.log(dinnerrandom)
+}
+
+$("#dinner-container").on("click", function(event) {
+  event.stopPropagation();
+var foodID = ((event.target.previousSibling).previousSibling.innerHTML);
+localStorage.setItem("finaldinner", foodID);
+console.log(foodID);
+})
+
+
+
+
 // solution: bind to parent element that exists and traverse down the DOM (event.target.matches) works best in this case
 //
 //
@@ -144,6 +222,23 @@ $("#ingredientbox").on("click", function (event) {
 //         showDinner(data);
 //       }
 //   )}
+
+// get random recipe do not include****
+
+// function getreciperand() {
+//   var foodshow = localStorage.getItem("randomdinner")
+//     fetch(foodshow)
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         console.log(data);
+//         showDinner(data);
+//       }
+//   )}
+
+
+
 
 // display results function do not include****
 
@@ -173,3 +268,4 @@ $("#ingredientbox").on("click", function (event) {
 //     dinnerContainerEl.append(dinnerContentEl);
 //           }
 //         }
+
