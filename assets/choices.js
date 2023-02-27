@@ -23,11 +23,15 @@ $(document).ready(function () {
     }
 
     optionsSelected = opSelected1 + opSelected2 + opSelected3;
-    console.log(optionsSelected);
+    //console.log(optionsSelected);
     createProgressBar(optionsSelected);
 
     currentStep = $(this).parent();
     nextStep = $(this).parent().next();
+
+    $("#progressbar div")
+      .eq($("fieldset").index(currentStep))
+      .addClass("active");
 
     $("#progressbar button")
       .eq($("fieldset").index(nextStep))
@@ -56,7 +60,7 @@ $(document).ready(function () {
     //if(index)
     currentStep = $(this).parent();
     previousStep = $(this).parent().prev();
-    console.log(current);
+    //console.log(current);
 
     if (current === 2) {
       location.reload();
@@ -65,6 +69,12 @@ $(document).ready(function () {
       .eq($("fieldset").index(currentStep))
       .removeClass("active");
 
+    console.log(current);
+    //$("#progressbar div").index(current).removeClass("active");
+    $("#progressbar")
+      .children()
+      .eq(current - 2)
+      .removeClass("active");
     previousStep.show();
 
     currentStep.animate(
@@ -84,6 +94,7 @@ $(document).ready(function () {
     );
     setProgressBar(--current);
   });
+
   var progressBar = false;
   function createProgressBar(num) {
     if (!progressBar) {
@@ -112,7 +123,7 @@ $(document).ready(function () {
     } else {
       opSelected1++;
     }
-    console.log(opSelected1);
+    //console.log(opSelected1);
   });
   $("#drink-choice").on("click", function () {
     $(this).toggleClass("selected-choice");
@@ -123,7 +134,7 @@ $(document).ready(function () {
     } else {
       opSelected2++;
     }
-    console.log(opSelected2);
+    //console.log(opSelected2);
   });
   $("#movie-choice").on("click", function () {
     $(this).toggleClass("selected-choice");
@@ -134,7 +145,7 @@ $(document).ready(function () {
     } else {
       opSelected3++;
     }
-    console.log(opSelected3);
+    // console.log(opSelected3);
   });
 
   //   $("#next").click(function () {
