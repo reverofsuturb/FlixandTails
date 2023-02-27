@@ -32,7 +32,13 @@ function showsavedDinner(data) {
         </div>`);
 
   savedContainerEl.append(saveddinnerContentEl);
-  getSavedDrink();
+  if (opSelected2 == 1) {
+    getSavedDrink();
+  } else {
+    if (opSelected3 == 1) {
+      getSavedMovie();
+    }
+  }
 }
 function getSavedDrink() {
   var savedDrinkShow = localStorage.getItem("finaldrink");
@@ -69,7 +75,9 @@ function showSavedDrink(arr) {
         </div>`;
 
   savedContainerEl.append(savedDrinkContentEl);
-  getSavedMovie();
+  if (opSelected3 == 1) {
+    getSavedMovie();
+  }
 }
 function getSavedMovie() {
   var savedMovieShow = localStorage.getItem("finalmovie");
@@ -108,6 +116,21 @@ function showSavedMovie(data) {
 }
 
 savedContainerEl.empty();
-getsavedDinner();
+
+//get user picks from localStorage
+opSelected1 = localStorage.getItem("dinnerYN");
+opSelected2 = localStorage.getItem("drinkYN");
+opSelected3 = localStorage.getItem("movieYN");
+
+if (opSelected1 == 1) {
+  getsavedDinner();
+} else if (opSelected1 == 0) {
+  if (opSelected2 == 1) {
+    getSavedDrink();
+  } else if (opSelected2 == 0) {
+    getSavedMovie();
+  }
+}
+
 // getSavedDrink();
 // getSavedMovie();
