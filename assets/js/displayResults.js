@@ -64,7 +64,7 @@ function showMovies(data) {
 
     getMovieDetails(movie_ID);
 
-    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2" max-height="300px">
     <div id="poster" class="col-md-2">
     <img
     id="movie-poster"
@@ -73,10 +73,10 @@ function showMovies(data) {
     />
     </div>
     <div id="movie-content" class="col-md-10 p-5">
-    <h2 id="movie-name" class="display-5 col-md-9">${data[i].title}</h2>
+    <h3 id="movie-name" class="display-6 col-md-9">${data[i].title}</h3><br>
     <p id="runtime-${i}" class="">${"runtime"}</p>
-    <p id="overview" class="">${data[i].overview}</p>
-    <h3 id="rating" class="mb-3">Rating<span class="rating">${
+    <p id="overview" class="lead">${data[i].overview}</p><br>
+    <h3 id="rating" class="mb-3 display-8">Rating: <span class="rating">${
       data[i].vote_average
     }</span></h3>
     </div>
@@ -108,18 +108,21 @@ function showDinner(data) {
 
   for (let i = 0; i < 5; i++) {
     var dinnerContentEl = document.createElement("div");
+    dinnerContentEl.setAttribute("class", "card g-5 m-5");
+    dinnerContentEl.setAttribute("id", "foodCards");
+    dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-    <div id="poster" class="col-md-2">
+    dinnerContentEl.innerHTML = `<div class="food-card m-3 g-3 border border-1 border-light rounded-2" height="450" width="300">
+    <div id="foodPoster" class=""  style="width:100%;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
-    class="img-fluid"
-    />
+    class="img" style="width: 100%; height:200px;"
+    /><br>
     </div>
-    <div id="food-content" class="col-md-10 p-5">
-    <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
-    <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+    <div id="food-content"  style="height: 200px;" class="card-body p-5 text-dark align-text-bottom">
+    <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2><br>
+    <p id="ingredients" class="card-text">${data.hits[i].recipe.ingredientLines}</p>
     </div>
     </div>`;
 
