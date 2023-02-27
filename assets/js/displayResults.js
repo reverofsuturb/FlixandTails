@@ -18,8 +18,6 @@ function getMovies(moviesAPIUrl) {
         showMoviesError();
         getGenres();
       } else {
-        // console.log(data);
-        // console.log(data.results);
         showMovies(data.results);
       }
     });
@@ -39,8 +37,6 @@ function getMovieDetails(movie_ID) {
       return response.json();
     })
     .then(function (details) {
-      //console.log(details);
-      //console.log(details.runtime);
       runtimeStuff = details.runtime;
       var movieId = details.id;
       var watchNow = details.homepage; //link for watch now
@@ -55,57 +51,44 @@ function getMovieProviders(movie_ID) {
     "/watch/providers?" +
     APIKey +
     "&language=en-US&watch_region=US";
-  //console.log(movieDetailsUrl);
-  // https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key=<<api_key>>
+
   // fetch
   fetch(movieProvidersUrl)
     .then(function (response) {
-      //.log(response);
       return response.json();
     })
     .then(function (providers) {
-      //console.log(providers.results);
-      // console.log(providers.results.US.link);
-      // console.log(providers.results.US.flatrate[0].provider_name);
-      //console.log(details.runtime);
-      // runtimeStuff = details.runtime;
-
       if (providers.results !== undefined) {
         if (providers.results.US !== undefined) {
-          //console.log("paso por aqui US");
           if (providers.results.US.link !== undefined) {
-            //console.log("paso por aqui link");
             var movieProviderLink = providers.results.US.link || "No provider";
           } else {
-            var movieProviderLink = "No provider";
+            var movieProviderLink = " ";
           }
         } else {
-          var movieProviderLink = "No provider link";
+          var movieProviderLink = " ";
         }
       } else {
-        var movieProviderLink = "No provider link";
+        var movieProviderLink = " ";
       }
 
       if (providers.results !== undefined) {
         if (providers.results.US !== undefined) {
-          console.log("paso por aqui US");
           if (providers.results.US.flatrate !== undefined) {
-            console.log("paso por aqui name");
-
             if (providers.results.US.flatrate[0].provider_name !== undefined) {
               var movieProvider =
                 providers.results.US.flatrate[0].provider_name || "No name";
             } else {
-              var movieProvider = "No provider name";
+              var movieProvider = " ";
             }
           } else {
-            var movieProvider = "No provider name";
+            var movieProvider = " ";
           }
         } else {
-          var movieProvider = "No provider name";
+          var movieProvider = " ";
         }
       } else {
-        var movieProvider = "No provider name";
+        var movieProvider = " ";
       }
 
       console.log("name: " + movieProvider);
@@ -162,9 +145,9 @@ function showMovies(data) {
     </div>
     <div id="movie-content" class="col-md-8 p-1 ps-3">
     <h3 id="movie-name" class="display-6 col-md-9">${data[i].title}</h3>
-    <p id="runtime-${i}" class="">${"runtime"}</p>
+    <p id="runtime-${i}" class="">${" "}</p>
     <p id="overview" class="">${data[i].overview}</p>
-    <a id="provider-${i}" class="">${"provider name"}</a>
+    <a id="provider-${i}" class="">${" "}</a>
     <h3 id="rating" class="mb-3">Rating<span class="rating">${
       data[i].vote_average
     }</span></h3> 

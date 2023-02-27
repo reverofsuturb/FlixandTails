@@ -148,14 +148,15 @@ function getMovieExtras() {
           if (providers.results.US.link !== undefined) {
             //console.log("paso por aqui link");
             var movieProviderLink = providers.results.US.link || "No provider";
+            providerNameEl.attr("href", movieProviderLink);
           } else {
-            var movieProviderLink = "No provider";
+            var movieProviderLink = "#";
           }
         } else {
-          var movieProviderLink = "No provider link";
+          var movieProviderLink = "#";
         }
       } else {
-        var movieProviderLink = "No provider link";
+        var movieProviderLink = "#";
       }
 
       if (providers.results !== undefined) {
@@ -164,6 +165,8 @@ function getMovieExtras() {
             if (providers.results.US.flatrate[0].provider_name !== undefined) {
               var movieProvider =
                 providers.results.US.flatrate[0].provider_name || "No name";
+              var providerNameEl = $("#providerM");
+              providerNameEl.text(movieProvider);
             } else {
               var movieProvider = "No provider name";
             }
@@ -177,12 +180,10 @@ function getMovieExtras() {
         var movieProvider = "No provider name";
       }
 
-      console.log("name: " + movieProvider);
-      console.log("link: " + movieProviderLink);
-      var providerNameEl = $("#providerM");
-      providerNameEl.text(movieProvider);
-      providerNameEl.attr("href", movieProviderLink);
-      console.log(providerNameEl);
+      // console.log("name: " + movieProvider);
+      // console.log("link: " + movieProviderLink);
+
+      // console.log(providerNameEl);
     });
 }
 
@@ -204,7 +205,7 @@ function showSavedMovie(data) {
   
 
   <p id="overview" class="">${data.overview}</p>
-  <a id="providerM" class="">${"providerM"}</a>
+  <a id="providerM" class="">${" "}</a>
   <h3 id="rating" class="mb-3">Rating<span class="rating">${
     data.vote_average
   }</span></h3>
