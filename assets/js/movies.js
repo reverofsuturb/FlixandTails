@@ -167,7 +167,7 @@ makeMyNightBtn.on("click", function () {
 function getGenres() {
   genres.forEach(function (genre) {
     tag = $("<button></button>");
-    tag.addClass("tag px-4 py-2 btn-bg-white");
+    tag.addClass("tag px-1 px-sm-4 py-2 btn-bg-white");
     tag.id = genre.id;
     tag.text(genre.name);
     tag.on("click", function (event) {

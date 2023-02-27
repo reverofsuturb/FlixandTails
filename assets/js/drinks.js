@@ -215,8 +215,12 @@ $("#drinkSearchType").on("click", function (event) {
   if (event.target.id === "searchCategory") {
     //create dropdown options for category select
     drinkCatForm();
+    $("#searchCategory").toggleClass("btn-main");
+    $("#searchIngredients").removeClass("btn-main");
   } else if ((event.target.id = "searchIngredients")) {
     drinkIngForm();
+    $("#searchIngredients").toggleClass("btn-main");
+    $("#searchCategory").removeClass("btn-main");
   }
   // drinkSearchTypeEl.hide(); hides search type options
 });

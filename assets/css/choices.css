@@ -1,0 +1,525 @@
+:root {
+  --dark: #455a64;
+  --mid: rgb(83, 83, 83);
+  --lightL: rgb(243, 243, 243);
+  --lightlight: rgb(228, 228, 228);
+  --fadedcoral: #ff715eb9;
+  --coral: #ff725e;
+  --color-main: #ff725e;
+  --color-white: #f7f7f7;
+  --fadedgrey: rgba(138, 138, 138, 0.664);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: var(--dark);
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1,
+h2 {
+  color: var(--dark);
+}
+
+.bg-main {
+  background-color: var(--color-main);
+}
+
+.btn-bg-white {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  font-size: 55%;
+  padding: 0.4rem;
+  border: 0;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border: 1px solid #9e9e9e;
+}
+
+.btn-main {
+  background-color: var(--color-main);
+  color: #fff;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #ff725e;
+  --bs-btn-border-color: #ff725e;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #eb604d;
+  --bs-btn-hover-border-color: #eb604d;
+  --bs-btn-focus-shadow-rgb: 225, 83, 97;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #eb604d;
+  --bs-btn-active-border-color: #eb604d;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #ff725e;
+  --bs-btn-disabled-border-color: #ff725e;
+}
+
+#tags {
+  width: 60%;
+}
+
+select {
+  word-wrap: normal;
+  font-size: 65%;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+option:hover {
+  background-color: var(--color-main);
+}
+
+label {
+  font-size: 60%;
+  text-align: left;
+}
+
+.makeBtn {
+  background: var(--coral);
+  border-radius: 50px;
+  color: var(--lightlight);
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0.7rem 3rem;
+  border: 0px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: 0.2s all;
+}
+
+.makeBtn:hover {
+  background-color: #fc7d6c;
+  color: var(--lightlight);
+}
+
+.makeBtn:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
+
+.makeNightBtn {
+  font-size: 2.5rem;
+  padding: 2rem 2.5rem;
+}
+
+.previous-step {
+  background: var(--dark);
+}
+.previous-step:hover {
+  background: #516974;
+}
+
+.choices {
+  padding: 80px;
+  width: 75%;
+  font-size: 32px;
+  border-radius: 10px;
+  background-color: var(--color-white);
+  color: var(--dark);
+  /* border: 2px solid var(--lightlight); */
+  /* text-shadow: var(--coral) 1px 0 1px; */
+}
+
+.description {
+  font-size: 20px;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  font-weight: bold;
+  width: 200px;
+  background-color: var(--dark);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--dark);
+}
+
+.btn-outline-secondary {
+  background-color: var(--coral);
+  color: var(--dark);
+}
+
+.btn-outline-secondary-coral {
+  background-color: var(--coral);
+  color: var(--lightlight);
+  border: 1px solid var(--dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--coral);
+  color: var(--dark);
+}
+
+.categoryIcon {
+  background-color: var(--fadedgrey);
+  border-radius: 10px;
+  margin: 30px;
+  width: 150px;
+}
+
+.selected-choice {
+  border: 4px solid var(--coral);
+}
+
+#form fieldset:not(:first-of-type) {
+  display: none;
+}
+/* 
+#form .previous-step,
+.next-step {
+  width: 100px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid var(--dark);
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.makeNight {
+  width: 200px;
+}
+
+.form,
+.previous-step {
+  background: #616161;
+}
+
+.form,
+.next-step {
+  background: #ff725e;
+}
+
+#form .previous-step:hover,
+#form .previous-step:focus {
+  background-color: #000000;
+}
+
+#form .next-step:hover,
+#form .next-step:focus {
+  background-color: #ff725e;
+} */
+
+.text {
+  color: #ff725e;
+  font-weight: normal;
+}
+
+.carousel-indicators button.active {
+  background-color: var(--coral);
+}
+
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+#progressbar button {
+  font-size: 15px;
+  width: 15%;
+}
+
+#progressbar #step1:before {
+  content: "1";
+}
+
+#progressbar #step2:before {
+  content: "2";
+}
+
+#progressbar #step3:before {
+  content: "3";
+}
+
+#progressbar #step4:before {
+  content: "4";
+}
+
+#progressbar button:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 20px;
+  color: var(--light);
+  background: var(--light);
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
+}
+
+#progressbar button:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: var(--light);
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1;
+}
+
+.foodType {
+  height: 50px;
+  width: 20%;
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.2919px;
+  line-height: 24px;
+  margin-right: 2rem;
+
+  color: rgba(0, 0, 0, 0.5);
+}
+
+select {
+  word-wrap: normal;
+  font-size: 65%;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+input {
+  padding: 0.5rem;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #7f7f7f;
+  border-radius: 10px 0px 0px 10px;
+  font-size: 65%;
+}
+option:hover {
+  background-color: var(--color-main);
+}
+
+label {
+  font-size: 60%;
+  text-align: left;
+}
+
+.table {
+  font-size: 20px;
+  width: 200px;
+}
+
+.tableBox {
+  display: grid;
+  max-height: 60px;
+  justify-content: center;
+}
+
+.tableBoxD {
+  display: grid;
+  max-height: 100px;
+  justify-content: center;
+}
+
+.formIngred {
+  width: 200%;
+}
+
+.form-btn {
+  color: var(--lightlight);
+  border-radius: 0px 10px 10px 0px;
+  border: 0;
+  padding: 0.8rem 1.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  height: 250px;
+}
+th,
+td {
+  border: 1px solid #c6c7cc;
+}
+th {
+  font-weight: bold;
+}
+table.scroll {
+  width: 270px; /* 140px * 5 column + 16px scrollbar width */
+  /* border: 1px solid black; */
+  line-height: 24px;
+  font-size: 20px;
+}
+table.scroll tbody,
+table.scroll thead tr {
+  display: block;
+}
+table.scroll tbody {
+  height: 168px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+table.scroll tbody td,
+table.scroll thead th {
+  width: 140px;
+  /* border-right: 1px solid black; */
+}
+table.scroll thead th:last-child {
+  width: 232px; /* 140px + 16px scrollbar width */
+  border: 0;
+}
+thead tr th {
+  height: 24px;
+  line-height: 24px;
+  font-size: 20px;
+  /*text-align: left;*/
+}
+tbody {
+  /* border-top: 1px solid black; */
+}
+tbody td:last-child,
+thead th:last-child {
+  /* border-right: none !important; */
+}
+
+tbody tr td {
+  width: 200px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cedce3;
+
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #455a64;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #455a64;
+}
+
+.btn-success {
+  border: 1px solid var(--dark);
+  background-color: var(--coral);
+}
+
+#ui-id-1 {
+  text-align: left;
+  list-style: none;
+  background-color: var(--lightL);
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute !important;
+}
+
+#ui-id-1 li:hover {
+  background-color: var(--coral);
+}
+
+#drinkIngForm {
+  height: 430px;
+}
+
+footer .genreType,
+.yearType,
+.ratedType,
+.runType {
+  width: 400px;
+  margin-left: 20px;
+}
+
+.progressBar-item {
+  width: 20%;
+  height: 10px;
+  background-color: #e4e4e4;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: var(--coral);
+}
+
+@media screen and (max-width: 732px) {
+  .option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .option-icon img {
+    width: 50%;
+    margin: 5%;
+  }
+
+  .foodType {
+    width: 88%;
+  }
+
+  .foodType-container {
+    margin-top: 9rem;
+  }
+
+  .makeBtn {
+    font-size: 17px;
+  }
+
+  .makeNightBtn {
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .option-icon img {
+    width: 50%;
+    margin: 5%;
+  }
+
+  .foodType {
+    width: 88%;
+  }
+
+  .foodType-container {
+    margin-top: 9rem;
+  }
+
+  .makeBtn {
+    font-size: 14px;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .makeNightBtn {
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
+  }
+
+  #tags {
+    width: 100%;
+  }
+}
