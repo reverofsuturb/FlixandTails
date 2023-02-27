@@ -3,6 +3,7 @@ var moviesAPIUrl = localStorage.getItem("moviesAPI");
 var opSelected1 = localStorage.getItem("dinnerYN");
 var opSelected2 = localStorage.getItem("drinkYN");
 var opSelected3 = localStorage.getItem("movieYN");
+
 var movieContainerEl = $("#movie-container");
 // function that uses the moviesAPI store in localStorage to fetch and get the movies data
 function getMovies(moviesAPIUrl) {
@@ -42,7 +43,7 @@ function getMovieDetails(movie_ID) {
       storeMovieIDs(movieId, runtimeStuff, watchNow);
     });
 }
-// gets more details info from movie API using movie_id as argument
+// gets providers info from movie API using movie_id as argument
 function getMovieProviders(movie_ID) {
   var movieProvidersUrl =
     "https://api.themoviedb.org/3/movie/" +
@@ -120,7 +121,7 @@ function storeMovieIDs(movieId, runtime, watchNow) {
     }
   }
 }
-//stores runtimes in an array, then adds array values to each movie card
+//stores movieProviders in an array, then adds array values to each movie card
 function storeMovieProviders(movieProvider, movieProviderLink) {
   movieProvidersArr.push(movieProvider);
   movieProvidersLinkArr.push(movieProviderLink);
@@ -144,8 +145,6 @@ function showMovies(data) {
     var movie_ID = data[i].id;
 
     getMovieDetails(movie_ID);
-
-    getMovieProviders(movie_ID);
 
     getMovieProviders(movie_ID);
 

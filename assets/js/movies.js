@@ -207,10 +207,27 @@ function getGenres() {
 $("#movie-container").on("click", function (event) {
   event.stopPropagation();
   var finalMovieID = event.target.previousSibling.previousSibling.textContent;
+
   movieFinalUrl =
     "https://api.themoviedb.org/3/movie/" +
     finalMovieID +
     "?api_key=b44845387b097f5b3e4234772c94b4c5&language=en-US";
   localStorage.setItem("finalmovie", movieFinalUrl);
   console.log(movieFinalUrl);
+
+  var movieDetailsUrl =
+    "https://api.themoviedb.org/3/movie/" +
+    finalMovieID +
+    "?" +
+    APIKey +
+    "&language=en-US";
+  localStorage.setItem("finalmovie-details", movieDetailsUrl);
+
+  var movieProvidersUrl =
+    "https://api.themoviedb.org/3/movie/" +
+    finalMovieID +
+    "/watch/providers?" +
+    APIKey +
+    "&language=en-US&watch_region=US";
+  localStorage.setItem("finalmovie-Provider", movieProvidersUrl);
 });
