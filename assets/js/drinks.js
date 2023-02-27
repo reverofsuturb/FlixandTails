@@ -287,11 +287,10 @@ ingAddD.on("click", function () {
   var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
 
-  $(".searchDrinkIng").children("input").val("");
-  if (ingredientSearchList.includes(ingInpD.val())) {
+  if (!userDrinkIngredients.includes(ingInpD.val())) {
     // add user ingredient to array
     userDrinkIngredients.push(ingInpD.val());
-
+    console.log(userDrinkIngredients);
     tableData.textContent = finput;
     tableData.setAttribute("class", "fquery");
     createTableRow.setAttribute("id", "tr");
@@ -303,6 +302,7 @@ ingAddD.on("click", function () {
     createTableRow.append(removebtn);
     $("#ingredientDbox").append(createTableRow);
   }
+  $(".searchDrinkIng").children("input").val("");
   console.log($("#ingredientDbox").children().text());
 });
 
