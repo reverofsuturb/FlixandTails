@@ -264,14 +264,23 @@ $("#remakemovie").on("click", function () {
 });
 
 $("#lucky").on("click", function () {
-  fetch(drinksUrl1)
+  fetch(
+    "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc" +
+      APIKey
+  )
     .then(function (response) {
       // console.log(response);
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data);
-      // showDrinks(data);
+      // console.log(data);
+      // console.log(data.results[Math.floor(Math.random() * 20)].id);
+      finalMovieID = data.results[Math.floor(Math.random() * 20)].id;
+      movieFinalUrl =
+        "https://api.themoviedb.org/3/movie/" +
+        finalMovieID +
+        "?api_key=b44845387b097f5b3e4234772c94b4c5&language=en-US";
+      localStorage.setItem("finalmovie", movieFinalUrl);
+      console.log(localStorage.getItem("finalmovie"));
     });
 });

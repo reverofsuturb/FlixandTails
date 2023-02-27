@@ -166,8 +166,25 @@ function dinnerlucky() {
     "&dishType=" +
     dishrandom.replace(/ /g, "%20");
 
-  localStorage.setItem("finaldinner", dinnerrandom);
-  console.log(dinnerrandom);
+  fetch(dinnerrandom)
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      // console.log(data.hits[Math.floor(Math.random() * 20)]._links.self.href);
+      localStorage.setItem(
+        "finaldinner",
+        data.hits[Math.floor(Math.random() * 20)]._links.self.href
+      );
+      console.log(localStorage.getItem("finaldinner"));
+    });
+
+  // console.log(dinnerrandom);
+  // console.log(localStorage.getItem("finaldinner"));
+
+  //data.hits[i]._links.self.href
 }
 $("#lucky").on("click", dinnerlucky);
 
