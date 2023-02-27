@@ -120,7 +120,6 @@ ingadd.on("click", function () {
   console.log($("#ingredientbox").children().text());
 });
 
-
 //remove button for the ingredient box
 $("#ingredientbox").on("click", function (event) {
   event.preventDefault();
@@ -131,17 +130,10 @@ $("#ingredientbox").on("click", function (event) {
 });
 //event delegation -- you can't bind an event listener to an element that doesn't exist on page load
 
-
 // random dinner query for im feeling lucky button
-function dinnerlucky(){
-  var mealType2 = [
-    "breakfast",
-    "lunch",
-    "dinner",
-    "snack",
-    "teatime",
-  ];
-  
+function dinnerlucky() {
+  var mealType2 = ["breakfast", "lunch", "dinner", "snack", "teatime"];
+
   var dishType2 = [
     "bread",
     "condiments and sauces",
@@ -152,7 +144,7 @@ function dinnerlucky(){
     "soup",
     "starter",
   ];
-  
+
   var cuisineType2 = [
     "american",
     "asian",
@@ -173,38 +165,35 @@ function dinnerlucky(){
     "south american",
     "south east asian",
   ];
-  var mealrandom = mealType2[((Math.floor(Math.random() * mealType2.length)))];
-  var dishrandom = dishType2[((Math.floor(Math.random() * dishType2.length)))];
-  var cuisinerandom = cuisineType2[((Math.floor(Math.random() * cuisineType2.length)))];
+  var mealrandom = mealType2[Math.floor(Math.random() * mealType2.length)];
+  var dishrandom = dishType2[Math.floor(Math.random() * dishType2.length)];
+  var cuisinerandom =
+    cuisineType2[Math.floor(Math.random() * cuisineType2.length)];
   console.log(mealrandom);
   console.log(dishrandom);
   console.log(cuisinerandom);
 
-var dinnerrandom =
-("https://api.edamam.com/api/recipes/v2?type=public&app_id=8422820f&app_key=a68b28f687a6fab289f2323167117c84"    
-+ "&cuisineType=" 
-+ cuisinerandom.replace(/ /g, "%20")
-+ "&mealType=" 
-+ mealrandom.replace(/ /g, "%20") 
-+ "&dishType=" 
-+ dishrandom.replace(/ /g, "%20"))
+  var dinnerrandom =
+    "https://api.edamam.com/api/recipes/v2?type=public&app_id=8422820f&app_key=a68b28f687a6fab289f2323167117c84" +
+    "&cuisineType=" +
+    cuisinerandom.replace(/ /g, "%20") +
+    "&mealType=" +
+    mealrandom.replace(/ /g, "%20") +
+    "&dishType=" +
+    dishrandom.replace(/ /g, "%20");
 
-localStorage.setItem("randomdinner", dinnerrandom);
-console.log(dinnerrandom)
+  localStorage.setItem("randomdinner", dinnerrandom);
+  console.log(dinnerrandom);
 }
-
 
 // grabs the query for saved selection/final results
 
-$("#dinner-container").on("click", function(event) {
+$("#dinner-container").on("click", function (event) {
   event.stopPropagation();
-var foodID = ((event.target.previousSibling).previousSibling.innerHTML);
-localStorage.setItem("finaldinner", foodID);
-console.log(foodID);
-})
-
-
-
+  var foodID = event.target.previousSibling.previousSibling.innerHTML;
+  localStorage.setItem("finaldinner", foodID);
+  console.log(foodID);
+});
 
 // solution: bind to parent element that exists and traverse down the DOM (event.target.matches) works best in this case
 //
@@ -240,9 +229,6 @@ console.log(foodID);
 //       }
 //   )}
 
-
-
-
 // display results function do not include****
 
 // var dinnerContainerEl = $("#dinner-container");
@@ -272,13 +258,11 @@ console.log(foodID);
 //           }
 //         }
 
-
 // function for final results page/saved page
 
 // var saveddinnerContainerEl = $("#saveddinner-container");
 
 // function getsavedDinner(data) {
-
 
 //   var saveddinnershow = localStorage.getItem("finaldinner")
 //     fetch(saveddinnershow)
@@ -317,8 +301,6 @@ console.log(foodID);
 //     saveddinnerContainerEl.append(saveddinnerContentEl);
 //           }
 
-
-
 // dinner error function if array shows up with 0 results
 
 // getrecipe();
@@ -343,7 +325,6 @@ console.log(foodID);
 // function showDinnerError() {
 //   dinnerContainerEl.empty();
 
-
 //   var dinnerContentEl = document.createElement("div");
 
 //     dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
@@ -356,7 +337,7 @@ console.log(foodID);
 //     </div>
 //     <div id="food-content" class="col-md-10 p-5">
 //     <h2 id="food-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please go back to search!</h2>
-    
+
 //     </div>
 //     </div>`;
 
