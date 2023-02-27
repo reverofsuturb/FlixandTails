@@ -185,11 +185,16 @@ function dinnerlucky() {
       console.log(localStorage.getItem("finaldinner"));
     });
 
+  //wait  2 seconds and go to Saved page
+  setTimeout(() => {
+    window.location.href = "Saved.html";
+  }, 2000);
+  // Window.location.href = "Saved.html";
   // console.log(dinnerrandom);
   // console.log(localStorage.getItem("finaldinner"));
 
-  localStorage.setItem("randomdinner", dinnerrandom);
-  console.log(dinnerrandom);
+  // localStorage.setItem("randomdinner", dinnerrandom);
+  // console.log(dinnerrandom);
 }
 $("#lucky").on("click", dinnerlucky);
 
