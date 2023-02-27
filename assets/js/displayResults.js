@@ -59,26 +59,28 @@ function showMovies(data) {
 
   for (let i = 0; i < 5; i++) {
     var movieContentEl = document.createElement("div");
+    movieContentEl.setAttribute("id", "movieCards");
+    movieContentEl.setAttribute("class", "card g-5 m-5 text-dark");
     console.log(data[i].id);
     var movie_ID = data[i].id;
 
     getMovieDetails(movie_ID);
 
-    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 rounded-2" max-height="300px">
     <div id="poster" class="col-md-2">
     <img
     id="movie-poster"
     src="${IMGUrl + data[i].poster_path}"
-    class="img-fluid"
+    class="img" style="width: 100%;"
     />
     </div>
-    <div id="movie-content" class="col-md-10 p-5">
-    <h2 id="movie-name" class="display-5 col-md-9">${data[i].title}</h2>
+    <div id="movie-content" class="col-md-8 p-1 ps-3">
+    <h3 id="movie-name" class="display-6 col-md-9">${data[i].title}</h3>
     <p id="runtime-${i}" class="">${"runtime"}</p>
-    <p id="overview" class="">${data[i].overview}</p>
-    <h3 id="rating" class="mb-3">Rating<span class="rating">${
+    <p id="overview" class="lead">${data[i].overview}</p>
+    <h3 id="rating" class="mb-3 display-8">Rating: <span class="rating">${
       data[i].vote_average
-    }</span></h3>
+    }</span></h3> 
     <p style="display:none;">${movie_ID}</p>
     <button id="movieselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
@@ -114,18 +116,21 @@ function showDinner(data) {
 
   for (let i = 0; i < 5; i++) {
     var dinnerContentEl = document.createElement("div");
+    dinnerContentEl.setAttribute("class", "card m-5");
+    dinnerContentEl.setAttribute("id", "foodCards");
+    dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-    <div id="poster" class="col-md-2">
+    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 475px;">
+    <div id="foodPoster" style="width:100%;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
-    class="img-fluid"
+    class="img" style="width: 100%; height:300px;"
     />
     </div>
-    <div id="food-content" class="col-md-10 p-5">
-    <h2 id="food-name" class="display-5 col-md-9">${data.hits[i].recipe.label}</h2>
-    <p id="ingredients" class="">${data.hits[i].recipe.ingredientLines}</p>
+    <div id="food-content" style="width: 400px; height: 200px;" class="card-body text-dark">
+    <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2>
+    <p id="ingredients" class="card-text scroll" style="width: 450px; height: 100px;">${data.hits[i].recipe.ingredientLines}</p>
     <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
     <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
@@ -180,18 +185,21 @@ function showDrinks(arr) {
 
   for (let i = 0; i < 5; i++) {
     var drinkContentEl = document.createElement("div");
+    drinkContentEl.setAttribute("class", "card m-5");
+    drinkContentEl.setAttribute("id", "foodCards");
+    drinkContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    drinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-    <div id="poster" class="col-md-2">
+    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 300px;">
+    <div id="drinkPoster" style="width:100%;">
     <img
     id="drink-img"
     src="${arr[i].strDrinkThumb}"
-    class="img-fluid"
-    />
+    class="img" style="width: 475px; height:400px;"
+    /> <br>
     </div>
-    <div id="drink-content" class="col-md-10 p-5">
-    <h2 id="drink-name" class="display-5 col-md-9">${arr[i].strDrink}</h2>
-    <p id="drinkID" style="display:none;">${arr[i].idDrink}</p>
+    <div id="drink-content" style="height: 200px;" class="card-body text-dark align-text-bottom">
+    <h2 id="drink-name" class="card-text display-8">${arr[i].strDrink}</h2>
+    <p id="drinkID" style="display:none;">${arr[i].idDrink}</p><br>
     <button id="drinkselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;

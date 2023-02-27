@@ -287,7 +287,7 @@ ingAddD.on("click", function () {
   var removebtn = document.createElement("button");
   var createTableRow = document.createElement("tr");
 
-  $(".ingDrinkInp").children("input").val("");
+  $(".searchDrinkIng").children("input").val("");
   if (ingredientSearchList.includes(ingInpD.val())) {
     // add user ingredient to array
     userDrinkIngredients.push(ingInpD.val());
