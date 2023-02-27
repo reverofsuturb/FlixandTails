@@ -246,6 +246,7 @@ function showDinner(data) {
 
 function showDinnerError() {
   dinnerContainerEl.empty();
+  $("#showiferrordinner").css("display", "inherit");
 
   var dinnerContentEl = document.createElement("div");
 
@@ -265,6 +266,15 @@ function showDinnerError() {
 
   dinnerContainerEl.append(dinnerContentEl);
 }
+
+// event listener for remake button if dinner query is bad
+
+$("#remakedinner").on("click", function () {
+  saverecipe();
+  $("#showiferrordinner").css("display", "none");
+  location.reload();
+});
+
 // Drinks section
 var drinkContainerEl = $("#drink-container");
 var drinksUrl1 = localStorage.getItem("drinksUrl1");
@@ -355,3 +365,67 @@ if (opSelected3 == 1) {
   movieHeader.hide();
   movieContainerEl.hide();
 }
+
+function showDrinksError() {
+  drinkContainerEl.empty();
+
+  $("#showiferrordrink").css("display", "inherit");
+
+  var drinkContentEl = document.createElement("div");
+
+  drinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+    <div id="poster" class="col-md-2">
+    <img
+    id="drink-imgerror"
+    src="assets/Images/anshu-a-drinkerror-unsplash.jpg"
+    class="img-fluid"
+    />
+    </div>
+    <div id="drink-content" class="col-md-10 p-5">
+    <h2 id="drink-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please try a different search!</h2>
+    </div>
+    </div>`;
+
+  drinkContainerEl.append(drinkContentEl);
+}
+
+// event listener for remake button if drink query is bad
+
+$("#remakedrink").on("click", function () {
+  if (userDrinkIngredients.length > 0) {
+    //change request link accordingly if there is user ingredient input
+    if (userDrinkIngredients.length > 0) {
+      drinksUrl += "i=";
+      //loop through user ingredients array
+      for (var i = 0; i < userDrinkIngredients.length; i++) {
+        userDrinkIngredients[i] = userDrinkIngredients[i].replace(/\s+/g, "_");
+        drinksUrl += userDrinkIngredients[i];
+        //add comma to url if not on last one
+        if (i < userDrinkIngredients.length - 1) {
+          drinksUrl += ",";
+        }
+      }
+      console.log(drinksUrl);
+      //save to local storage
+      localStorage.setItem("drinksUrl1", drinksUrl);
+      //fetch the data
+      //   fetchData(drinksUrl);
+    }
+  }
+
+  //  For category search
+  var catChoice = catSelect[catDropdown.val()]; //  get user input for category
+  //change request link accordingly for category search
+  console.log(catChoice);
+  if (catChoice != undefined) {
+    catChoice = catChoice.replace(/\s+/g, "_");
+    // console.log(catChoice);
+    drinksUrl += "c=" + catChoice;
+    localStorage.setItem("drinksUrl1", drinksUrl);
+    //   fetchData(drinksUrl);
+  }
+  console.log(drinksUrl);
+
+  $("showiferrordrink").css("display", "none");
+  location.reload();
+});
