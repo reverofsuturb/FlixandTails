@@ -1,0 +1,107 @@
+:root {
+  --dark: #263238;
+  --mid: rgb(83, 83, 83);
+  --light: rgb(119, 118, 118);
+  --lightlight: rgb(235, 235, 235);
+  --fadedcoral: #ff715eb9;
+  --coral: #ff725e;
+  --fadedgrey: rgba(138, 138, 138, 0.664);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: var(--lightlight);
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+navbar {
+  background-color: var(--dark);
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  font-weight: bold;
+  width: 400px;
+  background-color: var(--coral);
+  color: var(--lightlight);
+  justify-content: right;
+}
+
+#food-img {
+  object-fit: cover;
+}
+
+#foodCards {
+  box-shadow: 10px 5px 5px rgba(var(--dark)) !important;
+}
+
+#food-name {
+  text-align: start;
+  width: 450px;
+}
+
+.food-card {
+  display: grid;
+  align-items: center;
+}
+
+#food-content {
+  float: left;
+}
+
+#drink-img {
+  object-fit: cover;
+}
+
+#drinkCards {
+  box-shadow: 10px 5px 5px rgba(var(--dark)) !important;
+}
+
+#movieCards {
+  max-height: 450px;
+}
+
+#movie-poster {
+  object-fit: scale-down;
+}
+
+.form-btn {
+  background-color: var(--coral);
+  color: var(--lightlight);
+}
+
+.scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#showFinal {
+  border-radius: 10px;
+  background-color: var(--coral);
+  color: var(--lightlight);
+  height: 100px;
+  width: 400px;
+  border: 1px solid var(--light);
+  font-size: 24px;
+}
+
+#resultsFooter {
+  height: 200px;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
