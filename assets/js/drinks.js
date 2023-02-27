@@ -314,3 +314,14 @@ $("#ingredientDbox").on("click", function (event) {
   console.log(userDrinkIngredients);
   $(event.target).parent().remove();
 });
+
+// grabs the query for saved selection/final results
+
+$("#drink-container").on("click", function (event) {
+  event.stopPropagation();
+  console.log(event.target.previousSibling.previousSibling);
+  var drinkID = event.target.previousSibling.previousSibling.textContent;
+  drinkUrl2 = "www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
+  localStorage.setItem("finaldrink", drinkUrl2);
+  console.log(drinkUrl2);
+});

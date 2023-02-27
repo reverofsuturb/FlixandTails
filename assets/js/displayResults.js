@@ -79,6 +79,7 @@ function showMovies(data) {
     <h3 id="rating" class="mb-3">Rating<span class="rating">${
       data[i].vote_average
     }</span></h3>
+    <button id="movieselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
 
@@ -164,6 +165,7 @@ function showDrinks(arr) {
     <div id="drink-content" class="col-md-10 p-5">
     <h2 id="drink-name" class="display-5 col-md-9">${arr[i].strDrink}</h2>
     <p id="drinkID" style="display:none;">${arr[i].idDrink}</p>
+    <button id="drinkselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
 
