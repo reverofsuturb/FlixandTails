@@ -80,8 +80,9 @@ function showMovies(data) {
     <p id="overview" class="lead">${data[i].overview}</p>
     <h3 id="rating" class="mb-3 display-8">Rating: <span class="rating">${
       data[i].vote_average
-    }</span> <br><br>
-    <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button></h3>
+    }</span></h3> 
+    <p style="display:none;">${movie_ID}</p>
+    <button id="movieselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
 
@@ -173,7 +174,7 @@ function showDrinks(arr) {
     <div id="drink-content" style="height: 200px;" class="card-body p-5 text-dark align-text-bottom">
     <h2 id="drink-name" class="card-text display-8">${arr[i].strDrink}</h2>
     <p id="drinkID" style="display:none;">${arr[i].idDrink}</p><br>
-    <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
+    <button id="drinkselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
     </div>`;
 

@@ -84,10 +84,14 @@ html {
   color: var(--dark);
 }
 
-#categoryIcon {
+.categoryIcon {
   background-color: var(--fadedgrey);
   border-radius: 10px;
   margin: 30px;
+}
+
+.selected-choice {
+  border: 4px solid var(--coral);
 }
 
 #form fieldset:not(:first-of-type) {
@@ -303,4 +307,11 @@ footer .genreType,
 .runType {
   width: 400px;
   margin-left: 20px;
+}
+
+.progressBar-item {
+  width: 100px;
+  height: 10px;
+  background-color: white;
+  margin: 1rem;
 }

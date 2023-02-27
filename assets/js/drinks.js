@@ -315,11 +315,14 @@ $("#ingredientDbox").on("click", function (event) {
   $(event.target).parent().remove();
 });
 
-// var drinkIngTableRow = document.createElement("tr");
-// var drinkIngItem = document.createElement("td");
-// var drinkIngXBtn = document.createElement("td");
-// drinkIngItem.textContent = drinkIngInput.val();
+// grabs the query for saved selection/final results
 
-// drinkIngTableRow.append(drinkIngItem, drinkIngXBtn);
-// $("#ingredientDbox").append(drinkIngTableRow);
-// drinkIngInput.val("");
+$("#drink-container").on("click", function (event) {
+  event.stopPropagation();
+  console.log(event.target.previousSibling.previousSibling);
+  var drinkID = event.target.previousSibling.previousSibling.textContent;
+  drinkUrl2 =
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
+  localStorage.setItem("finaldrink", drinkUrl2);
+  console.log(drinkUrl2);
+});

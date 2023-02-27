@@ -29,40 +29,12 @@
           <main
             class="choices px-3 text-center position-absolute row-cols-12 top-50 start-50 translate-middle"
           >
-            <form id="form">
-              <div id="progressbar" class="carousel-indicators">
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleIndicators"
-                  data-bs-slide-to="0"
-                  class="active"
-                  aria-current="true"
-                  aria-label="Slide 1"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleIndicators"
-                  data-bs-slide-to="1"
-                  aria-label="Slide 2"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleIndicators"
-                  data-bs-slide-to="2"
-                  aria-label="Slide 3"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleIndicators"
-                  data-bs-slide-to="3"
-                  aria-label="Slide 3"
-                ></button>
-              </div>
+            <form id="form" class="divs">
               <fieldset>
                 <h1>What do you want to do?</h1>
                 <p class="description">Select at least one</p>
                 <div class="column p-5 m-5 d-flex justify-content-between">
-                  <div class="container">
+                  <div class="btnContainer">
                     <img
                       src="./assets/Images/icons/dinner.png"
                       id="categoryDinnerIcon startDinnerBtn"
@@ -75,7 +47,7 @@
                       <a href="#" class="categoryIcon"></a>
                     </div>
                   </div>
-                  <div class="container">
+                  <div class="btnContainer">
                     <img
                       src="./assets/Images/icons/cocktail.png"
                       id="categoryDrinksIcon startDrinksBtn"
@@ -88,7 +60,7 @@
                       <a href="#" class="icon"></a>
                     </div>
                   </div>
-                  <div class="container">
+                  <div class="btnContainer">
                     <img
                       src="./assets/Images/icons/movies.png"
                       id="categoryMoviesIcon startMoviesBtn"
@@ -103,6 +75,7 @@
                   </div>
                 </div>
                 <input
+                  id="next"
                   type="button"
                   name="next-step"
                   class="next-step"
@@ -110,7 +83,7 @@
                 />
               </fieldset>
 
-              <fieldset>
+              <fieldset id="dinner-option">
                 <h1 class="mb-5">What do you want for dinner?</h1>
                 <div class="gy-3">
                   <div class="row p-2 m-2">
@@ -178,95 +151,7 @@
                 />
               </fieldset>
 
-              <!--//////////////////////////////-->
-              <!-- <fieldset>
-                <div class="container gy-3">
-                  <h1>What do you want for dinner?</h1>
-                  <div class="row p-2 m-2">
-                    <div class="input-group col-md-6 dinnerForm mb-3">
-                      <input
-                        type="text"
-                        class="form-control dinnerForm col-6"
-                        placeholder="Add Ingredient(s)"
-                        aria-label="Add Ingredient(s)"
-                        aria-describedby="button-addon2"
-                      />
-                      <button
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        id="button-addon2"
-                      >
-                        Button
-                      </button>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6 float-end">
-                      <table class="scroll">
-                        <thead>
-                          <tr>
-                            <th>Ingredient</th>
-                            <th>Delete</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Orange</td>
-                            <td>X</td>
-                          </tr>
-                          <tr>
-                            <td>Chicken</td>
-                            <td>X</td>
-                          </tr>
-                          <tr>
-                            <td>Milk</td>
-                            <td>X</td>
-                          </tr>
-                          <tr>
-                            <td>Milk</td>
-                            <td>X</td>
-                          </tr>
-                          <tr>
-                            <td>Milk</td>
-                            <td>X</td>
-                          </tr>
-                          <tr>
-                            <td>Milk</td>
-                            <td>X</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    </div>
-                    <div class="d-flex col-md-6">
-                      <select
-                        class="form-select foodType dinnerForm form-select mb-2"
-                        aria-label=".form-select-sm example"
-                      >
-                        <option selected>Type of Food</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </div>
-                    <div class="buttonsRow">
-                      <input
-                        type="button"
-                        name="previous-step"
-                        class="previous-step"
-                        value="Previous"
-                      />
-                      <input
-                        type="button"
-                        name="next-step"
-                        class="next-step"
-                        value="Next"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </fieldset> -->
-              <!-- /////////////////////////// -->
-              <fieldset>
+              <fieldset id="drink-option">
                 <h1>What do you want to drink?</h1>
                 <div class="column">
                   <div id="drinkSearchType">
@@ -352,7 +237,7 @@
               </fieldset>
 
               <!-- Movies form -->
-              <fieldset>
+              <fieldset id="movie-option">
                 <h1>What do you want to watch?</h1>
                 <div class="row">
                   <div
@@ -391,60 +276,26 @@
                       </select>
                     </div>
 
-                    <!-- <button id="makeMyNight" class="text-center my-5">
-                      Make my night
-                    </button> -->
+                   
                   </div>
-                  <!-- <select
-                    class="form-select genreType form-select-sm"
-                    aria-label=".form-select-sm example"
-                  >
-                    <option selected>Genre</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                  <select
-                    class="form-select yearType form-select-sm"
-                    aria-label=".form-select-sm example"
-                  >
-                    <option selected>Year</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input ms-1"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    /><label
-                      class="form-check-label float-start"
-                      for="flexCheckDefault"
-                    >
-                      Awarded
-                    </label>
-                  </div>
-                  <select
-                    class="form-select ratedType form-select-sm"
-                    aria-label=".form-select-sm example"
-                  >
-                    <option selected>Rated</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                  <select
-                    class="form-select runType form-select-sm"
-                    aria-label=".form-select-sm example"
-                  >
-                    <option selected>Runtime</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select> -->
+                  
                 </div>
+                <input
+                  type="button"
+                  name="previous-step"
+                  class="previous-step"
+                  value="Previous"
+                />
+
+                <input
+                  id="moviesSave"
+                  type="button"
+                  name="next-step"
+                  class="next-step makeNight"
+                  value="Next"
+                />
+              </fieldset>
+              <fieldset>
                 <input
                   type="button"
                   name="previous-step"
@@ -462,6 +313,35 @@
                 </a>
               </fieldset>
             </form>
+             
+            <div id="progressbar" class="carousel-indicators">
+              <!-- <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="3"
+                aria-label="Slide 3"
+              ></button> -->
+            </div>
           </main>
         </div>
       </div>
