@@ -8,8 +8,9 @@ function getsavedDinner() {
     .then(function (data) {
       //   console.log(foodrequest.replace(/%20/g, ""));
       console.log(data);
-      console.log(data.recipe.image);
-      console.log(data.recipe.url);
+      //   console.log(data.recipe.image);
+      //   console.log(data.recipe.url);
+
       showsavedDinner(data);
     });
 }
@@ -234,6 +235,3 @@ if (opSelected1 == 1) {
     getSavedMovie();
   }
 }
-
-// getSavedDrink();
-// getSavedMovie();

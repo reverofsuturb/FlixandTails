@@ -131,23 +131,10 @@ $("#ingredientbox").on("click", function (event) {
 //event delegation -- you can't bind an event listener to an element that doesn't exist on page load
 
 // random dinner query for im feeling lucky button
+function dinnerlucky() {
+  var mealType2 = ["breakfast", "lunch", "dinner"];
 
-
-function dinnerlucky(){
-  var mealType2 = [
-    "breakfast",
-    "lunch",
-    "dinner",
-  ];
-  
-
-  var dishType2 = [
-    "main course",
-    "salad",
-    "sandwiches",
-    "soup",
-    "starter",
-  ];
+  var dishType2 = ["main course", "salad", "sandwiches", "soup", "starter"];
 
   var cuisineType2 = [
     "american",
@@ -166,6 +153,10 @@ function dinnerlucky(){
   var dishrandom = dishType2[Math.floor(Math.random() * dishType2.length)];
   var cuisinerandom =
     cuisineType2[Math.floor(Math.random() * cuisineType2.length)];
+  var mealrandom = mealType2[Math.floor(Math.random() * mealType2.length)];
+  var dishrandom = dishType2[Math.floor(Math.random() * dishType2.length)];
+  var cuisinerandom =
+    cuisineType2[Math.floor(Math.random() * cuisineType2.length)];
   console.log(mealrandom);
   console.log(dishrandom);
   console.log(cuisinerandom);
@@ -179,14 +170,38 @@ function dinnerlucky(){
     "&dishType=" +
     dishrandom.replace(/ /g, "%20");
 
+  fetch(dinnerrandom)
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      // console.log(data.hits[Math.floor(Math.random() * 20)]._links.self.href);
+      localStorage.setItem(
+        "finaldinner",
+        data.hits[Math.floor(Math.random() * 20)]._links.self.href
+      );
+      console.log(localStorage.getItem("finaldinner"));
+    });
+
+  // console.log(dinnerrandom);
+  // console.log(localStorage.getItem("finaldinner"));
+
   localStorage.setItem("randomdinner", dinnerrandom);
   console.log(dinnerrandom);
 }
+$("#lucky").on("click", dinnerlucky);
 
 // grabs the query for saved selection/final results
 
 $("#dinner-container").on("click", function (event) {
-  event.stopPropagation();
+  $("#dinner-container").on("click", function (event) {
+    event.stopPropagation();
+    var foodID = event.target.previousSibling.previousSibling.innerHTML;
+    localStorage.setItem("finaldinner", foodID);
+    console.log(foodID);
+  });
   var foodID = event.target.previousSibling.previousSibling.innerHTML;
   localStorage.setItem("finaldinner", foodID);
   console.log(foodID);
