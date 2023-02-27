@@ -323,8 +323,10 @@ $("#ingredientDbox").on("click", function (event) {
 
 $("#drink-container").on("click", function (event) {
   event.stopPropagation();
-  console.log(event.target.previousSibling.previousSibling);
-  var drinkID = event.target.previousSibling.previousSibling.textContent;
+  console.log(event.target.previousSibling.previousSibling.previousSibling);
+  var drinkID =
+    event.target.previousSibling.previousSibling.previousSibling.textContent;
+
   var drinkUrl3 =
     "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
   localStorage.setItem("finaldrink", drinkUrl3);
