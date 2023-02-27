@@ -21,6 +21,9 @@ var IMGUrl = "https://image.tmdb.org/t/p/w500";
 var runtimeStuff = 0;
 var movieIdsArr = [];
 var movieRunTimesArr = [];
+var watchNowArr = [];
+var movieProvidersArr = [];
+var movieProvidersLinkArr = [];
 var genres = [
   {
     id: 28,
