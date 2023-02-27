@@ -132,38 +132,22 @@ $("#ingredientbox").on("click", function (event) {
 
 // random dinner query for im feeling lucky button
 function dinnerlucky() {
-  var mealType2 = ["breakfast", "lunch", "dinner", "snack", "teatime"];
+  var mealType2 = ["breakfast", "lunch", "dinner"];
 
-  var dishType2 = [
-    "bread",
-    "condiments and sauces",
-    "desserts",
-    "main course",
-    "salad",
-    "sandwiches",
-    "soup",
-    "starter",
-  ];
+  var dishType2 = ["main course", "salad", "sandwiches", "soup", "starter"];
 
   var cuisineType2 = [
     "american",
     "asian",
     "british",
-    "caribbean",
-    "central europe",
     "chinese",
-    "eastern europe",
     "french",
     "greek",
     "indian",
     "italian",
     "japanese",
-    "kosher",
     "mediterranean",
     "mexican",
-    "nordic",
-    "south american",
-    "south east asian",
   ];
   var mealrandom = mealType2[Math.floor(Math.random() * mealType2.length)];
   var dishrandom = dishType2[Math.floor(Math.random() * dishType2.length)];

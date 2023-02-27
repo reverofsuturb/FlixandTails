@@ -14,9 +14,14 @@ function getMovies(moviesAPIUrl) {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data);
-      // console.log(data.results);
-      showMovies(data.results);
+      if (data.total_results === 0) {
+        showMoviesError();
+        getGenres();
+      } else {
+        // console.log(data);
+        // console.log(data.results);
+        showMovies(data.results);
+      }
     });
 }
 // gets more details info from movie API using movie_id as argument
@@ -91,6 +96,31 @@ function showMovies(data) {
   }
 }
 
+// error function to reshow search parameters and resubmit
+
+function showMoviesError() {
+  movieContainerEl.empty();
+
+  $("#showiferrormovie").css("display", "inherit");
+  var movieContentEl = document.createElement("div");
+  movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+    <div id="poster" class="col-md-2">
+    <img
+    id="movie-postererror"
+    src="assets/Images/felix-emptytheatre-unsplash.jpg"
+    class="img-fluid"
+    />
+    </div>
+    <div id="movie-content" class="col-md-10 p-5">
+    <h2 id="movie-name" class="display-5 col-md-9">>We're Sorry your results were inconclusive, please try different parameters and try again, please try a different search!</h2>
+    </div>
+    </div>`;
+
+  movieContainerEl.append(movieContentEl);
+}
+
+// event listener for error is in movie.js
+
 // // food section
 
 function getrecipe() {
@@ -148,6 +178,8 @@ function showDinner(data) {
   }
 }
 
+// error function to reshow search parameters and resubmit
+
 function showDinnerError() {
   dinnerContainerEl.empty();
 
@@ -156,13 +188,13 @@ function showDinnerError() {
   dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
     <div id="poster" class="col-md-2">
     <img
-    id="food-img"
+    id="food-imgerror"
     src="assets/Images/sarah-kilian-icecream-unsplash.jpg"
     class="img-fluid"
     />
     </div>
     <div id="food-content" class="col-md-10 p-5">
-    <h2 id="food-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please go back to search!</h2>
+    <h2 id="food-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please try a different search!</h2>
     
     </div>
     </div>`;
@@ -184,9 +216,14 @@ function getDrinks(drinksUrl1) {
     .then(function (data) {
       console.log(data);
       console.log(data.drinks);
-      showDrinks(data.drinks);
+      if (data.drinks == "None Found") {
+        showDrinksError();
+      } else {
+        showDrinks(data.drinks);
+      }
     });
 }
+
 function showDrinks(arr) {
   drinkContainerEl.empty();
 
