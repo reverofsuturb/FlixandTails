@@ -1,8 +1,9 @@
+//get user picks from localStorage
 var moviesAPIUrl = localStorage.getItem("moviesAPI");
-
-//calls the getMovies function
-getMovies(moviesAPIUrl);
-
+var opSelected1 = localStorage.getItem("dinnerYN");
+var opSelected2 = localStorage.getItem("drinkYN");
+var opSelected3 = localStorage.getItem("movieYN");
+var movieContainerEl = $("#movie-container");
 // function that uses the moviesAPI store in localStorage to fetch and get the movies data
 function getMovies(moviesAPIUrl) {
   console.log(moviesAPIUrl);
@@ -91,7 +92,6 @@ function showMovies(data) {
 }
 
 // // food section
-getrecipe();
 
 function getrecipe() {
   var foodshow = localStorage.getItem("foodresult");
@@ -102,12 +102,12 @@ function getrecipe() {
     .then(function (data) {
       console.log(data);
       if (data.count === 0) {
-        showDinnerError()
+        showDinnerError();
       } else {
-      showDinner(data);
+        showDinner(data);
       }
     });
-  }
+}
 
 var dinnerContainerEl = $("#dinner-container");
 
@@ -138,15 +138,22 @@ function showDinner(data) {
 
     dinnerContainerEl.append(dinnerContentEl);
   }
+
+  if (opSelected2 == 1) {
+    getDrinks(drinksUrl1); //drink
+  } else {
+    if (opSelected3 == 1) {
+      getMovies(moviesAPIUrl);
+    }
+  }
 }
 
 function showDinnerError() {
   dinnerContainerEl.empty();
 
-
   var dinnerContentEl = document.createElement("div");
 
-    dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+  dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
     <div id="poster" class="col-md-2">
     <img
     id="food-img"
@@ -160,8 +167,8 @@ function showDinnerError() {
     </div>
     </div>`;
 
-    dinnerContainerEl.append(dinnerContentEl);
-  }
+  dinnerContainerEl.append(dinnerContentEl);
+}
 // Drinks section
 var drinkContainerEl = $("#drink-container");
 var drinksUrl1 = localStorage.getItem("drinksUrl1");
@@ -206,6 +213,44 @@ function showDrinks(arr) {
 
     drinkContainerEl.append(drinkContentEl);
   }
+
+  if (opSelected3 == 1) {
+    getMovies(moviesAPIUrl);
+  }
 }
 
-getDrinks(drinksUrl1);
+//Call Functions
+if (opSelected1 == 1) {
+  getrecipe(); //dinner
+} else {
+  if (opSelected2 == 1) {
+    getDrinks(drinksUrl1); //drink
+  } else {
+    //calls the getMovies function
+    getMovies(moviesAPIUrl);
+  }
+}
+var foodHeader = $("#foodHeader");
+var drinkHeader = $("#drinkHeader");
+var movieHeader = $("#movieHeader");
+
+if (opSelected1 == 1) {
+  foodHeader.show();
+} else {
+  foodHeader.hide();
+  dinnerContainerEl.hide();
+}
+
+if (opSelected2 == 1) {
+  drinkHeader.show();
+} else {
+  drinkHeader.hide();
+  drinkContainerEl.hide();
+}
+
+if (opSelected3 == 1) {
+  movieHeader.show();
+} else {
+  movieHeader.hide();
+  movieContainerEl.hide();
+}

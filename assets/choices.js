@@ -54,6 +54,11 @@ $(document).ready(function () {
       }
     );
     setProgressBar(++current);
+
+    //save to local storage
+    localStorage.setItem("dinnerYN", opSelected1);
+    localStorage.setItem("drinkYN", opSelected2);
+    localStorage.setItem("movieYN", opSelected3);
   });
 
   $(".previous-step").click(function () {
