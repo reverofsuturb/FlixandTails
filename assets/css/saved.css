@@ -1,5 +1,5 @@
 :root {
-  --dark: #455a64;
+  --dark: #263238;
   --mid: rgb(83, 83, 83);
   --lightL: rgb(243, 243, 243);
   --lightlight: rgb(228, 228, 228);
@@ -26,6 +26,11 @@ h2 {
   color: var(--color-main);
 }
 
+navbar {
+    background-color: var(--dark);
+    justify-content: space-between;
+  }
+  
 .navbar-brand {
   font-size: 30px;
   color: var(--lightlight);
@@ -34,12 +39,21 @@ h2 {
 .navbar-brand:hover {
   color: var(--lightlight);
 }
+.nav {
+    width: 100%;
+}
+
+.btn:hover {
+  background-color: var(--fadedgrey);
+  color: white;
+}
 
 .navBtn {
-  font-weight: bold;
-  width: 200px;
-  height: 40px;
-  background-color: var(--dark);
+    font-weight: bold;
+    width: 400px;
+    background-color: var(--coral);
+    color: var(--lightlight);
+    justify-content: right;
 }
 
 .bg-main {
@@ -97,4 +111,8 @@ h2 {
   border: 3px solid var(--dark);
   border-radius: 10px;
   font-size: 16px;
+}
+
+.pickedHeader h1 {
+    color: var(--dark);
 }
