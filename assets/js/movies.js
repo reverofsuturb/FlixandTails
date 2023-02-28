@@ -119,10 +119,10 @@ const runtime = document.querySelector("#runtime-select");
 
 makeMyNightBtn.addClass("btn btn-primary");
 makeMyNightBtn.on("click", function () {
-  console.log(releasedYear.value);
+  // console.log(releasedYear.value);
   var released_Year = releasedYear.value;
 
-  console.log("Runtime: " + runtime.value);
+  // console.log("Runtime: " + runtime.value);
   var runtime_movie = runtime.value;
 
   movieRunTimesArr = [];
@@ -238,7 +238,7 @@ $("#remakemovie").on("click", function () {
   console.log(releasedYear.value);
   var released_Year = releasedYear.value;
 
-  console.log("Runtime: " + runtime.value);
+  // console.log("Runtime: " + runtime.value);
   var runtime_movie = runtime.value;
 
   movieRunTimesArr = [];
@@ -283,6 +283,7 @@ $("#remakemovie").on("click", function () {
   location.reload();
 });
 
+//I'm feeling lucky button listener and save results URLs to localStorage
 $("#lucky").on("click", function () {
   fetch(
     "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc" +
@@ -301,6 +302,6 @@ $("#lucky").on("click", function () {
         finalMovieID +
         "?api_key=b44845387b097f5b3e4234772c94b4c5&language=en-US";
       localStorage.setItem("finalmovie", movieFinalUrl);
-      console.log(localStorage.getItem("finalmovie"));
+      // console.log(localStorage.getItem("finalmovie"));
     });
 });

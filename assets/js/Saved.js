@@ -12,6 +12,8 @@ if (savedThemes !== null) {
 }
 
 var savedContainerEl = $("#final-results-container");
+
+//gets selected recipe data from API
 function getsavedDinner() {
   var saveddinnershow = localStorage.getItem("finaldinner");
   fetch(saveddinnershow)
@@ -27,6 +29,7 @@ function getsavedDinner() {
       showsavedDinner(data);
     });
 }
+//displays selected food recipe data on final page
 function showsavedDinner(data) {
   var saveddinnerContentEl = document.createElement("div");
   var IMGUrl =
@@ -54,6 +57,7 @@ function showsavedDinner(data) {
     }
   }
 }
+//pulls selected drink data from API
 function getSavedDrink() {
   var savedDrinkShow = localStorage.getItem("finaldrink");
   console.log(savedDrinkShow);
@@ -66,6 +70,7 @@ function getSavedDrink() {
       showSavedDrink(data.drinks);
     });
 }
+//displays selected drink data on final page
 function showSavedDrink(arr) {
   var savedDrinkContentEl = document.createElement("div");
 
@@ -120,7 +125,7 @@ function showSavedDrink(arr) {
     getSavedMovie();
   }
 }
-//get the movie info and id from the local sotrage API
+//get the movie info and id from the local storage API
 function getSavedMovie() {
   var savedMovieShow = localStorage.getItem("finalmovie");
   //console.log(savedMovieShow);
@@ -219,7 +224,9 @@ function showSavedMovie(data) {
   />
   </div>
   <div id="movie-content" class="col-md-10 p-5" >
-  <h2 id="movie-name" class="display-5 col-md-9 text-light" style="width: 100%;">${data.title}</h2>
+  <h2 id="movie-name" class="display-5 col-md-9 text-light" style="width: 100%;">${
+    data.title
+  }</h2>
   <p id="runtimeM" class="">${"runtime"}</p>
   
 
@@ -253,6 +260,8 @@ if (opSelected1 == 1) {
     getSavedMovie();
   }
 }
+
+//theme save form
 themeNameInputForm = $("#themeNameInputForm");
 themeSave = $("#saveTheme");
 
@@ -263,6 +272,7 @@ themeSave.on("click", function (event) {
   themeNameInputForm.show();
 });
 
+//event listener for form submit for theme name and save to local storage object
 themeNameInputForm.on("submit", function (event) {
   event.preventDefault();
   userThemeName = $("#themeNameInput").val();
@@ -290,4 +300,6 @@ themeNameInputForm.on("submit", function (event) {
     listItem.setAttribute("class", "dropdown-item");
     dropdownListEl.append(listItem);
   }
+  //hide form after submit
+  themeNameInputForm.hide();
 });

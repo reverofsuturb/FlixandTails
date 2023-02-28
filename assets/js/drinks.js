@@ -279,7 +279,7 @@ $("#drinkrecs").on("click", function (event) {
 var ingInpD = $("#drinkIngredientSearch");
 var ingAddD = $("#addDrinkIngredient");
 var ingBoxD = $("#ingredientDbox");
-
+//Add ingredients to table in drink form
 ingAddD.on("click", function () {
   var finput = ingInpD.val();
   console.log(ingInpD.val());
@@ -306,6 +306,7 @@ ingAddD.on("click", function () {
   console.log($("#ingredientDbox").children().text());
 });
 
+//deletes ingredients from drink form
 $("#ingredientDbox").on("click", function (event) {
   event.preventDefault();
   event.stopImmediatePropagation();
@@ -333,7 +334,9 @@ $("#drink-container").on("click", function (event) {
   console.log(drinkUrl3);
 });
 
+//I'm feeling lucky button listener and save results URLs to localStorage
 $("#lucky").on("click", function () {
+  //show all 3 parts on results
   localStorage.setItem("dinnerYN", 1);
   localStorage.setItem("drinkYN", 1);
   localStorage.setItem("movieYN", 1);
