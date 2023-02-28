@@ -201,12 +201,6 @@ $("#lucky").on("click", dinnerlucky);
 // grabs the query for saved selection/final results
 
 $("#dinner-container").on("click", function (event) {
-  $("#dinner-container").on("click", function (event) {
-    event.stopPropagation();
-    var foodID = event.target.previousSibling.previousSibling.innerHTML;
-    localStorage.setItem("finaldinner", foodID);
-    console.log(foodID);
-  });
   var foodID = event.target.previousSibling.previousSibling.innerHTML;
   localStorage.setItem("finaldinner", foodID);
   console.log(foodID);
