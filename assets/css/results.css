@@ -1,0 +1,118 @@
+:root {
+  --dark: #263238;
+  --mid: rgb(83, 83, 83);
+  --light: rgb(119, 118, 118);
+  --lightlight: rgb(235, 235, 235);
+  --fadedcoral: #ff715eb9;
+  --coral: #ff725e;
+  --fadedgrey: rgba(138, 138, 138, 0.664);
+}
+
+body {
+  /* font-family: "Quicksand", sans-serif; */
+  background-color: rgb(249 249 249);
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+navbar {
+  background-color: var(--dark);
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  font-weight: bold;
+  width: 400px;
+  background-color: var(--coral);
+  color: var(--lightlight);
+  justify-content: right;
+}
+
+h1.results-title {
+  color: var(--coral);
+}
+
+#food-img {
+  width: 100%;
+}
+#drink-img {
+  width: 100%;
+}
+
+#foodCards {
+  filter: drop-shadow(0px 15px 12px rgba(0, 0, 0, 0.1));
+  /* min-height: 350px; */
+  border-radius: 10px;
+}
+
+#foodHeader {
+  margin-top: 14rem;
+}
+
+#foodPoster {
+  border-radius: 10px 10px 0px 0px;
+}
+
+#drinkPoster {
+  border-radius: 10px 10px 0px 0px;
+}
+
+#food-content {
+}
+
+#drink-img {
+}
+
+#drinkCards {
+  filter: drop-shadow(0px 15px 12px rgba(0, 0, 0, 0.1));
+  /* min-height: 350px; */
+  border-radius: 10px;
+}
+
+#movieCards {
+  filter: drop-shadow(0px 15px 12px rgba(0, 0, 0, 0.1));
+}
+
+#movie-poster {
+  object-fit: scale-down;
+}
+
+.form-btn {
+  background-color: var(--coral);
+  color: var(--lightlight);
+}
+
+.scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#showFinal {
+  /* border-radius: 10px;
+  background-color: var(--coral);
+  color: var(--lightlight);
+  height: 100px;
+  width: 400px;
+  border: 1px solid var(--light);
+  font-size: 24px; */
+}
+
+#resultsFooter {
+  height: 200px;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

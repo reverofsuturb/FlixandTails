@@ -32,19 +32,23 @@ function getsavedDinner() {
 //displays selected food recipe data on final page
 function showsavedDinner(data) {
   var saveddinnerContentEl = document.createElement("div");
+  saveddinnerContentEl.setAttribute(
+    "class",
+    "card m-5 col-12 col-sm-9 col-md-10 col-lg-8 p-0 text-dark rounded-4"
+  );
   var IMGUrl =
-    (saveddinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-          <div id="poster" class="col-md-2">
+    (saveddinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row flex-wrap rounded-5" max-height="300px">
+    <div id="poster" class="col-md-3 p-0">
             <img
               id="food-img"
               src="${data.recipe.image}"
-              class="img-fluid"
+              class="rounded-start-4" style="width: 100%;"
             />
           </div>
-          <div id="food-content" class="col-md-10 p-5">
-            <h2 id="food-name" class="display-5 col-md-9 text-light" style="width:100%;">${data.recipe.label}</h2>
+          <div id="food-content" class="col-md-9 d-flex flex-column flex-wrap justify-content-center align-items-stretch align-items-sm-start p-5">
+            <h3 id="food-name" class="" >${data.recipe.label}</h2>
             <p id="ingredients" class="">${data.recipe.ingredientLines}</p>
-            <a id="link" href="${data.recipe.url}" class="button-style display-5 col-md-9">View Full Recipe</a>
+            <a id="link" href="${data.recipe.url}" class=" ">View Full Recipe</a>
           </div>
         </div>`);
 
@@ -102,17 +106,20 @@ function showSavedDrink(arr) {
   } else if (arr[0].strAlcoholic == "Optional alcohol") {
     alcYN = "Optional";
   }
-
-  savedDrinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-          <div id="poster" class="col-md-2">
+  savedDrinkContentEl.setAttribute(
+    "class",
+    "card m-5 col-12 col-sm-9 col-md-10 col-lg-8 p-0 text-dark rounded-4"
+  );
+  savedDrinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row flex-wrap rounded-5" max-height="300px">
+  <div id="poster" class="col-md-3 p-0">
             <img
               id="drink-img"
               src="${arr[0].strDrinkThumb}"
-              class="img-fluid"
+              class="rounded-start-4" style="width: 100%;"
             />
           </div>
-          <div id="food-content" class="col-md-10 p-5">
-            <h2 id="drink-name" class="display-5 col-md-9 text-light" style="width: 100%;">${arr[0].strDrink}</h2>
+          <div id="food-content" class="col-md-9 d-flex flex-column flex-wrap justify-content-center align-items-stretch align-items-sm-start p-5">
+            <h3 id="drink-name" class="" >${arr[0].strDrink}</h2>
             <p id="alc-type" class="">Contains alcohol?  ${alcYN}</p>
             <p id="glass-type" class="">Best served in a ${arr[0].strGlass}</p>
             <p id="ingredients" class="">Ingredients required:  ${drinkIngMeas}</p>
@@ -214,19 +221,20 @@ function getMovieExtras() {
 function showSavedMovie(data) {
   var savedMovieContentEl = document.createElement("div");
   var IMGUrl = "https://image.tmdb.org/t/p/w500";
-
-  savedMovieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-  <div id="poster" class="col-md-2">
+  savedMovieContentEl.setAttribute(
+    "class",
+    "card m-5 col-12 col-sm-9 col-md-10 col-lg-8 p-0 text-dark rounded-4"
+  );
+  savedMovieContentEl.innerHTML = `<div class="movie-card d-flex flex-row flex-wrap rounded-5" max-height="300px">
+  <div id="poster" class="col-md-3 p-0">
   <img
   id="movie-poster"
   src="${IMGUrl + data.poster_path}"
-  class="img-fluid"
+  class="rounded-start-4" style="width: 100%;"
   />
   </div>
-  <div id="movie-content" class="col-md-10 p-5" >
-  <h2 id="movie-name" class="display-5 col-md-9 text-light" style="width: 100%;">${
-    data.title
-  }</h2>
+  <div id="movie-content" class="col-md-9 d-flex flex-column flex-wrap justify-content-center align-items-stretch align-items-sm-start p-5" >
+  <h3 id="movie-name" class=" " >${data.title}</h2>
   <p id="runtimeM" class="">${"runtime"}</p>
   
 

@@ -116,7 +116,7 @@ $(document).ready(function () {
   function setProgressBar(current) {
     var percent = parseFloat(100 / steps) * current;
     percent = percent.toFixed();
-    $("#progressbar").css("width", percent + "%");
+    // $("#progressbar").css("width", percent + "%");
   }
 
   $("#dinner-choice").on("click", function () {
