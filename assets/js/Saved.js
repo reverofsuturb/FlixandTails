@@ -240,3 +240,33 @@ if (opSelected1 == 1) {
     getSavedMovie();
   }
 }
+themeNameInputForm = $("#themeNameInputForm");
+themeSave = $("#saveTheme");
+
+//event listener to save theme
+themeSave.on("click", function (event) {
+  event.preventDefault();
+  themeSave.hide();
+  themeNameInputForm.show();
+});
+
+themeNameInputForm.on("submit", function (event) {
+  event.preventDefault();
+  userThemeName = $("#themeNameInput").val();
+  console.log(userThemeName);
+  var userThemeObject = {
+    name: userThemeName,
+    foodURL: localStorage.getItem("finaldinner"),
+    drinkURL: localStorage.getItem("finaldrink"),
+    movieURL: localStorage.getItem("finalmovie"),
+  };
+  console.log(userThemeObject);
+  var userThemes = JSON.parse(localStorage.getItem("userThemes"));
+  if (userThemes === null) {
+    localStorage.setItem("userThemes", JSON.stringify([userThemeObject]));
+  } else {
+    console.log(userThemes);
+    userThemes.push(userThemeObject);
+    localStorage.setItem("userThemes", JSON.stringify(userThemes));
+  }
+});
