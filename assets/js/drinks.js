@@ -322,15 +322,26 @@ $("#ingredientDbox").on("click", function (event) {
 // grabs the query for saved selection/final results
 
 $("#drink-container").on("click", function (event) {
-  event.stopPropagation();
+  event.stopImmediatePropagation();
+
   console.log(event.target.previousSibling.previousSibling.previousSibling);
   var drinkID =
     event.target.previousSibling.previousSibling.previousSibling.textContent;
-
+  // console.log($(this).find("#drinkselect"));
+  //$(this).find("#drinkselect").toggleClass("btn-main");
+  //var drinkSaveMe = event.target.lastChild;
+  console.log(drinkID);
+  // var esto = event.target.previousSibling.previousSibling.previousSibling;
+  // console.log($("p").siblings(".btn-bg-white").css("background", "yellow"));
   var drinkUrl3 =
     "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
   localStorage.setItem("finaldrink", drinkUrl3);
   console.log(drinkUrl3);
+
+  //console.log(drinkSaveMe);
+  // var saveThis = $("#drinkselect");
+  // console.log($(this).children("#drinkselect"));
+  // saveThis.toggleClass("btn-main");
 });
 
 $("#lucky").on("click", function () {

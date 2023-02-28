@@ -214,54 +214,54 @@
           <!-- only will show above if query results are bad -->
         </div>
       </div>
-      <header id="movieHeader" class="p-5 mb-4 text-center">
-        <h1 class="display-3">Movies Results</h1>
-        <p class="lead">Choose your favorite one! Entertainment guaranteed.</p>
-        <p id=" " class="lead"></p>
-      </header>
-      <div
-        class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
-      >
-        <div class="col-12 col-md-12 p-5 text-light">
-          <div id="movie-container" class="mb-4 p-3"></div>
-          <!-- only will show below if query results are bad -->
-          <div id="showiferrormovie" style="display: none" class="row">
+    </div>
+    <header id="movieHeader" class="p-5 mb-4 text-center">
+      <h1 class="display-3">Movies Results</h1>
+      <p class="lead">Choose your favorite one! Entertainment guaranteed.</p>
+      <p id=" " class="lead"></p>
+    </header>
+    <div
+      class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-main"
+    >
+      <div class="col-12 col-md-12 p-5 text-light">
+        <div id="movie-container" class="mb-4 p-3"></div>
+        <!-- only will show below if query results are bad -->
+        <div id="showiferrormovie" style="display: none" class="row">
+          <div
+            class="movie-form d-flex flex-sm-row flex-column justify-content-center align-items-center col-md-12 px-sm-5 my-5"
+          >
             <div
-              class="movie-form d-flex flex-sm-row flex-column justify-content-center align-items-center col-md-12 px-sm-5 my-5"
-            >
-              <div
-                id="tags"
-                class="d-flex justify-content-center justify-content-sm-start flex-wrap"
-              ></div>
-              <div class="d-flex flex-column justify-content-start">
-                <label for="released-year" class="">Choose a year:</label>
+              id="tags"
+              class="d-flex justify-content-center justify-content-sm-start flex-wrap"
+            ></div>
+            <div class="d-flex flex-column justify-content-start">
+              <label for="released-year" class="">Choose a year:</label>
 
-                <select name="released-year" id="year-select" class="mb-4">
-                  <option value="">--Released year--</option>
-                  <option value="2023">2023</option>
-                  <option value="2022">2022</option>
-                  <option value="2021">2021</option>
-                  <option value="2020">2020</option>
-                  <option value="2019">2019</option>
-                  <option value="2018">2018</option>
-                </select>
+              <select name="released-year" id="year-select" class="mb-4">
+                <option value="">--Released year--</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+              </select>
 
-                <label for="runtime" class="">How long you want to sit?:</label>
+              <label for="runtime" class="">How long you want to sit?:</label>
 
-                <select name="released-year" id="runtime-select" class="">
-                  <option value="">--Runtime--</option>
-                  <option value="short">Short</option>
-                  <option value="normal">Normal</option>
-                  <option value="long">Long</option>
-                </select>
-              </div>
+              <select name="released-year" id="runtime-select" class="">
+                <option value="">--Runtime--</option>
+                <option value="short">Short</option>
+                <option value="normal">Normal</option>
+                <option value="long">Long</option>
+              </select>
             </div>
-            <button id="remakemovie" class="navBtn themeBtn px-3 py-2 mx-4">
-              Reload my Night
-            </button>
           </div>
-          <!-- only will show above if query results are bad -->
+          <button id="remakemovie" class="navBtn themeBtn px-3 py-2 mx-4">
+            Reload my Night
+          </button>
         </div>
+        <!-- only will show above if query results are bad -->
       </div>
     </div>
     <footer id="resultsFooter" class="width: 100%">
