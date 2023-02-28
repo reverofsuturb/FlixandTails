@@ -142,22 +142,27 @@ function getMovieExtras() {
       return response.json();
     })
     .then(function (providers) {
-      //console.log(providers);
+      console.log(providers);
+      var providerNameEl = $("#providerM");
+
       if (providers.results !== undefined) {
         if (providers.results.US !== undefined) {
           //console.log("paso por aqui US");
           if (providers.results.US.link !== undefined) {
-            //console.log("paso por aqui link");
-            var movieProviderLink = providers.results.US.link || "No provider";
+            // console.log("paso por aqui link");
+            // console.log(providers.results.US);
+            // console.log(providers.results.US.link);
+
+            var movieProviderLink = providers.results.US.link;
             providerNameEl.attr("href", movieProviderLink);
           } else {
-            var movieProviderLink = "#";
+            var movieProviderLink = " ";
           }
         } else {
-          var movieProviderLink = "#";
+          var movieProviderLink = " ";
         }
       } else {
-        var movieProviderLink = "#";
+        var movieProviderLink = " ";
       }
 
       if (providers.results !== undefined) {
@@ -166,19 +171,19 @@ function getMovieExtras() {
             if (providers.results.US.flatrate[0].provider_name !== undefined) {
               var movieProvider =
                 providers.results.US.flatrate[0].provider_name || "No name";
-              var providerNameEl = $("#providerM");
-              providerNameEl.text(movieProvider);
+
+              providerNameEl.text(" " + movieProvider);
             } else {
-              var movieProvider = "No provider name";
+              var movieProvider = " ";
             }
           } else {
-            var movieProvider = "No provider name";
+            var movieProvider = " ";
           }
         } else {
-          var movieProvider = "No provider name";
+          var movieProvider = " ";
         }
       } else {
-        var movieProvider = "No provider name";
+        var movieProvider = " ";
       }
 
       // console.log("name: " + movieProvider);
@@ -206,7 +211,7 @@ function showSavedMovie(data) {
   
 
   <p id="overview" class="">${data.overview}</p>
-  <a id="providerM" class="">${" "}</a>
+  <p>Watch it on: <a id="providerM" class="">${" "}</a></p>
   <h3 id="rating" class="mb-3">Rating<span class="rating">${
     data.vote_average
   }</span></h3>

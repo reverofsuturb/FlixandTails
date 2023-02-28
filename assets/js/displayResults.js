@@ -58,6 +58,7 @@ function getMovieProviders(movie_ID) {
       return response.json();
     })
     .then(function (providers) {
+      console.log(providers.results);
       if (providers.results !== undefined) {
         if (providers.results.US !== undefined) {
           if (providers.results.US.link !== undefined) {
@@ -115,7 +116,7 @@ function storeMovieProviders(movieProvider, movieProviderLink) {
   //console.log(movieProvidersArr);
   for (var i = 0; i < movieRunTimesArr.length; i++) {
     var providerNameEl = $("#provider-" + [i]);
-    providerNameEl.text(movieProvidersArr[i]);
+    providerNameEl.text(" " + movieProvidersArr[i]);
     providerNameEl.attr("href", movieProvidersLinkArr[i]);
   }
 }
@@ -124,7 +125,7 @@ function storeMovieProviders(movieProvider, movieProviderLink) {
 function showMovies(data) {
   movieContainerEl.empty();
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     var movieContentEl = document.createElement("div");
     movieContentEl.setAttribute("id", "movieCards");
     movieContentEl.setAttribute("class", "card g-5 m-5 text-dark");
@@ -147,7 +148,7 @@ function showMovies(data) {
     <h3 id="movie-name" class="display-6 col-md-9">${data[i].title}</h3>
     <p id="runtime-${i}" class="">${" "}</p>
     <p id="overview" class="">${data[i].overview}</p>
-    <a id="provider-${i}" class="">${" "}</a>
+    <p>Watch it on: <a id="provider-${i}" class="">${" "}</a></p>
     <h3 id="rating" class="mb-3">Rating<span class="rating">${
       data[i].vote_average
     }</span></h3> 
@@ -208,23 +209,22 @@ var dinnerContainerEl = $("#dinner-container");
 function showDinner(data) {
   dinnerContainerEl.empty();
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     var dinnerContentEl = document.createElement("div");
-    dinnerContentEl.setAttribute("class", "card m-5");
+    dinnerContentEl.setAttribute("class", "card m-5 col-md-3");
     dinnerContentEl.setAttribute("id", "foodCards");
-    dinnerContentEl.setAttribute("style", "width: 500px; height: 600px;");
 
-    dinnerContentEl.innerHTML = `<div class="food-card g-3 rounded-2" style="height: 500px; width: 500px;">
-    <div id="foodPoster" style="width:100%;">
+    dinnerContentEl.innerHTML = `<div class="d-flex flex-column flex-wrap justify-content-start align-items-stretch rounded-2">
+    <div id="foodPoster" class="d-flex text-center flex-wrap justify-content-center align-items-stretch" style="overflow: hidden;">
     <img
     id="food-img"
     src="${data.hits[i].recipe.image}"
-    class="img row row-cols-1" style="width: 100%; height:300px;"
+    class="text-center img-fluid" 
     />
     </div>
-    <div id="food-content" style="width: 400px; height: 200px;" class="card-body text-dark">
+    <div id="food-content"   class="card-body d-flex flex-column justify-content-start p-4 text-dark">
     <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2>
-    <p id="ingredients" class="card-text scroll" style="width: 450px; height: 100px;">${data.hits[i].recipe.ingredientLines}</p>
+    
     <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
     <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
     </div>
@@ -301,21 +301,20 @@ function getDrinks(drinksUrl1) {
 function showDrinks(arr) {
   drinkContainerEl.empty();
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     var drinkContentEl = document.createElement("div");
-    drinkContentEl.setAttribute("class", "card m-5");
-    drinkContentEl.setAttribute("id", "foodCards");
-    drinkContentEl.setAttribute("style", "width: 500px; height: 600px;");
+    drinkContentEl.setAttribute("class", "card m-5  col-md-3");
+    drinkContentEl.setAttribute("id", "drinkCards");
 
-    drinkContentEl.innerHTML = `<div class="drink-card g-3 rounded-2" style="height: 450px; width: 500px;">
-    <div id="drinkPoster" style="width:100%;">
+    drinkContentEl.innerHTML = `<div class="drink-card d-flex flex-column flex-wrap justify-content-start align-items-stretch rounded-2">
+    <div id="drinkPoster" class="d-flex text-center flex-wrap justify-content-center align-items-stretch" style="overflow: hidden;">
     <img
     id="drink-img"
     src="${arr[i].strDrinkThumb}"
-    class="img row row-cols-1" style="width: 100%; height:350px;" 
-    /> <br>
+    class="text-center img-fluid"  
+    />  
     </div>
-    <div id="drink-content" style="height: 200px;" class="card-body text-dark align-text-bottom">
+    <div id="drink-content"   class="card-body d-flex flex-column justify-content-start p-4 text-dark">
     <h2 id="drink-name" class="card-text display-8">${arr[i].strDrink}</h2>
     <p id="drinkID" style="display:none;">${arr[i].idDrink}</p><br>
     <button id="drinkselect" class="btn form-btn btn-outline-secondary">Save Selection</button>

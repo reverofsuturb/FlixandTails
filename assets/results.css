@@ -41,7 +41,10 @@ navbar {
 }
 
 #food-img {
-  object-fit: cover;
+  width: 100%;
+}
+#drink-img {
+  width: 100%;
 }
 
 #foodCards {
@@ -49,21 +52,15 @@ navbar {
 }
 
 #food-name {
-  text-align: start;
-  width: 450px;
 }
 
 .food-card {
-  display: grid;
-  align-items: center;
 }
 
 #food-content {
-  float: left;
 }
 
 #drink-img {
-  object-fit: cover;
 }
 
 #drinkCards {
