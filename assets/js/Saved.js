@@ -26,9 +26,9 @@ function showsavedDinner(data) {
             />
           </div>
           <div id="food-content" class="col-md-10 p-5">
-            <h2 id="food-name" class="display-5 col-md-9">${data.recipe.label}</h2>
+            <h2 id="food-name" class="display-5 col-md-9 text-light">${data.recipe.label}</h2>
             <p id="ingredients" class="">${data.recipe.ingredientLines}</p>
-            <a id="link" href="${data.recipe.url}" class="display-5 col-md-9">View Full Recipe</a>
+            <a id="link" href="${data.recipe.url}" class="button-style display-5 col-md-9">View Full Recipe</a>
           </div>
         </div>`);
 
@@ -94,7 +94,7 @@ function showSavedDrink(arr) {
             />
           </div>
           <div id="food-content" class="col-md-10 p-5">
-            <h2 id="food-name" class="display-5 col-md-9">${arr[0].strDrink}</h2>
+            <h2 id="food-name" class="display-5 col-md-9 text-light">${arr[0].strDrink}</h2>
             <p id="alc-type" class="">Contains alcohol?  ${alcYN}</p>
             <p id="glass-type" class="">Best served in a ${arr[0].strGlass}</p>
             <p id="ingredients" class="">Ingredients required:  ${drinkIngMeas}</p>
@@ -206,7 +206,7 @@ function showSavedMovie(data) {
   />
   </div>
   <div id="movie-content" class="col-md-10 p-5">
-  <h2 id="movie-name" class="display-5 col-md-9">${data.title}</h2>
+  <h2 id="movie-name" class="display-5 col-md-9 text-light">${data.title}</h2>
   <p id="runtimeM" class="">${"runtime"}</p>
   
 
