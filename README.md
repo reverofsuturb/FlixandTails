@@ -18,7 +18,7 @@ From the welcome page you will see in the upper right hand corner two buttons. S
 ## Credits
 ### Collaborators
 Bobby Simpson: https://github.com/therealsweven <br>
-Jacob Thorne: https://github.com/ShiningStars73 <br>
+Jacob Thorne: https://github.com/JThorneX and ShiningStars73 <br>
 Francisco Gutierrez Rodarte: https://github.com/FranciscoGtzRodarte <br>
 Samuel Friedman: https://github.com/reverofsuturb <br>
 

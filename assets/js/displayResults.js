@@ -226,7 +226,7 @@ function showDinner(data) {
     <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2>
     
     <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
-    <button id="foodselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
+    <button id="foodselect" class="px-1 px-sm-4 py-2 btn-bg-white">Save Selection</button>
     </div>
     </div>`;
 
@@ -317,7 +317,7 @@ function showDrinks(arr) {
     <div id="drink-content"   class="card-body d-flex flex-column justify-content-start p-4 text-dark">
     <h2 id="drink-name" class="card-text display-8">${arr[i].strDrink}</h2>
     <p id="drinkID" style="display:none;">${arr[i].idDrink}</p><br>
-    <button id="drinkselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
+    <button id="drinkselect" class="px-1 px-sm-4 py-2 btn-bg-white">Save Selection</button>
     </div>
     </div>`;
 
