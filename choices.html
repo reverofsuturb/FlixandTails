@@ -16,11 +16,64 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/choices.css" />
     <!-- <link rel="stylesheet" href="./assets/css/movies.css" /> -->
     <title>'Flix and 'Tails'</title>
   </head>
   <body class="d-flex vh-100">
+    <navbar>
+      <nav
+        class="d-flex flex-wrap pb-4 pb-sm-1 justify-content-around align-items-center"
+      >
+        <div class="d-flex flex-row align-items-center">
+          <a href="index.html"
+            ><img
+              src="./assets/Images/flix and tails logo.png"
+              alt="Logo"
+              width="50"
+              height="50"
+              class=" "
+            /> </a
+          ><a href="index.html"
+            ><span class="logo-text">'Flix and 'Tails'</span></a
+          >
+        </div>
+
+        <div>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="px-3 py-2 navBtn dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Saved Themes
+            </button>
+            <div id="themeDropdown" class="dropdown-menu">
+              <!-- <a class="dropdown-item" href="#">Dinner</a>
+              <a class="dropdown-item" href="#">Cocktails</a>
+              <a class="dropdown-item" href="#">Movies</a> -->
+              <!-- <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a> -->
+            </div>
+          </div>
+          <button
+            id="lucky"
+            type="button"
+            class="navBtn themeBtn px-3 py-2 mx-4"
+          >
+            I'm Feelin' Lucky
+          </button>
+        </div>
+      </nav>
+    </navbar>
     <div class="bg-main vw-100 vh-100">
       <div
         class="choicesContainer container d-flex vw-100 vh-100 mx-auto flex-column"
@@ -247,11 +300,11 @@
                 <h1>What do you want to watch?</h1>
                 <div class="row">
                   <div
-                    class="movie-form d-flex flex-sm-row flex-column justify-content-center align-items-center col-md-12 px-sm-5 my-5"
+                    class="movie-form d-flex flex-md-row flex-column justify-content-center align-items-center col-md-12 px-sm-5 my-5"
                   >
                     <div
                       id="tags"
-                      class="d-flex justify-content-start flex-wrap"
+                      class="d-flex justify-content-center justify-content-md-start flex-wrap"
                     ></div>
                     <div class="d-flex flex-column justify-content-start">
                       <label for="released-year" class="">Choose a year:</label>
@@ -268,6 +321,12 @@
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
                       </select>
 
                       <label for="runtime" class=""
@@ -302,7 +361,7 @@
                 <div
                   class="d-flex flex-column flex-wrap justify-content-center align-items-center"
                 >
-                  <a href="Results.html">
+                  <a href="results.html">
                     <input
                       id="makeMyNight"
                       type="button"

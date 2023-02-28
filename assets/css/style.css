@@ -42,6 +42,13 @@ html {
   color: #888888;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
 .makeBtn {
   background: var(--coral);
   border-radius: 50px;
@@ -116,9 +123,40 @@ navbar {
   transition: 0.2s all;
 }
 
+.saveBtn:hover {
+  color: var(--lightlight);
+  /* background-color: var(--coral); */
+  background-color: #ff8373;
+}
+
+.saveBtn:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  /* box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); */
+  /* Lowering the shadow */
+  background-color: #ff8373;
+}
+
+.saveBtn {
+  border: 1px solid var(--fadedgrey);
+  border-radius: 50px;
+  color: var(--dark);
+  background-color: var(--lightlight);
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 115%;
+  line-height: 18px;
+  transition: 0.2s all;
+}
+
 .themeBtn {
   background-color: var(--coral);
   color: var(--lightlight);
+}
+
+input#themeNameInput {
+  font-size: 200%;
 }
 
 .btn-outline-secondary:hover {
@@ -151,6 +189,36 @@ h1 {
   color: #455a64;
 }
 
+h2,
+h3 {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+
+  color: #455a64;
+}
+
+#movie-name {
+  font-size: 2.5rem;
+}
+
+p {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  color: #455a64;
+}
+
+a {
+  font-size: 2rem;
+  font-family: "Plus Jakarta Sans";
+  color: var(--coral);
+}
 .logo-text {
   font-family: "Plus Jakarta Sans";
   font-style: normal;
@@ -159,7 +227,7 @@ h1 {
   font-size: 2rem;
   letter-spacing: 0.05rem;
   text-align: center;
-
+  text-decoration: none;
   color: hsl(210, 100%, 100%);
 }
 @media screen and (max-width: 1310px) {

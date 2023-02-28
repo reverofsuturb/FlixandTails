@@ -128,7 +128,10 @@ function showMovies(data) {
   for (let i = 0; i < 3; i++) {
     var movieContentEl = document.createElement("div");
     movieContentEl.setAttribute("id", "movieCards");
-    movieContentEl.setAttribute("class", "card g-5 m-5 text-dark");
+    movieContentEl.setAttribute(
+      "class",
+      "card m-5 col-12 col-sm-9 col-md-10 col-lg-8 p-0 text-dark rounded-4"
+    );
     console.log(data[i].id);
     var movie_ID = data[i].id;
 
@@ -136,16 +139,16 @@ function showMovies(data) {
 
     getMovieProviders(movie_ID);
 
-    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 rounded-2" max-height="300px">
-    <div id="poster" class="col-md-2">
+    movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row flex-wrap rounded-5  " max-height="300px">
+    <div id="poster" class="col-md-3 p-0">
     <img
     id="movie-poster"
     src="${IMGUrl + data[i].poster_path}"
-    class="img" style="width: 100%;"
+    class="rounded-start-4" style="width: 100%;"
     />
     </div>
-    <div id="movie-content" class="col-md-8 p-1 ps-3">
-    <h3 id="movie-name" class="display-6 col-md-9">${data[i].title}</h3>
+    <div id="movie-content" class="col-md-9 d-flex flex-column flex-wrap justify-content-center align-items-stretch align-items-sm-start p-5">
+    <h3 id="movie-name" class=" ">${data[i].title}</h3>
     <p id="runtime-${i}" class="">${" "}</p>
     <p id="overview" class="">${data[i].overview}</p>
     <p>Watch it on: <a id="provider-${i}" class="">${" "}</a></p>
@@ -153,7 +156,7 @@ function showMovies(data) {
       parseFloat(data[i].vote_average)}/10
     </span></h3> 
     <p style="display:none;">${movie_ID}</p>
-    <button id="movieselect" class="btn form-btn btn-outline-secondary">Save Selection</button>
+    <button id="movieselect" class="px-1 px-sm-4 py-2 saveBtn">Save Selection</button>
     </div>
     </div>`;
 
@@ -167,17 +170,18 @@ function showMoviesError() {
   movieContainerEl.empty();
 
   $("#showiferrormovie").css("display", "inherit");
+  $("#showiferrormovie").addClass("d-flex");
   var movieContentEl = document.createElement("div");
-  movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-    <div id="poster" class="col-md-2">
+  movieContentEl.innerHTML = `<div class="movie-card d-flex flex-row justify-content-center flex-wrap align-items-center  rounded-2">
+    <div id="poster" class="col-md-3">
     <img
     id="movie-postererror"
     src="assets/Images/felix-emptytheatre-unsplash.jpg"
     class="img-fluid"
     />
     </div>
-    <div id="movie-content" class="col-md-10 p-5">
-    <h2 id="movie-name" class="display-5 col-md-9">>We're Sorry your results were inconclusive, please try different parameters and try again, please try a different search!</h2>
+    <div id="movie-content" class="col-md-6 p-5">
+    <h2 id="movie-name" class="display-5 col-md-12">>We're Sorry your results were inconclusive, please try different parameters and try again, please try a different search!</h2>
     </div>
     </div>`;
 
@@ -211,7 +215,7 @@ function showDinner(data) {
 
   for (let i = 0; i < 3; i++) {
     var dinnerContentEl = document.createElement("div");
-    dinnerContentEl.setAttribute("class", "card m-5 col-md-3");
+    dinnerContentEl.setAttribute("class", "card p-0 m-3 m-lg-4 col-md-3");
     dinnerContentEl.setAttribute("id", "foodCards");
 
     dinnerContentEl.innerHTML = `<div class="d-flex flex-column flex-wrap justify-content-start align-items-stretch rounded-2">
@@ -226,7 +230,7 @@ function showDinner(data) {
     <h2 id="food-name" class="card-text display-8">${data.hits[i].recipe.label}</h2>
     
     <p id="foodID" style="display:none;">${data.hits[i]._links.self.href}</p>
-    <button id="foodselect" class="px-1 px-sm-4 py-2 btn-bg-white">Save Selection</button>
+    <button id="foodselect" class="px-1 px-sm-4 py-2 saveBtn">Save Selection</button>
     </div>
     </div>`;
 
@@ -247,18 +251,19 @@ function showDinner(data) {
 function showDinnerError() {
   dinnerContainerEl.empty();
   $("#showiferrordinner").css("display", "inherit");
+  $("#showiferrordinner").addClass("d-flex");
 
   var dinnerContentEl = document.createElement("div");
 
-  dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
-    <div id="poster" class="col-md-2">
+  dinnerContentEl.innerHTML = `<div class="movie-card d-flex flex-row align-items-center m-3 border border-3 border-light rounded-2">
+    <div id="poster" class="col-md-3">
     <img
     id="food-imgerror"
     src="assets/Images/sarah-kilian-icecream-unsplash.jpg"
     class="img-fluid"
     />
     </div>
-    <div id="food-content" class="col-md-10 p-5">
+    <div id="food-content" class="col-md-11 p-5">
     <h2 id="food-name" class="display-5 col-md-9">We're Sorry your results were inconclusive, please try different parameters and try again, please try a different search!</h2>
     
     </div>
@@ -271,6 +276,8 @@ function showDinnerError() {
 
 $("#remakedinner").on("click", function () {
   saverecipe();
+
+  $("#showiferrordinner").removeClass("d-flex");
   $("#showiferrordinner").css("display", "none");
   location.reload();
 });
@@ -303,7 +310,10 @@ function showDrinks(arr) {
 
   for (let i = 0; i < 3; i++) {
     var drinkContentEl = document.createElement("div");
-    drinkContentEl.setAttribute("class", "card m-5  col-md-3");
+    drinkContentEl.setAttribute(
+      "class",
+      "card p-0 m-3 m-lg-4 col-11 col-sm-8 col-md-3"
+    );
     drinkContentEl.setAttribute("id", "drinkCards");
 
     drinkContentEl.innerHTML = `<div class="drink-card d-flex flex-column flex-wrap justify-content-start align-items-stretch rounded-2">
@@ -317,7 +327,7 @@ function showDrinks(arr) {
     <div id="drink-content"   class="card-body d-flex flex-column justify-content-start p-4 text-dark">
     <h2 id="drink-name" class="card-text display-8">${arr[i].strDrink}</h2>
     <p id="drinkID" style="display:none;">${arr[i].idDrink}</p><br>
-    <button id="drinkselect" class="px-1 px-sm-4 py-2 btn-bg-white">Save Selection</button>
+    <button id="drinkselect" class="px-1 px-sm-4 py-2 saveBtn">Save Selection</button>
     </div>
     </div>`;
 
@@ -369,10 +379,11 @@ function showDrinksError() {
   drinkContainerEl.empty();
 
   $("#showiferrordrink").css("display", "inherit");
+  $("#showiferrordrink").addClass("d-flex");
 
   var drinkContentEl = document.createElement("div");
 
-  drinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row m-3 border border-3 border-light rounded-2">
+  drinkContentEl.innerHTML = `<div class="movie-card d-flex flex-row align-items-center m-3 border border-3 border-light rounded-2">
     <div id="poster" class="col-md-2">
     <img
     id="drink-imgerror"
@@ -426,5 +437,6 @@ $("#remakedrink").on("click", function () {
   console.log(drinksUrl);
 
   $("showiferrordrink").css("display", "none");
+  $("#showiferrordrink").removeClass("d-flex");
   location.reload();
 });

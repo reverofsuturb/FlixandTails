@@ -23,7 +23,6 @@ html {
 h1,
 h2 {
   color: var(--dark);
-  background-color: var(--color-main);
 }
 
 .bg-main {
@@ -183,6 +182,74 @@ label {
 #form fieldset:not(:first-of-type) {
   display: none;
 }
+
+nav {
+  background-color: #263238;
+}
+
+navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn:hover {
+  color: var(--lightlight);
+  /* background-color: var(--coral); */
+  background-color: #ff8373;
+}
+
+.navBtn:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  /* box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); */
+  /* Lowering the shadow */
+}
+
+.navBtn {
+  width: 145.52px;
+  border: 2px solid var(--coral);
+  border-radius: 50px;
+  color: var(--lightlight);
+  background-color: #263238;
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72%;
+  line-height: 13px;
+  transition: 0.2s all;
+}
+
+.logo-text {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  line-height: 2rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  text-decoration: none;
+  color: hsl(210, 100%, 100%);
+}
+a {
+  text-decoration: none;
+}
+
+.themeBtn {
+  background-color: var(--coral);
+  color: var(--lightlight);
+}
+
 /* 
 #form .previous-step,
 .next-step {
