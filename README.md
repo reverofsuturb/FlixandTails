@@ -10,7 +10,7 @@ N/A
 
 From the welcome page you will see in the upper right hand corner two buttons. Saved themes will contain whatever combinations you have previously saved at the end point of the site, and the "I'm feelin' lucky" button will pick at random a movie, drink, and dish. To proceed with your selections press the "Make My Night" button in the center of the website where you will be brought to a slideshow style selection process. Select which of the three you would like to have in your final results, movies, drinks, or food (we suggest all of them!) and advance through and select your preferences. After you move through these slides you will find a page generated with multiple options where you will select one of each category, then move to your final results page where you will be given full information about your selections as well as the option to save them for future use.
 
-### Link: https://reverofsuturb.github.io/Project1TeamLosCuatroAmigos 
+### Link: https://reverofsuturb.github.io/FlixandTails
 ### Screenshot: 
 ![image](https://user-images.githubusercontent.com/123116188/221726387-a604782b-3d09-4cfc-baa8-4206543ba595.png)
 
