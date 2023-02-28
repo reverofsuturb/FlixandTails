@@ -12,7 +12,7 @@
 
 body {
   font-family: "Quicksand", sans-serif;
-  background-color: var(--dark);
+  background-color: var(--color-main);
 }
 
 html {
@@ -23,6 +23,7 @@ html {
 h1,
 h2 {
   color: var(--dark);
+  background-color: var(--color-main);
 }
 
 .bg-main {
