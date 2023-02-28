@@ -1,0 +1,100 @@
+:root {
+  --dark: #455a64;
+  --mid: rgb(83, 83, 83);
+  --lightL: rgb(243, 243, 243);
+  --lightlight: rgb(228, 228, 228);
+  --fadedcoral: #ff715eb9;
+  --coral: #ff725e;
+  --color-main: #ff725e;
+  --color-white: #f7f7f7;
+  --fadedgrey: rgba(138, 138, 138, 0.664);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: var(--color-main);
+  font-size: max(1em, 20px);
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1,
+h2 {
+  color: var(--color-main);
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: var(--lightlight);
+}
+
+.navbar-brand:hover {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  font-weight: bold;
+  width: 200px;
+  height: 40px;
+  background-color: var(--dark);
+}
+
+.bg-main {
+  background-color: var(--color-main);
+}
+
+.button-style {
+  text-decoration: none;
+  background-color: var(--color-main);
+  color: var(--dark);
+  border: 3px solid var(--dark);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 32px;
+  justify-content: center;
+}
+
+.button-style:hover {
+  background-color: var(--dark);
+  color: var(--color-main);
+}
+
+#themeNameInput {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--dark);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#saveBtn {
+  width: 10%;
+  background-color: var(--color-main);
+  color: var(--dark);
+  border: 3px solid var(--dark);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#saveBtn:hover {
+  background-color: var(--dark);
+  color: var(--color-main);
+}
+
+.text-white {
+  color: var(--lightlight);
+}
+
+.navBtn {
+  width: 20%;
+  background-color: var(--color-main);
+  color: var(--dark);
+  border: 3px solid var(--dark);
+  border-radius: 10px;
+  font-size: 16px;
+}
