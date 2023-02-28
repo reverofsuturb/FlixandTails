@@ -1,3 +1,16 @@
+//create Dropdown from Local Storage Array for themes
+var dropdownListEl = $("#themeDropdown");
+var savedThemes = JSON.parse(localStorage.getItem("userThemes"));
+console.log(savedThemes);
+if (savedThemes !== null) {
+  for (i = 0; i < savedThemes.length; i++) {
+    var listItem = document.createElement("a");
+    listItem.textContent = savedThemes[i].name;
+    listItem.setAttribute("class", "dropdown-item");
+    dropdownListEl.append(listItem);
+  }
+}
+
 var savedContainerEl = $("#final-results-container");
 function getsavedDinner() {
   var saveddinnershow = localStorage.getItem("finaldinner");
@@ -264,9 +277,17 @@ themeNameInputForm.on("submit", function (event) {
   var userThemes = JSON.parse(localStorage.getItem("userThemes"));
   if (userThemes === null) {
     localStorage.setItem("userThemes", JSON.stringify([userThemeObject]));
+    var listItem = document.createElement("a");
+    listItem.textContent = userThemeObject.name;
+    listItem.setAttribute("class", "dropdown-item");
+    dropdownListEl.append(listItem);
   } else {
     console.log(userThemes);
     userThemes.push(userThemeObject);
     localStorage.setItem("userThemes", JSON.stringify(userThemes));
+    var listItem = document.createElement("a");
+    listItem.textContent = userThemeObject.name;
+    listItem.setAttribute("class", "dropdown-item");
+    dropdownListEl.append(listItem);
   }
 });
