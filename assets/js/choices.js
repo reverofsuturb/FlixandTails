@@ -11,57 +11,58 @@ $(document).ready(function () {
   setProgressBar(current);
 
   $(".next-step").click(function () {
-    if (!$("#dinner-option").hasClass("show")) {
-      $("fieldset").remove("#dinner-option");
-    }
-    if (!$("#drink-option").hasClass("show")) {
-      $("fieldset").remove("#drink-option");
+    if (opSelected1 + opSelected2 + opSelected3 == 0) {
+      $(".description").textContent = "Please select at least one...";
     } else {
-    }
-    if (!$("#movie-option").hasClass("show")) {
-      $("fieldset").remove("#movie-option");
-    }
-
-    optionsSelected = opSelected1 + opSelected2 + opSelected3;
-    //console.log(optionsSelected);
-    createProgressBar(optionsSelected);
-
-    currentStep = $(this).parent();
-    nextStep = $(this).parent().next();
-
-    $("#progressbar div")
-      .eq($("fieldset").index(currentStep))
-      .addClass("active");
-
-    $("#progressbar button")
-      .eq($("fieldset").index(nextStep))
-      .addClass("active");
-
-    nextStep.show();
-    currentStep.animate(
-      { opacity: 0 },
-      {
-        step: function (now) {
-          opacity = 1 - now;
-
-          currentStep.css({
-            display: "none",
-            position: "relative",
-          });
-          nextStep.css({ opacity: opacity });
-        },
-        duration: 500,
+      if (!$("#dinner-option").hasClass("show")) {
+        $("fieldset").remove("#dinner-option");
       }
-    );
-    setProgressBar(++current);
+      if (!$("#drink-option").hasClass("show")) {
+        $("fieldset").remove("#drink-option");
+      } else {
+      }
+      if (!$("#movie-option").hasClass("show")) {
+        $("fieldset").remove("#movie-option");
+      }
+      optionsSelected = opSelected1 + opSelected2 + opSelected3;
+      //console.log(optionsSelected);
+      createProgressBar(optionsSelected);
+      currentStep = $(this).parent();
+      nextStep = $(this).parent().next();
 
-    //save to local storage
-    localStorage.setItem("dinnerYN", opSelected1);
-    localStorage.setItem("drinkYN", opSelected2);
-    localStorage.setItem("movieYN", opSelected3);
+      $("#progressbar div")
+        .eq($("fieldset").index(currentStep))
+        .addClass("active");
+
+      $("#progressbar button")
+        .eq($("fieldset").index(nextStep))
+        .addClass("active");
+
+      nextStep.show();
+      currentStep.animate(
+        { opacity: 0 },
+        {
+          step: function (now) {
+            opacity = 1 - now;
+
+            currentStep.css({
+              display: "none",
+              position: "relative",
+            });
+            nextStep.css({ opacity: opacity });
+          },
+          duration: 500,
+        }
+      );
+      setProgressBar(++current);
+      //save to local storage
+      localStorage.setItem("dinnerYN", opSelected1);
+      localStorage.setItem("drinkYN", opSelected2);
+      localStorage.setItem("movieYN", opSelected3);
+    }
   });
 
-  $(".previous-step").click(function () {
+  $(".previous-step").on("click", function () {
     //if(index)
     currentStep = $(this).parent();
     previousStep = $(this).parent().prev();

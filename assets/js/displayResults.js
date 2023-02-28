@@ -152,9 +152,9 @@ function showMovies(data) {
     <p id="runtime-${i}" class="">${" "}</p>
     <p id="overview" class="">${data[i].overview}</p>
     <p>Watch it on: <a id="provider-${i}" class="">${" "}</a></p>
-    <h3 id="rating" class="mb-3">Rating<span class="rating">${
-      data[i].vote_average
-    }</span></h3> 
+    <h3 id="rating" class="mb-3">Rating<span class="rating"> ${
+      parseFloat(data[i].vote_average)}/10
+    </span></h3> 
     <p style="display:none;">${movie_ID}</p>
     <button id="movieselect" class="px-1 px-sm-4 py-2 saveBtn">Save Selection</button>
     </div>

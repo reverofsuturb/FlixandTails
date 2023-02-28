@@ -240,9 +240,9 @@ function showSavedMovie(data) {
 
   <p id="overview" class="">${data.overview}</p>
   <p>Watch it on: <a id="providerM" class="">${" "}</a></p>
-  <h3 id="rating" class="mb-3">Rating<span class="rating">${
-    data.vote_average
-  }</span></h3>
+  <h3 id="rating" class="mb-3">Rating<span class="rating"> ${
+    parseFloat(data.vote_average)}/10 
+  </span></h3>
   </div>
   </div>`;
 
