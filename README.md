@@ -27,6 +27,12 @@ The Movie Database https://www.themoviedb.org/ <br>
 Just Watch https://www.justwatch.com/ <br>
 Cocktail DB https://www.thecocktaildb.com/api.php <br>
 Food Recipe Search API https://developer.edamam.com/edamam-recipe-api
+
+### Other technologies used:
+JustWatch https://wwww.justwatch.com <br>
+Figma https://www.figma.com/ <br>
+Visual Studio https://code.visualstudio.com/ <br>
+Github https://github.com/ <br>
 ## License
 
 Please refer to the LICENSE in the repo.
