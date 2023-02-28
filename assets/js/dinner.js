@@ -170,6 +170,7 @@ function dinnerlucky() {
     "&dishType=" +
     dishrandom.replace(/ /g, "%20");
 
+  //random url parameters for dinner search
   fetch(dinnerrandom)
     .then(function (response) {
       // console.log(response);
@@ -189,17 +190,12 @@ function dinnerlucky() {
   setTimeout(() => {
     window.location.href = "Saved.html";
   }, 2000);
-  // Window.location.href = "Saved.html";
-  // console.log(dinnerrandom);
-  // console.log(localStorage.getItem("finaldinner"));
-
-  // localStorage.setItem("randomdinner", dinnerrandom);
-  // console.log(dinnerrandom);
 }
+
+//I'm feeling lucky button listener and save results URLs to localStorage
 $("#lucky").on("click", dinnerlucky);
 
 // grabs the query for saved selection/final results
-
 $("#dinner-container").on("click", function (event) {
   var foodID = event.target.previousSibling.previousSibling.innerHTML;
   localStorage.setItem("finaldinner", foodID);
